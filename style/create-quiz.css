@@ -115,7 +115,7 @@ input::placeholder{
 #titlebox, #subjectbox, #descripbox{
     height: 35px;
     width: 500px;
-    border-radius: 15px;
+    border-radius: 9px;
     padding-left: 15px;
     font-family: "Helvetica Neue";
     display: flex;
@@ -125,7 +125,7 @@ input::placeholder{
     width: 132px;
     height: 54px;
     margin-top: 24px;
-    border-radius: 15px;
+    border-radius: 9px;
     font-family: "Helvetica Neue";
     font-size: 20px;
     font-weight: 700;
