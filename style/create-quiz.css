@@ -9,15 +9,27 @@ body{
     width: 233px;
     color: #000;
     font-family: "Helvetica Neue";
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
     letter-spacing: NaNpx;
     line-height: 42px;
 }
 
+.input{
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+}
+
+input::placeholder{
+    color: grey;
+}
+
 #status{
     margin-left: 459px;
-    margin-top: 20px;
+    margin-top: 10px;
     height: 79px;
     width: 523px;
     display:flex;
@@ -25,6 +37,11 @@ body{
     text-align: center;
     align-items: center;
     justify-content: space-evenly;
+}
+
+#pagetitle{
+    margin-top: 100px;
+    margin-left: 620px;
 }
 
 .statustext{
@@ -71,4 +88,29 @@ body{
 #Title{
     margin-top: 41px;
     margin-left: 459px;
+}
+
+#Subject, #Description{
+    margin-top: 23px;
+    margin-left: 459px;
+}
+
+#titlebox, #subjectbox, #descripbox{
+    height: 54px;
+    width: 500px;
+    margin-left: 459px;
+    border-radius: 15px;
+    padding-left: 15px;
+    font-family: "Helvetica Neue";
+}
+
+#submitBtn{
+    width: 132px;
+    height: 54px;
+    margin-top: 40px;
+    border-radius: 15px;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
