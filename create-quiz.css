@@ -1,0 +1,51 @@
+body{
+    background-color: rgb(232,232,232)
+}
+
+#title{
+    margin-left: 604px;
+    margin-top: 224px;
+    height: 42px;
+    width: 233px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+}
+
+#status{
+    margin-left: 459px;
+    margin-top: 291px;
+    height: 79px;
+    width: 523px;
+    display:flex;
+    flex-direction:row;
+    text-align: center;
+}
+
+.statustext{
+    margin-top: 50%;
+    color: #FFF;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+}
+
+.circle{
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+#oneCircle{
+    background-color: #000;
+}
+
+#twoCircle, #threeCircle{
+    background-color: rgba(22,22,22,0.7);
+}
