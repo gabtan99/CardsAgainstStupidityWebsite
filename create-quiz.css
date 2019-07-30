@@ -2,7 +2,7 @@ body{
     background-color: rgb(232,232,232)
 }
 
-#title{
+.title{
     margin-left: 604px;
     margin-top: 224px;
     height: 42px;
@@ -66,4 +66,9 @@ body{
 
 #twoCircle, #threeCircle{
     background-color: rgba(22,22,22,0.7);
+}
+
+#Title{
+    margin-top: 41px;
+    margin-left: 459px;
 }
