@@ -2,14 +2,21 @@ body{
     background-color: rgb(232,232,232)
 }
 
+.main-body{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
 .title{
-    margin-left: 604px;
-    margin-top: 224px;
     height: 42px;
-    width: 233px;
+    width: 180px;
     color: #000;
     font-family: "Helvetica Neue";
-    font-size: 30px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: NaNpx;
     line-height: 42px;
@@ -18,9 +25,14 @@ body{
 .input{
     color: #000;
     font-family: "Helvetica Neue";
-    font-size: 20px;
+    font-size: 16px;
     letter-spacing: NaNpx;
     line-height: 42px;
+    display: flex;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    padding: 5px 0px;
 }
 
 input::placeholder{
@@ -28,7 +40,6 @@ input::placeholder{
 }
 
 #status{
-    margin-left: 459px;
     margin-top: 10px;
     height: 79px;
     width: 523px;
@@ -40,14 +51,20 @@ input::placeholder{
 }
 
 #pagetitle{
-    margin-top: 100px;
-    margin-left: 620px;
+    margin-top: 130px;
+    font-size: 25px;
+    display: flex;
+}
+
+#Form{
+    display: flex;
+    flex-direction: column;
 }
 
 .statustext{
     color: #FFF;
     font-family: "Helvetica Neue";
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
     letter-spacing: NaNpx;
     line-height: 42px;
@@ -65,8 +82,8 @@ input::placeholder{
 }
 
 .circle{
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    height: 54px;
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -86,31 +103,44 @@ input::placeholder{
 }
 
 #Title{
-    margin-top: 41px;
-    margin-left: 459px;
+    margin-top: 30px;
+    display: flex;
 }
 
 #Subject, #Description{
-    margin-top: 23px;
-    margin-left: 459px;
+    margin-top: 12px;
+    display: flex;
 }
 
 #titlebox, #subjectbox, #descripbox{
-    height: 54px;
+    height: 35px;
     width: 500px;
-    margin-left: 459px;
     border-radius: 15px;
     padding-left: 15px;
     font-family: "Helvetica Neue";
+    display: flex;
 }
 
 #submitBtn{
     width: 132px;
     height: 54px;
-    margin-top: 40px;
+    margin-top: 24px;
     border-radius: 15px;
     font-family: "Helvetica Neue";
     font-size: 20px;
     font-weight: 700;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #FFF;
+}
+
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
