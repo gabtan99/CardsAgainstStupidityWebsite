@@ -1,0 +1,50 @@
+.navbar {
+    height: 90px;
+    width: 100%;
+    background-color: #000000;
+    box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 60px;
+    width: 105px;
+    padding-left: 65px;
+    margin-top: 17px;
+}
+
+.nav-tab {
+    height: 33px;
+    width: 80px;
+    color: #FFF;
+    font-family: "Helvetica Neue";
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 90px;
+    text-decoration: none;
+}
+
+.nav-tab.selected {
+    text-decoration: underline;
+}
+
+.nav-tab:hover {
+    text-decoration: underline;
+}
+
+.tab-list {
+    padding-right: 65px;
+    float: right;
+    word-spacing: 33px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+body {
+    margin: auto;
+}

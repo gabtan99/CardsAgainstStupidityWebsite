@@ -1,0 +1,47 @@
+.main-page {
+    height: 800px;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.main-heading {
+    color: white;
+    font-family: "Helvetica Neue";
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 79px;
+
+}
+
+.headline {
+    margin-top: 20px;
+    height: 38px;
+    width: 377px;
+    color: #FFF;
+    font-family: "Helvetica Neue";
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 38px;
+}
+
+.bigcards {
+    height: 501.6px;
+    width: 434.79px;
+}
+
+.heading-wrapper {
+    margin-left: 250px;
+    margin-top: 250px;
+}
+
+.heading-pic {
+    margin-right: 197.21px;
+    margin-top: 180px;
+}
+
+
+
