@@ -4,7 +4,9 @@ const hbs = require("hbs")
 const session = require("express-session")
 const cookieparser = require("cookie-parser")
 const mongoose = require("mongoose")
+
 const app = express()
+
 
 app.use(express.static(__dirname + "/public"))
 
@@ -24,6 +26,7 @@ const {
 const uri = "mongodb://localhost:27017/cardsagainst"
 mongoose.Promise = global.Promise
 mongoose.connect(uri, {
+    useCreateIndex: true,
     useNewUrlParser: true
 })
 
@@ -109,14 +112,14 @@ app.post("/createAccount", urlencoder, (req, res) => {
         password
     })
 
-    
+
     user.save().then((doc) => {
         console.log(doc)
         res.redirect("/")
     }, (err) => {
         res.send(err)
     })
-    
+
 })
 
 
