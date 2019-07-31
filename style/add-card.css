@@ -47,6 +47,11 @@ body{
     text-align: center;
 }
 
+#add-card-icon:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .card-element{
     margin-top: 27px;
     margin-bottom: 50px;
@@ -64,6 +69,11 @@ body{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     border-radius: 100%;
     margin-right: 13px;
+}
+
+#remove-card:hover{
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 #cross-icon{
