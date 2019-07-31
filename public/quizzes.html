@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Quizzes</title>
+    <link rel="stylesheet" href="../style/create-quiz.css">
+    <link rel="stylesheet" href="../style/add-card.css">
+    <link rel="stylesheet" href="../style/navbar.css">
+</head>
+<body>
+
+    <div class=" navbar sticky">
+        <span>
+            <img src="../assets/Logo.png" class="logo">
+        </span>
+
+        <span class="tab-list">
+            <a class="nav-tab" href="">Home</a>
+            <a class="nav-tab" href="">Search</a>
+            <a class="nav-tab selected" href="">Quiz</a>
+            <a class="nav-tab" href="">Profile</a>
+        </span>
+    </div>
+
+    <div class = "main-body">
+
+        <form id="SearchForm">
+            <div id="pagetitle" class="title"> Quizzes </div>
+
+            <div id="createQuiz">
+                <div id="add-card-icon">+</div>
+                <div id="createQ" class="title">Create a Quiz</div>
+            </div>
+
+        </form>
+
+        <div id="searchResultContainer">
+            <div class = "searchResult">
+                <div id="topResult">
+                    <div class="searchResultTitle">Title</div>
+                    <div class="searchResultUpInfo">Subject</div>
+                    <div class="searchResultUpInfo">Description</div>
+                </div>
+                <div id="botResult">
+                    <div id="botInfo">
+                        <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
+                        <div class="searchResultUpInfo">By: </div>
+                    </div>
+                    <div id=buttonsResult>
+                        <button id="pinBtn" class="searchResult-Btns">  <span>
+                                                                            <img id="pinIcon" src="../assets/pin.png">
+                                                                        </span>
+                            Pin Quiz</button> <br>
+                        <button class="searchResult-Btns">Take Quiz</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "searchResult">
+                    <div id="topResult">
+                        <div class="searchResultTitle">Title</div>
+                        <div class="searchResultUpInfo">Subject</div>
+                        <div class="searchResultUpInfo">Description</div>
+                    </div>
+                    <div id="botResult">
+                        <div id="botInfo">
+                            <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
+                            <div class="searchResultUpInfo">By: </div>
+                        </div>
+                        <div id=buttonsResult>
+                            <button id="pinBtn" class="searchResult-Btns">  <span>
+                                                                                <img id="pinIcon" src="../assets/pin.png">
+                                                                            </span>
+                                Unpin</button> <br>
+                            <button class="searchResult-Btns">Take Quiz</button>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
