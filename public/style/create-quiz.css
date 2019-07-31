@@ -193,6 +193,7 @@ input::placeholder{
     border-radius: 9px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 26px;
+    margin-bottom: 30px;
 }
 
 .searchResultTitle{
@@ -351,6 +352,18 @@ input[type="radio"]{
     width: 100%;
 }
 
+#createQuiz{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 60px;
+}
+
+#createQ{
+    justify-content: center;
+    text-align: center;
+    width: 140px;
+}
 
 
 
