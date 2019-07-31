@@ -39,6 +39,15 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/home-guest.html")
 })
 
+app.get("/answer_quiz", (req, res) => {
+    res.sendFile(__dirname + "/public/answer-quiz.html")
+})
+
+app.get("/profile", (req, res) => {
+    res.sendFile(__dirname + "/public/profile.html")
+})
+
+
 app.get("/register", (req, res) => {
     res.sendFile(__dirname + "/public/registration.html")
 })
