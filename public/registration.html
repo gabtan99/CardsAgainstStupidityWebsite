@@ -17,7 +17,7 @@
         <span class="tab-list">
             <a class="nav-tab" href="/">Home</a>
             <a class="nav-tab" href="login">Login</a>
-            <a class="nav-tab  selected" href="register">Register</a>
+            <a class="nav-tab selected" href="register">Register</a>
         </span>
     </div>
 
@@ -32,10 +32,13 @@
         </div>
 
         <div class="mainForm">
-            <form id="Form">
-                <input id="usernamefield" type="text" class="input input-field" placeholder="Username: ">
-                <input id="passwordfield" type="text" class="input input-field" placeholder="Password: ">
-                <input id="confirmfield" type="text" class="input input-field" placeholder="Confirm Password: ">
+            <form id="Form" action="createAccount" method="POST">
+                <input id="usernamefield" type="text" class="input input-field" name="username" placeholder="Username: "
+                    required>
+                <input id="passwordfield" type="password" class="input input-field" name="password"
+                    placeholder="Password: " required>
+                <input id="confirmfield" type="password" class=" input input-field" name="confirm"
+                    placeholder="Confirm Password: " required>
                 <span class="submit-btn"> <input id="submitBtn" type="submit" value="Register"></span>
             </form>
         </div>

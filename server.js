@@ -6,6 +6,17 @@ const cookieparser = require("cookie-parser")
 const mongoose = require("mongoose")
 const app = express()
 
+
+const {
+    User
+} = require("./js/user.js")
+
+
+mongoose.Promise = global.Promise
+mongoose.connect("mongodb://localhost:27017/users", {
+    useNewUrlParser: true
+})
+
 // url encoder
 const urlencoder = bodyparser.urlencoded({
     extended: false
@@ -35,7 +46,29 @@ app.get("/add_card", (req, res)=>{
 })
 
 
+app.post("/createAccount", urlencoder, (req, res) => {
+    var username = req.body.username
+    var password = req.body.password
+    var confirm = req.body.confirm
 
+    let user = new User({
+        username,
+        password
+    })
+
+    if (confirm == password) {
+        user.save().then((doc) => {
+            console.log(doc)
+            res.redirect("/")
+        }, (err) => {
+            res.send(err)
+        })
+    } else {
+        console.log("pass do not match")
+    }
+
+
+})
 
 
 
