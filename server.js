@@ -37,6 +37,14 @@ app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
 })
 
+app.get("/create_quiz", (req, res)=>{
+    res.sendFile(__dirname + "/public/create-quiz.html")
+})
+
+app.get("/add_card", (req, res)=>{
+    res.sendFile(__dirname + "/public/add-card.html")
+})
+
 
 app.post("/createAccount", urlencoder, (req, res) => {
     var username = req.body.username
