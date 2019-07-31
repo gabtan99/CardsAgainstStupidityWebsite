@@ -64,7 +64,7 @@
 }
 
 .response-button{
-    margin-top: 20px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
@@ -81,7 +81,8 @@
     background-image: url("/assets/answerbuttons.png");
     width: 154px;
     height: 43px;
-    background-position: 492px 144px
+    background-position: 492px 144px;
+    margin-right: 25px;
 }
 
 
