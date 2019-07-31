@@ -59,3 +59,27 @@
     margin-right: 23px;
     margin-top: 18px;
 }
+
+.response-button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#guessed-button{
+    background-image: url("/public/assets/step4.png");
+    width: 250px;
+    height: 75px;
+    background-position: 711px 121px;
+    transform: scale(0.5);
+}
+
+#knew-button{
+    background-image: url("/public/assets/step4.png");
+    width: 250px;
+    height: 75px;
+    background-position: 434px 121px;
+    transform: scale(0.5);
+}
+
+
