@@ -12,7 +12,7 @@ body{
 }
 
 .navigation{
-    margin-top: 224px;
+    margin-top: 150px;
     width: 470px;
     display: flex;
     align-items: center;
@@ -27,6 +27,7 @@ body{
     font-weight: 700;
     letter-spacing: NaNpx;
     line-height: 42px;
+    font-family: "Helvetica Neue";
 }
 
 .input{
