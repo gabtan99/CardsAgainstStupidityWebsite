@@ -1,0 +1,85 @@
+.quiz-header{
+    margin-top: 125px;
+    text-align: center;
+    font-family: "Helvetica Neue";
+    transform: scale(0.8);
+}
+
+#quiz-name{
+    height: 42px;
+    color: #000;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+}
+
+#quiz-subject{
+    height: 42px;
+    color: #787878;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+}
+
+#quiz-author{
+    height: 25px;
+    color: #787878;
+    font-family: "Helvetica Neue";
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 25px;
+}
+
+.quiz-area{
+    font-family: "Helvetica Neue";
+    width: 500px;
+    margin-left: 32%;
+    margin-top: 50px;
+}
+
+#card-tracker{
+    height: 35px;
+    width: 200px;
+    color: #000;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 35px;
+}
+
+.questions{
+    display: flex;
+}
+
+.questions > div{
+    margin-right: 23px;
+    margin-top: 18px;
+}
+
+.response-button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#guessed-button{
+    background-image: url("/public/assets/step4.png");
+    width: 250px;
+    height: 75px;
+    background-position: 711px 121px;
+    transform: scale(0.5);
+}
+
+#knew-button{
+    background-image: url("/public/assets/step4.png");
+    width: 250px;
+    height: 75px;
+    background-position: 434px 121px;
+    transform: scale(0.5);
+}
+
+

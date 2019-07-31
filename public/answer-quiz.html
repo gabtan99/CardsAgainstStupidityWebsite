@@ -1,9 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="../public/style/add-card.css">
+    <link rel="stylesheet" href="../public/style/navbar.css">
+    <link rel="stylesheet" href="../public/style/create-quiz.css">
+    <link rel="stylesheet" href="../public/style/answer-quiz.css">
     <title>Answer</title>
 </head>
 <body>
+    <div class=" navbar sticky">
+        <span>
+            <img src="../public/assets/Logo.png" class="logo">
+        </span>
+
+        <span class="tab-list">
+            <a class="nav-tab" href="">Home</a>
+            <a class="nav-tab" href="">Search</a>
+            <a class="nav-tab selected" href="">Quiz</a>
+            <a class="nav-tab" href="">Profile</a>
+        </span>
+    </div>
+
+    <div class="quiz-header">
+        <div id="quiz-name">Midterms Review</div>
+        <div id="quiz-subject">INTR-OS</div>
+        <div id="quiz-author">by Denzel Co</div>
+    </div>
+
+    <div class="quiz-area">
+        <div id="card-tracker">Question 1/10</div>
+        <div class="questions">
+            <div class="black-card">
+                <textarea type="text" placeholder="Enter Question Here">What is an operating system?</textarea>
+                <footer>
+                    <p>Cards Against Stupidity</p>
+                </footer>
+            </div>
+
+            <div class="white-card">
+                <textarea type="text" placeholder="Enter Question Here">Answer Revealed in 10 seconds.</textarea>
+                <footer>
+                    <p>Cards Against Stupidity</p>
+                </footer>
+            </div>
+        </div>
+
+        <div class="response-button">
+            <div id="guessed-button"></div>
+            <div id="knew-button"></div>
+        </div>
+    </div>
+    </div>
     
 </body>
 </html>
