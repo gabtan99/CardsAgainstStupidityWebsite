@@ -1,0 +1,98 @@
+#edit-button{
+    width: 88px;
+    height: 54px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    border-radius: 5px;
+    margin-right: 40px;
+}
+
+#edit-button-text{
+    padding: 13px 10px 10px 19px;
+    height: 28px;
+    width: 45px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 28px;
+}
+
+#logout-button{
+    width: 112px;
+    height: 54px;
+    background-color: #000;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+
+#logout-button-text{
+    padding: 13px 10px 10px 15px;
+    height: 28px;
+    width: 45px;
+    color: #fff;
+    font-family: "Helvetica Neue";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 28px;
+}
+
+.profile-buttons{
+    display: flex;
+    margin-top: 73px;
+    justify-content: center
+}
+
+#avatar{
+    background-image: url("/assets/avatar.png");
+    height: 99px;
+    width: 77.14px;
+    background-position: -15px -13px;
+    margin-top: 127px;
+}
+
+.profile-contents{
+    margin-top: 242px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#introduction{
+    height: 42px;
+    width: 378px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 42px;
+    margin-left: 20px;
+  }
+
+#name{
+    height: 42px;
+    width: 209px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+    margin-top: 27px;
+  }
+
+#username{
+    height: 28px;
+    width: 97px;
+    color: #787878;
+    font-family: "Helvetica Neue";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 28px;
+    margin-top: 7px;
+  }
+

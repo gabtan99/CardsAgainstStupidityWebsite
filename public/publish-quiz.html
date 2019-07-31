@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Publish a Quiz</title>
+    <link rel="stylesheet" href="../style/create-quiz.css">
+    <link rel="stylesheet" href="../style/navbar.css">
+</head>
+<body>
+
+    <div class=" navbar sticky">
+        <span>
+            <img src="../assets/Logo.png" class="logo">
+        </span>
+
+        <span class="tab-list">
+            <a class="nav-tab" href="">Home</a>
+            <a class="nav-tab" href="">Search</a>
+            <a class="nav-tab selected" href="">Quiz</a>
+            <a class="nav-tab" href="">Profile</a>
+        </span>
+    </div>
+
+    <div class = "main-body">
+
+        <div class="navigation">
+                    <div id="back-nav">BACK</div>
+                    <div id="pagetitle" class="title"> Create a Quiz </div>
+                </div>
+                
+        <div id="status">
+                <div class="circle statustext"><div class="numbers">1</div></div>
+                <div class="dots">· · · · ·</div>
+                <div class="circle statustext"><div class="numbers">2</div></div>
+                <div class="dots">· · · · ·</div>
+                <div class="circle statustext selected"><div class="numbers">3</div></div>
+            </div>
+
+        <div id="almostDne" class="title">Almost Done!</div>
+        <form id="PublishForm">
+            <div id="publishContainer">
+                <div><span id="publish-alert" class="title">You are about to publish your quiz titled</span></div>
+                <div id="publishQtitle" class="title">Title</div>
+                <div id="privacySet" class="title">Privacy Settings</div>
+
+                <div id="radioContainer">
+                    <div class="title radios"><input type="radio" name="privacy" checked>Public: Share my quiz with others!</div>
+                    <div class="title radios"><input type="radio" name="privacy">Private: Only I can access this quiz!</div><br>
+                </div>
+
+                <div class="submit publish"><input id="submitBtn" type="submit" value="Publish"></div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
