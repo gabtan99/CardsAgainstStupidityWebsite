@@ -151,12 +151,6 @@ input::placeholder{
     text-align: center;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-}
-
 /***************************************    SEARCH CCS     **************************************** */
 
 #SearchForm{
@@ -276,4 +270,11 @@ select:focus {
     width: 12px;
     padding-top: 6px;
     padding-right: 10px;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
 }
