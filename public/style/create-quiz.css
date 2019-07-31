@@ -265,3 +265,15 @@ select:focus {
     display: flex;
     flex-direction: column;
 }
+
+#pinBtn{
+    background-color: #FFF;
+    color: #000;
+}
+
+#pinIcon{
+    height: 24px;
+    width: 12px;
+    padding-top: 6px;
+    padding-right: 10px;
+}
