@@ -88,14 +88,14 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(22,22,22,0.7);
+    background-color: rgba(22, 22, 22, 0.7);
 }
 
-.selected{
-    background-color:black;
+.selected {
+    background-color: black;
 }
 
-.numbers{
+.numbers {
     display: flex;
 }
 
