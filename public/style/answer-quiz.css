@@ -35,10 +35,11 @@
 }
 
 .quiz-area{
-    font-family: "Helvetica Neue";
-    width: 500px;
-    margin-left: 32%;
-    margin-top: 50px;
+    font-family: "Helvetica Neue";  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #card-tracker{
@@ -49,6 +50,8 @@
     font-weight: 700;
     letter-spacing: NaNpx;
     line-height: 35px;
+    margin-top: 70px;
+    margin-right: 340px;
 }
 
 .questions{
@@ -67,19 +70,18 @@
 }
 
 #guessed-button{
-    background-image: url("/assets/step4.png");
-    width: 250px;
-    height: 75px;
-    background-position: 711px 121px;
-    transform: scale(0.5);
+    background-image: url("/assets/answerbuttons.png");
+    width: 154px;
+    height: 43px;
+    background-position: 668px 144px;
+    margin-right: 23px;
 }
 
 #knew-button{
-    background-image: url("/assets/step4.png");
-    width: 250px;
-    height: 75px;
-    background-position: 434px 121px;
-    transform: scale(0.5);
+    background-image: url("/assets/answerbuttons.png");
+    width: 154px;
+    height: 43px;
+    background-position: 492px 144px
 }
 
 
