@@ -88,19 +88,15 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(22,22,22,0.7);
 }
 
-.numbers {
+.selected{
+    background-color:black;
+}
+
+.numbers{
     display: flex;
-}
-
-#oneCircle {
-    background-color: #000;
-}
-
-#twoCircle,
-#threeCircle {
-    background-color: rgba(22, 22, 22, 0.7);
 }
 
 #Title {

@@ -40,18 +40,16 @@ body{
     background-color: #FFF;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     border-radius: 100%;
-}
-
-#plus-icon{
-    height: 42px;
-    width: 22px;
     color: #000;
     font-family: "Helvetica Neue";
-    font-size: 36px;
+    font-size: 29px;
     font-weight: 700;
-    letter-spacing: NaNpx;
-    line-height: 42px;
-    margin-left: 8px;
+    text-align: center;
+}
+
+#add-card-icon:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .card-element{
@@ -71,6 +69,11 @@ body{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     border-radius: 100%;
     margin-right: 13px;
+}
+
+#remove-card:hover{
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 #cross-icon{
