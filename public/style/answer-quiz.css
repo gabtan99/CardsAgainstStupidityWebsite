@@ -67,7 +67,7 @@
 }
 
 #guessed-button{
-    background-image: url("/public/assets/step4.png");
+    background-image: url("/assets/step4.png");
     width: 250px;
     height: 75px;
     background-position: 711px 121px;
@@ -75,7 +75,7 @@
 }
 
 #knew-button{
-    background-image: url("/public/assets/step4.png");
+    background-image: url("/assets/step4.png");
     width: 250px;
     height: 75px;
     background-position: 434px 121px;
