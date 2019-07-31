@@ -1,0 +1,112 @@
+.header {
+    height: 42px;
+    width: 504px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.input {
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+    display: flex;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    padding: 20px 0px;
+    margin: 15px 0px;
+}
+
+.input-field {
+    height: 45px;
+    width: 500px;
+    border-radius: 9px;
+    padding-left: 15px;
+    font-family: "Helvetica Neue";
+    display: flex;
+}
+
+input::placeholder {
+    color: grey;
+}
+
+
+#submitBtn {
+    width: 132px;
+    height: 54px;
+    margin-top: 24px;
+    border-radius: 9px;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.submit-btn {
+    width: 504px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E8E8E8;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+
+.register-option {
+    text-align: center;
+    display: inline-flex;
+    color: #787878;
+    font-family: "Helvetica Neue";
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    width: 504px;
+    justify-content: center;
+}
+
+
+.register-btn {
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.subheader {
+    height: 56px;
+    width: 504px;
+    color: #787878;
+    font-family: "Helvetica Neue";
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 50px;
+}
