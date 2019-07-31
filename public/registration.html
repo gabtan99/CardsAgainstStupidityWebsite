@@ -4,6 +4,9 @@
 
     <link rel="stylesheet" href="../style/navbar.css">
     <link rel="stylesheet" href="../style/reglog.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/registration.js"></script>
 </head>
 
 <body>
@@ -15,7 +18,7 @@
         </span>
 
         <span class="tab-list">
-            <a class="nav-tab" href="/">Home</a>
+            <a class="nav-tab" href="create">Home</a>
             <a class="nav-tab" href="login">Login</a>
             <a class="nav-tab selected" href="register">Register</a>
         </span>
@@ -33,6 +36,7 @@
 
         <div class="mainForm">
             <form id="Form" action="createAccount" method="POST">
+                <input id="namefield" type="text" class="input input-field" name="name" placeholder="Name:  " required>
                 <input id="usernamefield" type="text" class="input input-field" name="username" placeholder="Username: "
                     required>
                 <input id="passwordfield" type="password" class="input input-field" name="password"
