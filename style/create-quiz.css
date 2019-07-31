@@ -1,8 +1,8 @@
-body{
-    background-color: rgb(232,232,232)
+body {
+    background-color: rgb(232, 232, 232)
 }
 
-.main-body{
+.main-body {
     height: 100%;
     width: 100%;
     justify-content: center;
@@ -11,7 +11,7 @@ body{
     flex-direction: column;
 }
 
-.title{
+.title {
     height: 42px;
     width: 180px;
     color: #000;
@@ -22,7 +22,7 @@ body{
     line-height: 42px;
 }
 
-.input{
+.input {
     color: #000;
     font-family: "Helvetica Neue";
     font-size: 16px;
@@ -35,33 +35,33 @@ body{
     padding: 5px 0px;
 }
 
-input::placeholder{
+input::placeholder {
     color: grey;
 }
 
-#status{
+#status {
     margin-top: 10px;
     height: 79px;
     width: 523px;
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     text-align: center;
     align-items: center;
     justify-content: space-evenly;
 }
 
-#pagetitle{
+#pagetitle {
     margin-top: 130px;
     font-size: 25px;
     display: flex;
 }
 
-#Form{
+#Form {
     display: flex;
     flex-direction: column;
 }
 
-.statustext{
+.statustext {
     color: #FFF;
     font-family: "Helvetica Neue";
     font-size: 30px;
@@ -70,7 +70,7 @@ input::placeholder{
     line-height: 42px;
 }
 
-.dots{
+.dots {
     height: auto;
     width: auto;
     color: #000;
@@ -81,7 +81,7 @@ input::placeholder{
     display: flex;
 }
 
-.circle{
+.circle {
     width: 54px;
     height: 54px;
     border-radius: 100%;
@@ -90,29 +90,33 @@ input::placeholder{
     align-items: center;
 }
 
-.numbers{
+.numbers {
     display: flex;
 }
 
-#oneCircle{
+#oneCircle {
     background-color: #000;
 }
 
-#twoCircle, #threeCircle{
-    background-color: rgba(22,22,22,0.7);
+#twoCircle,
+#threeCircle {
+    background-color: rgba(22, 22, 22, 0.7);
 }
 
-#Title{
+#Title {
     margin-top: 30px;
     display: flex;
 }
 
-#Subject, #Description{
+#Subject,
+#Description {
     margin-top: 12px;
     display: flex;
 }
 
-#titlebox, #subjectbox, #descripbox{
+#titlebox,
+#subjectbox,
+#descripbox {
     height: 35px;
     width: 500px;
     border-radius: 9px;
@@ -121,7 +125,7 @@ input::placeholder{
     display: flex;
 }
 
-#submitBtn{
+#submitBtn {
     width: 132px;
     height: 54px;
     margin-top: 24px;
@@ -138,9 +142,15 @@ input::placeholder{
     color: #FFF;
 }
 
-.submit{
+.submit {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
 }
