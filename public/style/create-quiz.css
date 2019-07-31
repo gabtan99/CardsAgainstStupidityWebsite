@@ -297,11 +297,12 @@ select:focus {
     justify-content: center;
     border-radius: 9px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 26px;
+    padding: 50px 26px 26px;
     margin-bottom: 100px;
 }
 
 #almostDne{
+    margin-top: 30px;
     margin-left: -300px;
     font-size: 22px;
 }
@@ -334,7 +335,6 @@ select:focus {
 
 .radios{
     width: 100%;
-    margin-left: 10px;
 }
 
 input[type="radio"]{
