@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Quiz</title>
+    <link rel="stylesheet" href="../style/create-quiz.css">
+    <link rel="stylesheet" href="../style/navbar.css">
+</head>
+<body>
+
+    <div class=" navbar sticky">
+        <span>
+            <img src="../assets/Logo.png" class="logo">
+        </span>
+
+        <span class="tab-list">
+            <a class="nav-tab" href="">Home</a>
+            <a class="nav-tab selected" href="">Search</a>
+            <a class="nav-tab" href="">Quiz</a>
+            <a class="nav-tab" href="">Profile</a>
+        </span>
+    </div>
+
+    <div class = "main-body">
+
+        <form id="SearchForm">
+            <div id="pagetitle" class="title"> Search Quizzes </div>
+            <div id="searchsubtitle" class="title"> Enter any keyword that describes what you're looking for</div>
+
+            <input id="searchbox" type="text" class="input" placeholder="Ex. INTR-OS">
+
+            <div class="submit"><input id="submitBtn" type="submit" value="Search"></div>
+        </form>
+
+        <div id="searchResultContainer">
+            <div class = "searchResult">
+                <div id="topResult">
+                    <div class="searchResultTitle">Title</div>
+                    <div class="searchResultUpInfo">Subject</div>
+                    <div class="searchResultUpInfo">Description</div>
+                </div>
+                <div id="botResult">
+                    <div id="botInfo">
+                        <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
+                        <div class="searchResultUpInfo">By: </div>
+                    </div>
+                    <div id=buttonsResult>
+                        <button class="searchResult-Btns">Pin Quiz</button> <br>
+                        <button class="searchResult-Btns">Take Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
