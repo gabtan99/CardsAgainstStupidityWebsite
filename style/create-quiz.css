@@ -11,11 +11,18 @@ body{
     flex-direction: column;
 }
 
+.navigation{
+    margin-top: 224px;
+    width: 470px;
+    display: flex;
+    align-items: center;
+    font-family: "Helvetica Neue";
+}
+
 .title{
     height: 42px;
     width: 180px;
     color: #000;
-    font-family: "Helvetica Neue";
     font-size: 18px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -51,9 +58,9 @@ input::placeholder{
 }
 
 #pagetitle{
-    margin-top: 130px;
     font-size: 25px;
-    display: flex;
+    margin-left: 100px;
+    margin-right: 110px;
 }
 
 #Form{
