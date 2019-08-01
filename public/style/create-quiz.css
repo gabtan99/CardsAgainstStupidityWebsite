@@ -131,7 +131,8 @@ input::placeholder {
     font-family: "Helvetica Neue";
 }
 
-#submitBtn {
+/*actual button*/
+#submitBtn { 
     width: 132px;
     height: 54px;
     margin-top: 24px;
@@ -149,6 +150,7 @@ input::placeholder {
     color: #FFF;
 }
 
+/*button container (sorry for the bad naming HAHA)*/
 .submit {
     display: flex;
     align-items: center;
@@ -384,9 +386,26 @@ input[type="radio"] {
     padding-left: 90px;
 }
 
+/***************************************   EDIT PROFILE CCS     **************************************** */
+.editProfileLabels{
+    font-size: 14px;
+    width: 100%;
+    padding-left: 90px;
+}
 
-
-
+.editProfileInput{
+    width: 95%;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+    display: flex;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    padding: 5px 0px;
+}
 
 
 
