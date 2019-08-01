@@ -1,8 +1,7 @@
 $(document).ready(function(){
+    console.log('test')
+    counter = 1
     $('.add-card a').click(function(){
-
-        counter = 2
-
         const cardElementDiv = document.createElement("div")
         cardElementDiv.className = "card-element"
 
@@ -23,7 +22,7 @@ $(document).ready(function(){
         const cardsDiv = document.createElement('div')
         cardsDiv.className = "cards"
 
-        //black cards
+        // cards
         const blackCardDiv = document.createElement('div')
         blackCardDiv.className = "black-card"
 
@@ -45,6 +44,10 @@ $(document).ready(function(){
         parWhite.innerHTML = "Cards Against Stupidity"
         ///////////////
         
+        removeCard.onclick = function(){
+            cardElementDiv.remove()
+            counter--
+        }
 
 
         footerBlack.append(parBlack)
@@ -65,10 +68,10 @@ $(document).ready(function(){
         cardElementDiv.append(cardHeaderDiv)
         cardElementDiv.append(cardsDiv)
 
-
-
         $('#card-container').prepend(cardElementDiv)
 
+
+        counter++
         return false;
     })
 })
