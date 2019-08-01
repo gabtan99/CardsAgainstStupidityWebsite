@@ -5,18 +5,9 @@
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     border-radius: 5px;
     margin-right: 40px;
-}
-
-#edit-button-text{
-    padding: 13px 10px 10px 19px;
-    height: 28px;
-    width: 45px;
-    color: #000;
     font-family: "Helvetica Neue";
     font-size: 24px;
     font-weight: 700;
-    letter-spacing: NaNpx;
-    line-height: 28px;
 }
 
 #logout-button{
@@ -25,18 +16,11 @@
     background-color: #000;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     border-radius: 5px;
-}
-
-#logout-button-text{
-    padding: 13px 10px 10px 15px;
-    height: 28px;
-    width: 45px;
     color: #fff;
     font-family: "Helvetica Neue";
     font-size: 24px;
     font-weight: 700;
-    letter-spacing: NaNpx;
-    line-height: 28px;
+    border: none
 }
 
 .profile-buttons{
@@ -54,7 +38,7 @@
 }
 
 .profile-contents{
-    margin-top: 242px;  
+    margin-top: 150px;  
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,3 +80,14 @@
     margin-top: 7px;
   }
 
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}

@@ -61,12 +61,12 @@ app.get("/search", (req, res) => {
     res.render("search.hbs")
 })
 
-app.get("/answer_quiz", (req, res) => {
-    res.render("answer-quiz.hbs")
+app.get("/active_quiz", (req, res) => {
+    res.render("active-quiz.hbs")
 })
 
 app.get("/edit_quiz", (req, res)=>{
-    res.sendFile(__dirname + "/public/edit-quiz.html")
+    res.render("edit-quiz.hbs")
 })
 
 app.get("/profile", (req, res) => {
