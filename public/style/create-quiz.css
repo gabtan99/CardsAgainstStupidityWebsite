@@ -431,7 +431,7 @@ input[type="radio"] {
 }
 
 #editProfileButtonContainer{
-    margin-top: 40px;
+    margin-top: 5px;
     margin-bottom: 40px;
     display: flex;
     flex-direction: row;
