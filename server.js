@@ -46,6 +46,10 @@ app.get("/answer_quiz", (req, res) => {
     res.sendFile(__dirname + "/public/answer-quiz.html")
 })
 
+app.get("/edit_quiz", (req, res)=>{
+    res.sendFile(__dirname + "/public/edit-quiz.html")
+})
+
 app.get("/profile", (req, res) => {
     res.sendFile(__dirname + "/public/profile.html")
 })

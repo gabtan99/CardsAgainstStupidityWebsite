@@ -1,0 +1,16 @@
+.edit-descriptions{
+    margin-top: 150px;
+    font-family: "Helvetica Neue";
+}
+
+#edit-quiz {
+    height: 42px;
+    width: 165px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+    margin-bottom: 20px;
+}
