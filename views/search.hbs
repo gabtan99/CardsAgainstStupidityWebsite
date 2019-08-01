@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Search Quiz</title>
+    <title>Search</title>
     <link rel="stylesheet" href="../style/create-quiz.css">
     <link rel="stylesheet" href="../style/navbar.css">
 </head>
@@ -30,7 +30,6 @@
             <div id="searchsubtitle" class="title"> Enter any keyword that describes what you're looking for</div>
 
             <input id="searchbox" type="text" class="input" placeholder="Ex. INTR-OS">
-
             <div class="submit"><input id="submitBtn" type="submit" value="Search"></div>
         </form>
 
@@ -47,11 +46,14 @@
                         <div class="searchResultUpInfo">By: </div>
                     </div>
                     <div id=buttonsResult>
-                        <button id="pinBtn" class="searchResult-Btns"> <span>
+                        <a id="pinBtn" class="searchResult-Btns">
+                            <span>
                                 <img id="pinIcon" src="../assets/pin.png">
                             </span>
-                            Pin Quiz</button> <br>
-                        <button class="searchResult-Btns">Take Quiz</button>
+                            Pin Quiz
+                        </a> 
+                        <br>
+                        <a class="searchResult-Btns">Take Quiz</a>
                     </div>
                 </div>
             </div>
