@@ -68,9 +68,15 @@ app.get("/logout", (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
 })
 
+app.get("/quizzes", (req, res) => {
+    res.render("quizzes.hbs")
+})
+
 app.get("/create_quiz", (req, res) => {
     res.render("create-quiz.hbs")
 })
+
+
 
 
 
