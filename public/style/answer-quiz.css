@@ -50,7 +50,7 @@
     font-weight: 700;
     letter-spacing: NaNpx;
     line-height: 35px;
-    margin-top: 70px;
+    margin-top: 20px;
     margin-right: 340px;
 }
 
@@ -64,25 +64,69 @@
 }
 
 .response-button{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
+#guessed-icon{
+    background-image: url("/assets/guessedicon.png");
+    background-size: 29px;
+    width: 29px;
+    height: 29px;
+    margin: 7px 11px 0 13px;
+}
 #guessed-button{
-    background-image: url("/assets/answerbuttons.png");
-    width: 154px;
-    height: 43px;
-    background-position: 668px 144px;
-    margin-right: 23px;
+    width: 160px;
+    height: 42px;
+    background-color: #000;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    border-radius: 5px;
+    margin-right: 20px;
+    font-family: "Helvetica Neue";
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    display: flex
 }
 
-#knew-button{
-    background-image: url("/assets/answerbuttons.png");
-    width: 154px;
-    height: 43px;
-    background-position: 492px 144px;
-    margin-right: 25px;
+#guessed-button-text{
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 8px 0 0 0px;
 }
+
+#knew-icon{
+    background-image: url("/assets/knewicon.png");
+    background-size: 29px;
+    width: 29px;
+    height: 29px;
+    margin: 7px 15px 0 13px;
+}
+#knew-button{
+    width: 160px;
+    height: 42px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    border-radius: 5px;
+    margin-right: 22px;
+    font-family: "Helvetica Neue";
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+    display: flex
+}
+
+#knew-button-text{
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    margin: 8px 0 0 0px;
+}
+
 
 
