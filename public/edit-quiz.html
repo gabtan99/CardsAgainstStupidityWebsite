@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../style/add-card.css">
+    <link rel="stylesheet" href="../style/navbar.css">
+    <link rel="stylesheet" href="../style/create-quiz.css">
+    <link rel="stylesheet" href="../style/edit-quiz.css">
+    <title>Add a Card</title>
+</head>
+<body>
+    <div class=" navbar sticky">
+        <span>
+            <img src="../assets/Logo.png" class="logo">
+        </span>
+
+        <span class="tab-list">
+            <a class="nav-tab" href="">Home</a>
+            <a class="nav-tab" href="">Search</a>
+            <a class="nav-tab selected" href="">Quiz</a>
+            <a class="nav-tab" href="">Profile</a>
+        </span>
+    </div>  
+
+    <div class = "main-body">
+        <div class="edit-descriptions">
+            <div id="edit-quiz">Edit Quiz</div>
+            <form id="Form">
+                <div id="Title" class="title"> Title </div>
+                <input id="titlebox" type="text" class="input" placeholder="Ex. Operating Systems">
+                <div id="Subject" class="title"> Subject </div>
+                <input id="subjectbox" type="text" class="input" placeholder="Ex. INTR-OS">
+                <div id="Description" class="title"> Description </div>
+                <input id="descripbox" type="text" class="input" placeholder="Ex. Chapters 1-5 Reviewer for Midterms"> <br>
+                <div class="title">Privacy</div>
+                <div id="radioContainer">
+                    <div class="title radios"><input type="radio" name="privacy" checked>Public: Share my quiz with others!</div>
+                    <div class="title radios"><input type="radio" name="privacy">Private: Only I can access this quiz!</div><br>
+                </div>
+            </form>
+        </div>
+
+        <div class="add-card">
+            <div id="flash-card">Flash Card</div>
+            <div id="add-card-icon">+</div>
+        </div>
+        
+        <div class="card-element">
+            <div class="card-header">
+                <div id="remove-card"><div id="cross-icon">+</div></div>
+                <div id="card-label">Flashcard 1</div>
+            </div>
+            <div class="cards">
+                <div class="black-card">
+                    <textarea type="text" placeholder="Enter Question Here"></textarea>
+                    <footer>
+                        <p>Cards Against Stupidity</p>
+                    </footer>
+                </div>
+
+                <div class="white-card">
+                    <textarea type="text" placeholder="Enter Question Here"></textarea>
+                    <footer>
+                        <p>Cards Against Stupidity</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        <div id="save-button">
+            <div id="save-button-text">SAVE</div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+.edit-descriptions{
+    margin-top: 150px;
+    font-family: "Helvetica Neue";
+}
+
+#edit-quiz {
+    height: 42px;
+    width: 165px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+    margin-bottom: 20px;
+}
+
+.edit-descriptions #radioContainer{
+    background-color: #fff;
+    border-radius: 9px;
+    height: 101px;
+    width: 491px;
+    border-radius: 8px;
+    background-color: #FFF;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    padding: 12px 0 0 25px;
+}
+
+#save-button{
+    width: 70px;
+    height: 70px;
+    background-color: #000;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    border-radius: 100%;
+    margin-bottom: 20px;
+    margin-right: 25px;
+
+}
+
+#save-button-text{
+    color: white;
+    font-family: "Helvetica Neue";
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+    padding-top: 23px;
+}
+
+#save-button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}

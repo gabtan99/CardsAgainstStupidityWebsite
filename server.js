@@ -60,6 +60,10 @@ app.get("/answer_quiz", (req, res) => {
     res.render("answer-quiz.hbs")
 })
 
+app.get("/edit_quiz", (req, res)=>{
+    res.sendFile(__dirname + "/public/edit-quiz.html")
+})
+
 app.get("/profile", (req, res) => {
     res.render("profile.hbs")
 })
