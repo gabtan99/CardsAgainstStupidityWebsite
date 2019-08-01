@@ -381,7 +381,13 @@ input[type="radio"] {
 #createQ{
     justify-content: center;
     text-align: center;
-    width: 140px;
+    width: 170px;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+#createQuiz a{
+    color: black;
 }
 
 /***************************************   QUIZZES CCS     **************************************** */
@@ -453,6 +459,11 @@ input[type="radio"] {
     padding-left: 15px;
 }
 
+/**submit button animations**/
+
+input[type="submit"]:hover{
+    transform: scale(1.1)
+}
 
 
 
