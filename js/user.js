@@ -17,6 +17,10 @@ var userSchema = new Schema({
         type: String,
         required: true,
     },
+    pinnedQuizzes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Quiz'
+    }]
 })
 
 userSchema.plugin(uniqueValidator)
