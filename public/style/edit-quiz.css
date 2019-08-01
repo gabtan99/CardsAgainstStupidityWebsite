@@ -34,10 +34,19 @@
     border-radius: 100%;
     margin-bottom: 20px;
     margin-right: 25px;
+
+}
+
+#save-button-text{
     color: white;
     font-family: "Helvetica Neue";
     text-align: center;
     font-size: 19px;
     font-weight: 700;
-    
+    padding-top: 23px;
+}
+
+#save-button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
