@@ -31,6 +31,11 @@ app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
 })
 
+app.get("/about-guest", (req, res) => {
+    res.sendFile(__dirname + "/public/about.html")
+})
+
+
 app.post("/createAccount", urlencoder, (req, res) => {
     res.render("home-user.hbs")
 })
@@ -75,6 +80,12 @@ app.get("/logout", (req, res) => {
 app.get("/quizzes", (req, res) => {
     res.render("quizzes.hbs")
 })
+
+app.get("/about", (req, res) => {
+    res.render("about.hbs")
+})
+
+
 
 app.get("/create_quiz", (req, res) => {
     res.render("create-quiz.hbs")
