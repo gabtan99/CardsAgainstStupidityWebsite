@@ -369,8 +369,20 @@ input[type="radio"] {
     width: 140px;
 }
 
+/***************************************   QUIZZES CCS     **************************************** */
+#myQuizContainer, #pinnedQuizContainer{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
 
-
+.mypinLabels{
+    font-size: 23px;
+    width: 100%;
+    padding-left: 90px;
+}
 
 
 
