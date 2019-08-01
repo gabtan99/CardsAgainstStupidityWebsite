@@ -550,3 +550,7 @@ input[type="submit"]:hover{
 .flashcrd{
     color: #000;
 }
+
+a{
+    text-decoration: none;
+}
