@@ -115,3 +115,12 @@ input[type="submit"]:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.errorMessage {
+    display: flex;
+    justify-content: center;
+    color: #ff0000;
+    font-family: "Helvetica Neue";
+    font-size: 19px;
+    font-weight: 700;
+}
