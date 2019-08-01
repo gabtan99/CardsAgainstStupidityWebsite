@@ -21,6 +21,19 @@ body {
     font-family: "Helvetica Neue";
 }
 
+.navigation a{
+    text-decoration: underline;
+}
+
+#back-nav{
+    font-weight: 700;
+    color: #757575
+}
+
+a:hover{
+    transform: scale(1.1)
+}
+
 .title {
     height: 42px;
     width: 180px;
@@ -393,9 +406,35 @@ input[type="radio"] {
     width: 100%;
 }
 
+#editProfileCancel{
+    width: 132px;
+    height: 54px;
+    margin-top: 24px;
+    margin-bottom: 100px;
+    border-radius: 9px;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFF;
+    color: #000;
+    margin-right: 20px;
+}
+
 #editProfileContainer{
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+#editProfileButtonContainer{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
 }
 
 .editProfileInput{
