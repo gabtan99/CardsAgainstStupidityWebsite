@@ -65,7 +65,7 @@ app.get("/active_quiz", (req, res) => {
     res.render("active-quiz.hbs")
 })
 
-app.get("/edit_quiz", (req, res)=>{
+app.get("/edit_quiz", (req, res) => {
     res.render("edit-quiz.hbs")
 })
 
@@ -85,10 +85,16 @@ app.get("/about", (req, res) => {
     res.render("about.hbs")
 })
 
+app.get("/create_quiz1", (req, res) => {
+    res.render("createQuiz1.hbs")
+})
 
+app.get("/create_quiz2", (req, res) => {
+    res.render("createQuiz2.hbs")
+})
 
-app.get("/create_quiz", (req, res) => {
-    res.render("create-quiz.hbs")
+app.get("/create_quiz3", (req, res) => {
+    res.render("createQuiz3.hbs")
 })
 
 
