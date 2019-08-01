@@ -10,8 +10,6 @@ router.get("/edit_profile", (req, res) => {
     res.render("edit-profile.hbs")
 })
 
-router.get("/logout", (req, res) => {
-    res.sendFile(__dirname + "/public/login.html")
-})
+
 
 module.exports = router;

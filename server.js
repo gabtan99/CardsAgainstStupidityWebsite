@@ -65,6 +65,10 @@ app.get("/about", (req, res) => {
     res.render("about.hbs")
 })
 
+app.get("/logout", (req, res) => {
+    res.sendFile(__dirname + "/public/login.html")
+})
+
 
 app.listen(3000, function () {
     console.log("port 3000 is live");
