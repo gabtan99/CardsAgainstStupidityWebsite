@@ -34,20 +34,31 @@
                 </div>
 
                 <div id="middlePrestart">
-                    <div class="centerContentPrestart"># Flashcards</div>
+                    <div class="centerContentPrestart flashcrd"># Flashcards</div>
                     <div class="centerContentPrestart">By: </div>
+                    <div id="mid-botContainer">
+                        <div id="clockContainer"><img id="clockIcon" src="../assets/clock.png"></div>
+                        <div id="optionsContainer">
+                            <select class="styled-select rounded">
+                                <option value="none" selected>None</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="botPrestart">
-                    <div id=buttonsResult>
-                        <a id="pinBtn" class="searchResult-Btns">
+                    <div class="prestartBtnContainer">
+                        <a id="pinBtn" class="searchResult-Btns prestartBtns">
                             <span>
                                 <img id="pinIcon" src="../assets/pin.png">
                             </span>
                             Pin Quiz
                         </a> 
                         <br>
-                        <a class="searchResult-Btns">Take Quiz</a>
+                        <a class="searchResult-Btns prestartBtns">Take Quiz</a>
                     </div>
                 </div>
             </div>
