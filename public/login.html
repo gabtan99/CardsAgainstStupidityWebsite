@@ -16,6 +16,7 @@
 
         <span class="tab-list">
             <a class="nav-tab" href="/">Home</a>
+            <a class="nav-tab" href="/">About</a>
             <a class="nav-tab selected" href="login">Login</a>
             <a class="nav-tab" href="register">Register</a>
         </span>
@@ -28,9 +29,11 @@
         </div>
 
         <div class="mainForm">
-            <form id="Form">
-                <input id="usernamefield" type="text" class="input input-field" placeholder="Username: ">
-                <input id="passwordfield" type="text" class="input input-field" placeholder="Password: ">
+            <form id="Form" action="loginuser" method="POST">
+                <input id="usernamefield" type="text" class="input input-field" placeholder="Username: "
+                    name="username">
+                <input id="passwordfield" type="text" class="input input-field" placeholder="Password: "
+                    name="password">
                 <span class="submit-btn"> <input id="submitBtn" type="submit" value="Login"></span>
             </form>
         </div>

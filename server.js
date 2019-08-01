@@ -10,17 +10,96 @@ const app = express()
 
 app.use(express.static(__dirname + "/public"))
 
+
+
+// url encoder
+const urlencoder = bodyparser.urlencoded({
+    extended: false
+});
+
+
+
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/public/home-guest.html")
+})
+
+app.get("/register", (req, res) => {
+    res.sendFile(__dirname + "/public/registration.html")
+})
+
+app.get("/login", (req, res) => {
+    res.sendFile(__dirname + "/public/login.html")
+})
+
+app.post("/createAccount", urlencoder, (req, res) => {
+    res.render("home-user.hbs")
+})
+
+
+app.post("/loginuser", urlencoder, (req, res) => {
+    let username = req.body.username
+    let password = req.body.password
+
+    if (username == "admin" && password == "1234") {
+        res.redirect("home")
+    } else {
+        console.log("incorrect login")
+        res.sendFile(__dirname + "/public/home-guest.html")
+    }
+})
+
+app.get("/home", (req, res) => {
+    res.render("home-user.hbs")
+})
+
+app.get("/search", (req, res) => {
+    res.render("search.hbs")
+})
+
+app.get("/answer_quiz", (req, res) => {
+    res.render("answer-quiz.hbs")
+})
+
+app.get("/profile", (req, res) => {
+    res.render("profile.hbs")
+})
+
+app.get("/logout", (req, res) => {
+    res.sendFile(__dirname + "/public/login.html")
+})
+
+app.get("/create_quiz", (req, res) => {
+    res.render("create-quiz.hbs")
+})
+
+
+
+app.listen(3000, function () {
+    console.log("port 3000 is live");
+})
+
+
+
+
+
+
+/*
+
+Code for MP3
+
+
+
 const {
     User
-} = require("./js/user.js")
+} = require("./model/user.js")
 
 const {
     Quiz
-} = require("./js/quiz.js")
+} = require("./model/quiz.js")
 
 const {
     Flashcard
-} = require("./js/flashcard.js")
+} = require("./model/flashcard.js")
 
 
 const uri = "mongodb://localhost:27017/cardsagainst"
@@ -30,33 +109,25 @@ mongoose.connect(uri, {
     useNewUrlParser: true
 })
 
-// url encoder
-const urlencoder = bodyparser.urlencoded({
-    extended: false
-});
+
+    //inside the registration function
+
+    let user = new User({
+        name,
+        username,
+        password
+    })
+
+
+    user.save().then((doc) => {
+        console.log(doc)
+        res.redirect("/")
+    }, (err) => {
+        res.send(err)
+    })
 
 
 
-
-app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/home-guest.html")
-})
-
-app.get("/answer_quiz", (req, res) => {
-    res.sendFile(__dirname + "/public/answer-quiz.html")
-})
-
-app.get("/profile", (req, res) => {
-    res.sendFile(__dirname + "/public/profile.html")
-})
-
-
-app.get("/register", (req, res) => {
-    res.sendFile(__dirname + "/public/registration.html")
-})
-
-
-/*
 app.get("/create", (req, res) => {
     var deck = []
 
@@ -93,46 +164,3 @@ app.get("/create", (req, res) => {
     })
 })
 */
-
-
-
-app.get("/login", (req, res) => {
-    res.sendFile(__dirname + "/public/login.html")
-})
-
-app.get("/create_quiz", (req, res) => {
-    res.sendFile(__dirname + "/public/create-quiz.html")
-})
-
-app.get("/add_card", (req, res) => {
-    res.sendFile(__dirname + "/public/add-card.html")
-})
-
-
-app.post("/createAccount", urlencoder, (req, res) => {
-    var name = req.body.name
-    var username = req.body.username
-    var password = req.body.password
-    var confirm = req.body.confirm
-
-    let user = new User({
-        name,
-        username,
-        password
-    })
-
-
-    user.save().then((doc) => {
-        console.log(doc)
-        res.redirect("/")
-    }, (err) => {
-        res.send(err)
-    })
-
-})
-
-
-
-app.listen(9090, function () {
-    console.log("port 9090 is live");
-})
