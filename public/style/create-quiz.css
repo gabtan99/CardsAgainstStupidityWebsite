@@ -384,6 +384,10 @@ input[type="radio"] {
     width: 140px;
 }
 
+#createQuiz a{
+    color: black;
+}
+
 /***************************************   QUIZZES CCS     **************************************** */
 #myQuizContainer, #pinnedQuizContainer{
     width: 100%;
