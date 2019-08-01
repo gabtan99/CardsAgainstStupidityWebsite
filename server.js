@@ -73,6 +73,10 @@ app.get("/profile", (req, res) => {
     res.render("profile.hbs")
 })
 
+app.get("/edit_profile", (req, res) => {
+    res.render("edit-profile.hbs")
+})
+
 app.get("/logout", (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
 })
@@ -96,7 +100,6 @@ app.get("/create_quiz2", (req, res) => {
 app.get("/create_quiz3", (req, res) => {
     res.render("createQuiz3.hbs")
 })
-
 
 
 
