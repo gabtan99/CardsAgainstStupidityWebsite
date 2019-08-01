@@ -27,8 +27,4 @@ router.get("/edit_quiz", (req, res) => {
 })
 
 
-
-
-
-
 module.exports = router;
