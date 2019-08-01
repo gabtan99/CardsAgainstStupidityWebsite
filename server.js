@@ -10,13 +10,14 @@ const app = express()
 
 app.use(express.static(__dirname + "/public"))
 
+app.use('/profile', require('./routes/profileroute.js'));
+app.use('/quiz', require('./routes/quizroute.js'));
 
 
 // url encoder
 const urlencoder = bodyparser.urlencoded({
     extended: false
 });
-
 
 
 app.get("/", (req, res) => {
@@ -34,7 +35,6 @@ app.get("/login", (req, res) => {
 app.get("/about-guest", (req, res) => {
     res.sendFile(__dirname + "/public/about.html")
 })
-
 
 app.post("/createAccount", urlencoder, (req, res) => {
     res.render("home-user.hbs")
@@ -61,47 +61,9 @@ app.get("/search", (req, res) => {
     res.render("search.hbs")
 })
 
-app.get("/active_quiz", (req, res) => {
-    res.render("active-quiz.hbs")
-})
-
-app.get("/edit_quiz", (req, res) => {
-    res.render("edit-quiz.hbs")
-})
-
-app.get("/profile", (req, res) => {
-    res.render("profile.hbs")
-})
-
-app.get("/edit_profile", (req, res) => {
-    res.render("edit-profile.hbs")
-})
-
-app.get("/logout", (req, res) => {
-    res.sendFile(__dirname + "/public/login.html")
-})
-
-app.get("/quizzes", (req, res) => {
-    res.render("quizzes.hbs")
-})
-
 app.get("/about", (req, res) => {
     res.render("about.hbs")
 })
-
-app.get("/create_quiz1", (req, res) => {
-    res.render("createQuiz1.hbs")
-})
-
-app.get("/create_quiz2", (req, res) => {
-    res.render("createQuiz2.hbs")
-})
-
-app.get("/create_quiz3", (req, res) => {
-    res.render("createQuiz3.hbs")
-})
-
-
 
 
 app.listen(3000, function () {
