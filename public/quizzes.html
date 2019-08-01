@@ -34,48 +34,51 @@
         </form>
 
         <div id="searchResultContainer">
-            <div class = "searchResult">
-                <div id="topResult">
-                    <div class="searchResultTitle">Title</div>
-                    <div class="searchResultUpInfo">Subject</div>
-                    <div class="searchResultUpInfo">Description</div>
-                </div>
-                <div id="botResult">
-                    <div id="botInfo">
-                        <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
-                        <div class="searchResultUpInfo">By: </div>
+
+            <div id="myQuizContainer">
+                    <div class="title mypinLabels"> My Quizzes </div>
+                    <div class = "searchResult">
+                            <div id="topResult">
+                                <div class="searchResultTitle">Title</div>
+                                <div class="searchResultUpInfo">Subject</div>
+                                <div class="searchResultUpInfo">Description</div>
+                            </div>
+                            <div id="botResult">
+                                <div id="botInfo">
+                                    <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
+                                    <div class="searchResultUpInfo">By: </div>
+                                </div>
+                                <div id=buttonsResult>
+                                    <button id="pinBtn" class="searchResult-Btns">Edit</button> <br>
+                                    <button class="searchResult-Btns">Take Quiz</button>
+                                </div>
+                            </div>
                     </div>
-                    <div id=buttonsResult>
-                        <button id="pinBtn" class="searchResult-Btns">  <span>
-                                                                            <img id="pinIcon" src="../assets/pin.png">
-                                                                        </span>
-                            Pin Quiz</button> <br>
-                        <button class="searchResult-Btns">Take Quiz</button>
-                    </div>
-                </div>
             </div>
 
-            <div class = "searchResult">
-                    <div id="topResult">
-                        <div class="searchResultTitle">Title</div>
-                        <div class="searchResultUpInfo">Subject</div>
-                        <div class="searchResultUpInfo">Description</div>
+            <div id="pinnedQuizContainer">
+                    <div class="title mypinLabels"> Pinned Quizzes </div>
+                    <div class = "searchResult">
+                            <div id="topResult">
+                                <div class="searchResultTitle">Title</div>
+                                <div class="searchResultUpInfo">Subject</div>
+                                <div class="searchResultUpInfo">Description</div>
+                            </div>
+                            <div id="botResult">
+                                <div id="botInfo">
+                                    <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
+                                    <div class="searchResultUpInfo">By: </div>
+                                </div>
+                                <div id=buttonsResult>
+                                    <button id="pinBtn" class="searchResult-Btns">  <span>
+                                                                                        <img id="pinIcon" src="../assets/pin.png">
+                                                                                    </span>
+                                        Unpin</button> <br>
+                                    <button class="searchResult-Btns">Take Quiz</button>
+                                </div>
+                            </div>
                     </div>
-                    <div id="botResult">
-                        <div id="botInfo">
-                            <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
-                            <div class="searchResultUpInfo">By: </div>
-                        </div>
-                        <div id=buttonsResult>
-                            <button id="pinBtn" class="searchResult-Btns">  <span>
-                                                                                <img id="pinIcon" src="../assets/pin.png">
-                                                                            </span>
-                                Unpin</button> <br>
-                            <button class="searchResult-Btns">Take Quiz</button>
-                        </div>
-                    </div>
-                </div>
-
+            </div>
         </div>
     </div>
 
