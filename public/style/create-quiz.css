@@ -388,13 +388,18 @@ input[type="radio"] {
 
 /***************************************   EDIT PROFILE CCS     **************************************** */
 .editProfileLabels{
-    font-size: 14px;
+    font-size: 16px;
+    height: 35px;
     width: 100%;
-    padding-left: 90px;
+}
+
+#editProfileContainer{
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .editProfileInput{
-    width: 95%;
+    width: 433px;
     color: #000;
     font-family: "Helvetica Neue";
     font-size: 16px;
@@ -405,6 +410,8 @@ input[type="radio"] {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     font-weight: 700;
     padding: 5px 0px;
+    border-radius: 9px;
+    padding-left: 15px;
 }
 
 
