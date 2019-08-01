@@ -453,6 +453,11 @@ input[type="radio"] {
     padding-left: 15px;
 }
 
+/**submit button animations**/
+
+input[type="submit"]:hover{
+    transform: scale(1.1)
+}
 
 
 
