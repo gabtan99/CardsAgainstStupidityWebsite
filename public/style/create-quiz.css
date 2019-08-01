@@ -453,9 +453,33 @@ input[type="radio"] {
     padding-left: 15px;
 }
 
+/***************************************  PRESTART CCS     **************************************** */
 
+.prestartContainer{
+    margin-top: 175px;
+}
 
+.prestartForm{
+    height: 410px;
+}
 
+.prestartDescrip{
+    margin-top: 30px;
+}
+
+#middlePrestart{
+    margin-top: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+.centerContentPrestart{
+    justify-content: center;
+    font-size: 18px;
+    color: #787878;
+    font-family: "Helvetica Neue";
+    font-weight: 700;
+}
 
 
 
