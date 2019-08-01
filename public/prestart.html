@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Take Quiz</title>
+    <link rel="stylesheet" href="../style/create-quiz.css">
+    <link rel="stylesheet" href="../style/navbar.css">
+</head>
+
+<body>
+
+    <div class=" navbar sticky">
+        <span>
+            <img src="../assets/Logo.png" class="logo">
+        </span>
+
+        <span class="tab-list">
+            <a class="nav-tab" href="home">Home</a>
+            <a class="nav-tab" href="search">Search</a>
+            <a class="nav-tab selected" href="quizzes">Quiz</a>
+            <a class="nav-tab" href="about">About</a>
+            <a class="nav-tab" href="profile">Profile</a>
+        </span>
+    </div>
+
+    <div class="main-body">
+
+        <div id="searchResultContainer" class="prestartContainer">
+            <div class="searchResult prestartForm">
+                <div id="topPrestart">
+                    <div class="searchResultTitle">Title</div>
+                    <div class="searchResultUpInfo">Subject</div>
+                    <div class="searchResultUpInfo prestartDescrip">Description</div>
+                </div>
+
+                <div id="middlePrestart">
+                    <div class="centerContentPrestart flashcrd"># Flashcards</div>
+                    <div class="centerContentPrestart">By: </div>
+                    <div id="mid-botContainer">
+                        <div id="clockContainer"><img id="clockIcon" src="../assets/clock.png"></div>
+                        <div id="optionsContainer">
+                            <select class="styled-select rounded">
+                                <option value="none" selected>None</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="botPrestart">
+                    <div class="prestartBtnContainer">
+                        <a id="pinBtn" class="searchResult-Btns prestartBtns">
+                            <span>
+                                <img id="pinIcon" src="../assets/pin.png">
+                            </span>
+                            Pin Quiz
+                        </a> 
+                        <br>
+                        <a class="searchResult-Btns prestartBtns">Take Quiz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
