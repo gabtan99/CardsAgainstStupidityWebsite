@@ -4,6 +4,8 @@ const hbs = require("hbs")
 const session = require("express-session")
 const cookieparser = require("cookie-parser")
 
+
+/*
 const {
     User
 } = require("./model/user.js")
@@ -15,7 +17,7 @@ const {
 const {
     Flashcard
 } = require("./model/flashcard.js")
-
+*/
 
 
 const app = express()
@@ -54,8 +56,6 @@ app.get("/logout", (req, res) => {
 })
 
 app.post("/createAccount", urlencoder, (req, res) => {
-    User.createAccount('Sky Ng', 'schuyl3r', 'pass')
-
     res.render("home-user.hbs")
 })
 
@@ -99,30 +99,6 @@ app.listen(3000, function () {
 
 /*
 
-Code for MP3
-
-
-
-
-
-
-
-
-    //inside the registration function
-
-    let user = new User({
-        name,
-        username,
-        password
-    })
-
-
-    user.save().then((doc) => {
-        console.log(doc)
-        res.redirect("/")
-    }, (err) => {
-        res.send(err)
-    })
 
 
 
