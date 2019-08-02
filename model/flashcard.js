@@ -32,9 +32,35 @@ flashcardSchema.statics.createFlashcard = function (question, answer, callback) 
 // find a flashcard
 
 // delete a flashcard
-
+flashcardSchema.statics.deleteFlashCard = function(id){
+    console.log("POST /delete " + req.body.id)
+    Flashcard.deleteOne({
+        _id: id
+    }, (err, doc)=>{
+        if(err){
+            res.send(err)
+        }else{
+            //res.redirect("/users")
+            console.log(doc)
+            return true
+        }
+    })
+}
 // edit a flashcard
-
+flashcardSchema.statics.editFlashCard = function(id){
+    Flashcard.updateOne({
+        _id: id
+    }, {
+        question: String,
+        answer: String
+    }, (err, doc)=>{
+        if(err){
+            return false
+        }else{
+            return doc
+        }
+    })
+}
 //d delete many flashcards
 
 

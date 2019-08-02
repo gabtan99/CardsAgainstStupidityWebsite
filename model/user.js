@@ -62,7 +62,7 @@ userSchema.statics.checkAccount = function (username, password, callback) {
 
 // update user details
 
-userSchema.statics.updateUser = function (id, name, username, password) {
+userSchema.statics.updateUser = function (id, name, username, password, callback) {
     User.updateOne({
         _id: id
     }, {
