@@ -20,6 +20,16 @@ const flashcardSchema = new Schema({
 
 // create a flashcard
 
+flashcardSchema.statics.createFlashcard = function (question, answer, callback) {
+
+    Flashcard.collection.insertOne({
+        name,
+        username,
+        password,
+        pinnedQuizzes: []
+    })
+}
+
 // create many flashcards
 
 // find a flashcard

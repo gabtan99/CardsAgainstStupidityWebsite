@@ -35,7 +35,7 @@ userSchema.plugin(uniqueValidator)
 // create a user
 userSchema.statics.createAccount = function (name, username, password, callback) {
 
-    User.collection.insert({
+    User.collection.insertOne({
         name,
         username,
         password,
@@ -58,15 +58,16 @@ userSchema.statics.checkAccount = function (username, password, callback){
 }
 
 // update user details
-userSchema.statics.updateUser = function(id, name, username, password){
+
+userSchema.statics.updateUser = function (id, name, username, password) {
     User.updateOne({
         _id: id
     }, {
         name: name,
         username: username,
         password: password
-    }, (err, doc)=>{
-        if(err){
+    }, (err, doc) => {
+        if (err) {
             return false
         }else{
             return doc
