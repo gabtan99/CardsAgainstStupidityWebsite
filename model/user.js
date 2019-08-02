@@ -51,6 +51,22 @@ userSchema.statics.createAccount = function (name, username, password, callback)
 
 // update user details
 
+userSchema.statics.updateUser = function(id, name, username, password){
+    User.updateOne({
+        _id: id
+    }, {
+        name: name,
+        username: username,
+        password: password
+    }, (err, doc)=>{
+        if(err){
+            return false
+        }else{
+            return true
+        }
+    })
+}
+
 const User = mongoose.model("User", userSchema, 'users')
 
 
