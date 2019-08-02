@@ -35,21 +35,24 @@ userSchema.plugin(uniqueValidator)
 // create a user
 userSchema.statics.createAccount = function (name, username, password, callback) {
 
-    User.collection.insertOne({
+    var user = new User({
         name,
         username,
         password,
         pinnedQuizzes: []
     })
+
+
+    user.save()
 }
 
 // find a user if unique
-userSchema.statics.checkAccount = function (username, password, callback){
+userSchema.statics.checkAccount = function (username, password, callback) {
     User.findOne({
         username,
         password
-    }, (err, doc)=>{
-        if(err){
+    }, (err, doc) => {
+        if (err) {
             return false
         } else {
             return doc
@@ -69,7 +72,7 @@ userSchema.statics.updateUser = function (id, name, username, password) {
     }, (err, doc) => {
         if (err) {
             return false
-        }else{
+        } else {
             return doc
         }
     })

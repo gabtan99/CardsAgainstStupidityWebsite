@@ -33,7 +33,8 @@ const quizSchema = new Schema({
 // create a quiz
 
 quizSchema.statics.createQuiz = function (title, author, subject, description, public, deck, callback) {
-    Quiz.collection.insertOne({
+
+    var quiz = new Quiz({
         title,
         author,
         subject,
@@ -41,6 +42,8 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
         public,
         deck
     })
+
+    quiz.save()
 }
 
 // find a quiz
