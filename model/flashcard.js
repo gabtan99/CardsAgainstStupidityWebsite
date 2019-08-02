@@ -1,4 +1,13 @@
 const mongoose = require("mongoose")
+
+
+const uri = "mongodb://localhost:27017/cardsagainststupidity"
+mongoose.Promise = global.Promise
+mongoose.connect(uri, {
+    useCreateIndex: true,
+    useNewUrlParser: true
+})
+
 const Schema = mongoose.Schema;
 
 const flashcardSchema = new Schema({
@@ -6,8 +15,7 @@ const flashcardSchema = new Schema({
     answer: String
 })
 
-const Flashcard = mongoose.model("Flashcard", flashcardSchema)
-
+const Flashcard = mongoose.model("Flashcard", flashcardSchema, 'flashcards')
 
 
 // create a flashcard

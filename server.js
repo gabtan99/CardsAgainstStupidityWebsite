@@ -3,7 +3,20 @@ const bodyparser = require("body-parser")
 const hbs = require("hbs")
 const session = require("express-session")
 const cookieparser = require("cookie-parser")
-const mongoose = require("mongoose")
+
+const {
+    User
+} = require("./model/user.js")
+
+const {
+    Quiz
+} = require("./model/quiz.js")
+
+const {
+    Flashcard
+} = require("./model/flashcard.js")
+
+
 
 const app = express()
 
@@ -41,6 +54,8 @@ app.get("/logout", (req, res) => {
 })
 
 app.post("/createAccount", urlencoder, (req, res) => {
+    User.createAccount('Sky Ng', 'schuyl3r', 'pass')
+
     res.render("home-user.hbs")
 })
 
@@ -50,6 +65,7 @@ app.post("/loginuser", urlencoder, (req, res) => {
     let password = req.body.password
 
     if (username == "admin" && password == "1234") {
+
         res.redirect("home")
     } else {
         console.log("incorrect login")
@@ -87,25 +103,9 @@ Code for MP3
 
 
 
-const {
-    User
-} = require("./model/user.js")
-
-const {
-    Quiz
-} = require("./model/quiz.js")
-
-const {
-    Flashcard
-} = require("./model/flashcard.js")
 
 
-const uri = "mongodb://localhost:27017/cardsagainst"
-mongoose.Promise = global.Promise
-mongoose.connect(uri, {
-    useCreateIndex: true,
-    useNewUrlParser: true
-})
+
 
 
     //inside the registration function

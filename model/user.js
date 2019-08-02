@@ -1,6 +1,13 @@
 const mongoose = require("mongoose")
 var uniqueValidator = require('mongoose-unique-validator');
 
+const uri = "mongodb://localhost:27017/cardsagainststupidity"
+mongoose.Promise = global.Promise
+mongoose.connect(uri, {
+    useCreateIndex: true,
+    useNewUrlParser: true
+})
+
 const Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -25,16 +32,26 @@ var userSchema = new Schema({
 
 userSchema.plugin(uniqueValidator)
 
-const User = mongoose.model("User", userSchema)
+
 
 // create a user
 
+userSchema.statics.createAccount = function (name, username, password, callback) {
 
+    User.collection.insert({
+        name,
+        username,
+        password,
+        pinnedQuizzes: []
+    })
+}
 
 
 // find a user if unique
 
 // update user details
+
+const User = mongoose.model("User", userSchema, 'users')
 
 
 module.exports = {
