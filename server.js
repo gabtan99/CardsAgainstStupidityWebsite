@@ -91,8 +91,6 @@ app.get("/home", (req, res) => {
 })
 
 app.get("/search", (req, res) => {
-
-    Quiz.deleteQuiz("5d43ef982993de51c068b3a0")
     res.render("search.hbs")
 })
 
@@ -100,9 +98,9 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
 
     var keyword = req.query.keyword
 
-    let results = await Quiz.searchQuiz(keyword)
+    // let results = await Quiz.searchQuiz(keyword)
 
-    console.log(results)
+    // console.log(results)
 })
 
 app.get("/about", (req, res) => {

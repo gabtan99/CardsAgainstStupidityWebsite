@@ -111,6 +111,22 @@ quizSchema.statics.deleteQuiz = function (id, callback) {
     })
 }
 
+quizSchema.statics.addFlashcardToDeck = function (flashcard_id, quiz_id, callback) {
+    Quiz.updateOne({
+        _id: quiz_id
+    }, {
+        $push: {
+            deck: flashcard_id
+        }
+    }, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("added flashcard to quiz")
+        }
+    })
+}
+
 const Quiz = mongoose.model("Quiz", quizSchema, 'quizzes')
 
 module.exports = {
