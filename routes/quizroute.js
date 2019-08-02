@@ -29,16 +29,14 @@ router.get("/sendquiz1info", (req, res) => {
     let title = req.query.title
     let subject = req.query.subject
     let description = req.query.description
-    console.log(title)
-    console.log(subject)
-    console.log(description)
+
     var author = new User({
         name: 'Schuyler Ng',
         username: 'schuyl3r',
         password: 'pass'
     })
 
-   Quiz.createQuiz(title, author, subject, description, true, [])
+    Quiz.createQuiz(title, author, subject, description, true, [])
 
     res.redirect("create_quiz2")
 })

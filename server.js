@@ -25,9 +25,6 @@ const {
 
 const app = express()
 
-app.use(bodyparser()); //Now deprecated You now need to call the methods separately
-
-app.use(bodyparser.json());
 
 app.use(express.static(__dirname + "/public"))
 app.set("view engine", "hbs")
@@ -73,9 +70,9 @@ app.post("/loginuser", urlencoder, async (req, res) => {
     let password = req.body.password
 
     let user = await User.getAccount(username, password)
-    if(user == null){
+    if (user == null) {
         console.log("Error")
-    } else{
+    } else {
         console.log(user)
     }
 
@@ -99,8 +96,6 @@ app.get("/search", (req, res) => {
 
 app.get("/search-keyword", urlencoder, async (req, res) => {
     var keyword = req.query.keyword
-
-    console.log(keyword)
 
     let results = await Quiz.searchQuiz(keyword)
 
