@@ -25,7 +25,6 @@ const quizSchema = new Schema({
 
 })
 
-// create a quiz
 quizSchema.statics.createQuiz = function (title, author, subject, description, public, deck, callback) {
 
     var quiz = new Quiz({
@@ -40,31 +39,47 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
     quiz.save()
 }
 
-// find a quiz
 quizSchema.statics.findQuiz = async function (id, callback) {
     return await Quiz.findOne({
         _id: id
     })
 }
 
-//find quizzes
 quizSchema.statics.findQuizzes = async function (id, callback) {
     return await Quiz.find({
         _id: id
     })
 }
 
-// search a quiz
+
 quizSchema.statics.searchQuiz = async function (keyword, callback) {
+
     return await Quiz.find({
-        title: {
-            $regex: keyword,
-            $options: "$i"
-        }
+        '$or': [{
+                title: {
+                    $regex: keyword,
+                    $options: "$i"
+                }
+            },
+            {
+                subject: {
+                    $regex: keyword,
+                    $options: "$i"
+                }
+            }, {
+                description: {
+                    $regex: keyword,
+                    $options: "$i"
+                }
+            }
+        ]
+
+
     })
+
 }
 
-// edit a quiz
+
 quizSchema.statics.updateQuiz = function (id, title, author, subject, description, public, callback) {
     Quiz.updateOne({
         _id: id
@@ -83,7 +98,6 @@ quizSchema.statics.updateQuiz = function (id, title, author, subject, descriptio
     })
 }
 
-// delete a quiz
 quizSchema.statics.deleteQuiz = function (id, callback) {
     Quiz.deleteOne({
         _id: id
@@ -93,6 +107,22 @@ quizSchema.statics.deleteQuiz = function (id, callback) {
             return false
         } else {
             return true
+        }
+    })
+}
+
+quizSchema.statics.addFlashcardToDeck = function (flashcard_id, quiz_id, callback) {
+    Quiz.updateOne({
+        _id: quiz_id
+    }, {
+        $push: {
+            deck: flashcard_id
+        }
+    }, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("added flashcard to quiz")
         }
     })
 }
