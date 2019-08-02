@@ -71,10 +71,11 @@ app.post("/loginuser", urlencoder, async (req, res) => {
     let password = req.body.password
 
     let user = await User.getAccount(username, password)
-
-    console.log(user)
-
-
+    if(user == null){
+        console.log("Error")
+    } else{
+        console.log(user)
+    }
 
     /*
     if (username == "admin" && password == "1234") {
