@@ -5,7 +5,7 @@ const session = require("express-session")
 const cookieparser = require("cookie-parser")
 
 
-/*
+
 const {
     User
 } = require("./model/user.js")
@@ -17,7 +17,7 @@ const {
 const {
     Flashcard
 } = require("./model/flashcard.js")
-*/
+
 
 
 const app = express()
@@ -59,7 +59,7 @@ app.post("/createAccount", urlencoder, (req, res) => {
     let name = req.body.name
     let username = req.body.username
     let password = req.body.password
-    //User.createAccount(name, username, password)
+    User.createAccount(name, username, password)
 
     res.render("home-user.hbs")
 })
