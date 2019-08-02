@@ -6,6 +6,14 @@ router.get("/", (req, res) => {
     res.render("quizzes.hbs")
 })
 
+router.get("/pre_start", (req, res) => {
+    res.render("prestart.hbs")
+})
+
+router.get("/results_quiz", (req, res) => {
+    res.render("results.hbs")
+})
+
 router.get("/create_quiz1", (req, res) => {
     res.render("createQuiz1.hbs")
 })

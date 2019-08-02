@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 const quizSchema = new Schema({
     title: String,
-    author: Number,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
     subject: String,
     description: String,
     public: Boolean,
