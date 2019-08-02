@@ -60,7 +60,7 @@ app.post("/createAccount", urlencoder, (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
-    User.createAccount(name, username, password)
+    //User.createAccount(name, username, password)
 
     res.redirect("home")
 })
