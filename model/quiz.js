@@ -1,7 +1,5 @@
 const mongoose = require("mongoose")
 
-const {Flashcard} = require("./flashcard")
-
 const uri = "mongodb://localhost:27017/cardsagainststupidity"
 mongoose.Promise = global.Promise
 mongoose.connect(uri, {
