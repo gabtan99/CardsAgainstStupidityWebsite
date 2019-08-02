@@ -22,12 +22,12 @@ const flashcardSchema = new Schema({
 
 flashcardSchema.statics.createFlashcard = function (question, answer, callback) {
 
-    Flashcard.collection.insertOne({
-        name,
-        username,
-        password,
-        pinnedQuizzes: []
+    var flashcard = new Flashcard({
+        question,
+        answer
     })
+
+    flashcard.save()
 }
 
 // create many flashcards
