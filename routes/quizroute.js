@@ -1,12 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const bodyparser = require("body-parser")
-
-const urlencoder = bodyparser.urlencoded({
-    extended: false
-});
-
 const {
     Quiz
 } = require("../model/quiz.js")
@@ -31,20 +25,23 @@ router.get("/create_quiz1", (req, res) => {
     res.render("createQuiz1.hbs")
 })
 
-router.get("/sendquiz1info", urlencoder, (req, res) => {
-    var title = req.body.title
-    var subject = req.body.subject
-    var description = req.body.description
-
+router.get("/sendquiz1info", (req, res) => {
+    let title = req.query.title
+    let subject = req.query.subject
+    let description = req.query.description
+    console.log("fsdafdf")
+    console.log(title)
+    console.log(subject)
+    console.log(description)
     var author = new User({
         name: 'Schuyler Ng',
         username: 'schuyl3r',
         password: 'pass'
     })
 
-    Quiz.createQuiz(title, author, subject, description, true, [])
+   // Quiz.createQuiz(title, author, subject, description, true, [])
 
-    res.redirect("create_quiz2")
+    //res.redirect("create_quiz2")
 })
 
 

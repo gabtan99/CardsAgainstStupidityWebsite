@@ -4,7 +4,10 @@ const hbs = require("hbs")
 const session = require("express-session")
 const cookieparser = require("cookie-parser")
 
-
+// url encoder
+const urlencoder = bodyparser.urlencoded({
+    extended: false
+});
 
 const {
     User
@@ -22,17 +25,16 @@ const {
 
 const app = express()
 
+app.use(bodyparser()); //Now deprecated You now need to call the methods separately
+
+app.use(bodyparser.json());
 
 app.use(express.static(__dirname + "/public"))
+app.set("view engine", "hbs")
 
 app.use('/profile', require('./routes/profileroute.js'));
 app.use('/quiz', require('./routes/quizroute.js'));
 
-
-// url encoder
-const urlencoder = bodyparser.urlencoded({
-    extended: false
-});
 
 
 app.get("/", (req, res) => {
