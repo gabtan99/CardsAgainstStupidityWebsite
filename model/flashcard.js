@@ -11,14 +11,19 @@ mongoose.connect(uri, {
 const Schema = mongoose.Schema;
 
 const flashcardSchema = new Schema({
+    quiz_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'Quiz'
+    },
     question: String,
     answer: String
 })
 
 
-flashcardSchema.statics.createFlashcard = function (question, answer, callback) {
+flashcardSchema.statics.createFlashcard = function (quiz_id, question, answer, callback) {
 
     var flashcard = new Flashcard({
+        quiz_id,
         question,
         answer
     })
@@ -60,12 +65,12 @@ flashcardSchema.statics.deleteFlashCards = function (id, callback) {
     })
 }
 
-flashcardSchema.statics.editFlashCard = function (id) {
+flashcardSchema.statics.editFlashCard = function (id, question, answer) {
     Flashcard.updateOne({
         _id: id
     }, {
-        question: String,
-        answer: String
+        question,
+        answer
     }, (err, doc) => {
         if (err) {
             return false
