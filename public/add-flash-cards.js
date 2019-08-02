@@ -1,7 +1,8 @@
 $(document).ready(function(){
     console.log('test')
-    counter = 1
+    counter = 0
     $('.add-card a').click(function(){
+        counter++
         const cardElementDiv = document.createElement("div")
         cardElementDiv.className = "card-element"
 
@@ -66,14 +67,14 @@ $(document).ready(function(){
         cardElementDiv.append(cardsDiv)
 
         $('#card-container').prepend(cardElementDiv)
-
+        
         removeCard.onclick = function(){
-            counter--
             cardElementDiv.remove()
+            counter--
+            console.log(counter)
+            checkCardLabels(counter)
         }
         
-        checkCardLabels(counter)
-        counter++
         return false;
     })
 
