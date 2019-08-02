@@ -48,13 +48,9 @@ userSchema.statics.createAccount = function (name, username, password, callback)
 
 // find a user if unique
 userSchema.statics.getAccount = async (username, password, callback) => {
-     return await User.findOne({
+    return await User.findOne({
         username,
         password
-    }, (err, doc)=>{
-        if(err){
-            console.log("Error")
-        } 
     })
 }
 

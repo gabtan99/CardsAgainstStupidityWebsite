@@ -41,17 +41,11 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
 }
 
 // find a quiz
-quizSchema.statics.findQuiz = function (title, author, subject, callback){
-    Quiz.findMany({
+quizSchema.statics.findQuiz = async (title, author, subject, callback) => {
+    return await Quiz.findMany({
         title, 
         author, 
         subject
-    }, (err, doc)=>{
-        if(err){
-            console.log("ERROR! Quiz Not Found")
-        } else {
-            return doc
-        }
     })
 }
 
