@@ -31,7 +31,7 @@ router.get("/create_quiz1", (req, res) => {
     res.render("createQuiz1.hbs")
 })
 
-router.get("/quiz2info", urlencoder, (req, res) => {
+router.get("/sendquiz1info", urlencoder, (req, res) => {
     var title = req.body.title
     var subject = req.body.subject
     var description = req.body.description
