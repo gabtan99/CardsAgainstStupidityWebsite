@@ -44,10 +44,7 @@ $(document).ready(function(){
         parWhite.innerHTML = "Cards Against Stupidity"
         ///////////////
         
-        removeCard.onclick = function(){
-            cardElementDiv.remove()
-            counter--
-        }
+        
 
 
         footerBlack.append(parBlack)
@@ -70,8 +67,21 @@ $(document).ready(function(){
 
         $('#card-container').prepend(cardElementDiv)
 
-
+        removeCard.onclick = function(){
+            counter--
+            cardElementDiv.remove()
+        }
+        
+        checkCardLabels(counter)
         counter++
         return false;
     })
+
+    function checkCardLabels(counter){
+        counterTemp = counter
+        $(".card-element").each(function(){
+            $(this).children(".card-header").children("#card-label").html("Flashcard "+counterTemp)
+            counterTemp--
+        })
+    }
 })
