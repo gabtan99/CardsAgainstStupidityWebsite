@@ -21,6 +21,18 @@ const quizSchema = new Schema({
 
 const Quiz = mongoose.model("Quiz", quizSchema)
 
+
+
+// create a quiz
+
+// find a quiz
+
+// edit a quiz
+
+// delete a quiz
+
+
+
 module.exports = {
     Quiz
 }

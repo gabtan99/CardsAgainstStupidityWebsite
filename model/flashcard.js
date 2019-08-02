@@ -8,6 +8,25 @@ const flashcardSchema = new Schema({
 
 const Flashcard = mongoose.model("Flashcard", flashcardSchema)
 
+
+
+// create a flashcard
+
+// create many flashcards
+
+// find a flashcard
+
+// delete a flashcard
+
+// edit a flashcard
+
+//d delete many flashcards
+
+
+// ? update many flashcards
+
+
+
 module.exports = {
     Flashcard
 }

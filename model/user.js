@@ -27,6 +27,16 @@ userSchema.plugin(uniqueValidator)
 
 const User = mongoose.model("User", userSchema)
 
+// create a user
+
+
+
+
+// find a user if unique
+
+// update user details
+
+
 module.exports = {
     User
 }
