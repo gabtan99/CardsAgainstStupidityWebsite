@@ -43,7 +43,7 @@ flashcardSchema.statics.deleteFlashCard = function(id){
         _id: id
     }, (err, doc)=>{
         if(err){
-            res.send(err)
+            return false
         }else{
             //res.redirect("/users")
             console.log(doc)
