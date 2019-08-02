@@ -95,6 +95,7 @@ app.get("/search", (req, res) => {
 })
 
 app.get("/search-keyword", urlencoder, async (req, res) => {
+
     var keyword = req.query.keyword
 
     let results = await Quiz.searchQuiz(keyword)
@@ -105,7 +106,6 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
 app.get("/about", (req, res) => {
     res.render("about.hbs")
 })
-
 
 
 

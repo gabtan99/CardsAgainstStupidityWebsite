@@ -25,7 +25,6 @@ const quizSchema = new Schema({
 
 })
 
-// create a quiz
 quizSchema.statics.createQuiz = function (title, author, subject, description, public, deck, callback) {
 
     var quiz = new Quiz({
@@ -40,21 +39,19 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
     quiz.save()
 }
 
-// find a quiz
 quizSchema.statics.findQuiz = async function (id, callback) {
     return await Quiz.findOne({
         _id: id
     })
 }
 
-//find quizzes
 quizSchema.statics.findQuizzes = async function (id, callback) {
     return await Quiz.find({
         _id: id
     })
 }
 
-// search a quiz
+
 quizSchema.statics.searchQuiz = async function (keyword, callback) {
 
     return await Quiz.find({
@@ -82,7 +79,7 @@ quizSchema.statics.searchQuiz = async function (keyword, callback) {
 
 }
 
-// edit a quiz
+
 quizSchema.statics.updateQuiz = function (id, title, author, subject, description, public, callback) {
     Quiz.updateOne({
         _id: id
@@ -101,7 +98,6 @@ quizSchema.statics.updateQuiz = function (id, title, author, subject, descriptio
     })
 }
 
-// delete a quiz
 quizSchema.statics.deleteQuiz = function (id, callback) {
     Quiz.deleteOne({
         _id: id

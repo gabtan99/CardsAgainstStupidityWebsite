@@ -15,7 +15,6 @@ const flashcardSchema = new Schema({
     answer: String
 })
 
-// create a flashcard
 
 flashcardSchema.statics.createFlashcard = function (question, answer, callback) {
 
@@ -27,23 +26,19 @@ flashcardSchema.statics.createFlashcard = function (question, answer, callback) 
     flashcard.save()
 }
 
-// create many flashcards
-
-// find a flashcard
 flashcardSchema.statics.findFlashCard = async (id, callback) => {
     return await Flashcard.findOne({
         _id: id
     })
 }
 
-// delete a flashcard
-flashcardSchema.statics.deleteFlashCard = function(id, callback){
+flashcardSchema.statics.deleteOneFlashCard = function (id, callback) {
     Flashcard.deleteOne({
         _id: id
-    }, (err, doc)=>{
-        if(err){
+    }, (err, doc) => {
+        if (err) {
             return false
-        }else{
+        } else {
             //res.redirect("/users")
             console.log(doc)
             return true
@@ -51,14 +46,13 @@ flashcardSchema.statics.deleteFlashCard = function(id, callback){
     })
 }
 
-// delete flashcards
-flashcardSchema.statics.deleteFlashCards = function(id, callback){
+flashcardSchema.statics.deleteFlashCards = function (id, callback) {
     Flashcard.delete({
         _id: id
-    }, (err, doc)=>{
-        if(err){
+    }, (err, doc) => {
+        if (err) {
             return false
-        }else{
+        } else {
             //res.redirect("/users")
             console.log(doc)
             return true
@@ -66,25 +60,20 @@ flashcardSchema.statics.deleteFlashCards = function(id, callback){
     })
 }
 
-// edit a flashcard
-flashcardSchema.statics.editFlashCard = function(id){
+flashcardSchema.statics.editFlashCard = function (id) {
     Flashcard.updateOne({
         _id: id
     }, {
         question: String,
         answer: String
-    }, (err, doc)=>{
-        if(err){
+    }, (err, doc) => {
+        if (err) {
             return false
-        }else{
+        } else {
             return doc
         }
     })
 }
-//d delete many flashcards
-
-
-// ? update many flashcards
 
 const Flashcard = mongoose.model("Flashcard", flashcardSchema, 'flashcards')
 

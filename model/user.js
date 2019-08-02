@@ -32,7 +32,6 @@ var userSchema = new Schema({
 
 userSchema.plugin(uniqueValidator)
 
-// create a user
 userSchema.statics.createAccount = function (name, username, password, callback) {
 
     var user = new User({
@@ -46,7 +45,6 @@ userSchema.statics.createAccount = function (name, username, password, callback)
     user.save()
 }
 
-// find a user if unique
 userSchema.statics.getAccount = async (username, password, callback) => {
     return await User.findOne({
         username,
@@ -54,7 +52,22 @@ userSchema.statics.getAccount = async (username, password, callback) => {
     })
 }
 
-// update user details
+userSchema.statics.addQuizToPinned = function (quiz_id, user_id, callback) {
+    User.updateOne({
+        _id: user_id
+    }, {
+        $push: {
+            pinnedQuizzes: quiz_id
+        }
+    }, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log("pinned quiz")
+        }
+    })
+}
+
 
 userSchema.statics.updateUser = function (id, name, username, password, callback) {
     User.updateOne({
