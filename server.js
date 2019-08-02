@@ -4,6 +4,8 @@ const hbs = require("hbs")
 const session = require("express-session")
 const cookieparser = require("cookie-parser")
 
+
+
 const {
     User
 } = require("./model/user.js")
@@ -102,30 +104,6 @@ app.listen(3000, function () {
 
 /*
 
-Code for MP3
-
-
-
-
-
-
-
-
-    //inside the registration function
-
-    let user = new User({
-        name,
-        username,
-        password
-    })
-
-
-    user.save().then((doc) => {
-        console.log(doc)
-        res.redirect("/")
-    }, (err) => {
-        res.send(err)
-    })
 
 
 

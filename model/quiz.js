@@ -26,11 +26,22 @@ const quizSchema = new Schema({
 })
 
 
-const Quiz = mongoose.model("Quiz", quizSchema, 'quizzes')
+
 
 
 
 // create a quiz
+
+quizSchema.statics.createQuiz = function (title, author, subject, description, public, deck, callback) {
+    Quiz.collection.insertOne({
+        title,
+        author,
+        subject,
+        description,
+        public,
+        deck
+    })
+}
 
 // find a quiz
 
@@ -38,7 +49,7 @@ const Quiz = mongoose.model("Quiz", quizSchema, 'quizzes')
 
 // delete a quiz
 
-
+const Quiz = mongoose.model("Quiz", quizSchema, 'quizzes')
 
 module.exports = {
     Quiz

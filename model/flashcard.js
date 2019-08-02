@@ -15,7 +15,7 @@ const flashcardSchema = new Schema({
     answer: String
 })
 
-const Flashcard = mongoose.model("Flashcard", flashcardSchema, 'flashcards')
+
 
 
 // create a flashcard
@@ -33,7 +33,7 @@ const Flashcard = mongoose.model("Flashcard", flashcardSchema, 'flashcards')
 
 // ? update many flashcards
 
-
+const Flashcard = mongoose.model("Flashcard", flashcardSchema, 'flashcards')
 
 module.exports = {
     Flashcard
