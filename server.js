@@ -56,6 +56,11 @@ app.get("/logout", (req, res) => {
 })
 
 app.post("/createAccount", urlencoder, (req, res) => {
+    let name = req.body.name
+    let username = req.body.username
+    let password = req.body.password
+    //User.createAccount(name, username, password)
+
     res.render("home-user.hbs")
 })
 
