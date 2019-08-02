@@ -62,22 +62,31 @@ app.post("/createAccount", urlencoder, (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
-    User.createAccount(name, username, password)
+    //User.createAccount(name, username, password)
 
     res.redirect("home")
 })
 
 
-app.post("/loginuser", urlencoder, (req, res) => {
+app.post("/loginuser", urlencoder, async (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
+    let user = await User.getAccount(username, password)
+    if(user == null){
+        console.log("Error")
+    } else{
+        console.log(user)
+    }
+
+    /*
     if (username == "admin" && password == "1234") {
         res.redirect("home")
     } else {
         console.log("incorrect login")
         res.sendFile(__dirname + "/public/home-guest.html")
     }
+    */
 })
 
 app.get("/home", (req, res) => {
