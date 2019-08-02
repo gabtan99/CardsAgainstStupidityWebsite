@@ -30,6 +30,17 @@ flashcardSchema.statics.createFlashcard = function (question, answer, callback) 
 // create many flashcards
 
 // find a flashcard
+flashcardSchema.statics.findFlashCard = function (id, callback){
+    Flashcard.findMany({
+        _id: id
+    }, (err, doc)=>{
+        if(err){
+            console.log("ERROR! Flashcard Not Found")
+        } else {
+            return doc
+        }
+    })
+}
 
 // delete a flashcard
 flashcardSchema.statics.deleteFlashCard = function(id){
