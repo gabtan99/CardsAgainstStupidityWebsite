@@ -52,22 +52,17 @@ $(document).ready(function(){
                     pinButton.id = "pinBtn"
                     pinButton.className = "searchResult-Btns"
 
-                        
                     const pinImage = document.createElement("img")
                     pinImage.id = "pinIcon"
                     pinImage.src = "../assets/pin.png"
-                    const pinImageContainer = document.createElement("span")
+                    pinImage.className = "pinIconPos"
 
-                    pinImageContainer.append(pinImage)
+                    pinButton.append(pinImage)
 
-                    const pinParagraph = document.createElement("p")
-                    pinParagraph.innerHTML= "Pin Quiz"
+                    const pinTag = document.createElement("div")
+                    pinTag.innerHTML = "Pin Quiz"
 
-                    pinImageContainer.appendChild(pinParagraph)
-
-                    pinButton.append(pinImageContainer)
-
-                    //pinButton.innerHTML = "Pin Quiz"
+                    pinButton.append(pinTag)
 
                     const nextLine = document.createElement("br")
 
