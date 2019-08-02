@@ -32,23 +32,7 @@ var userSchema = new Schema({
 
 userSchema.plugin(uniqueValidator)
 
-//check if user exists
-userSchema.statics.checkAccount = function (username, password, callback){
-    User.findOne({
-        username,
-        password
-    }, (err, doc)=>{
-        if(err){
-            return false
-        } else {
-            return true
-        }
-    })
-}
-
-
 // create a user
-
 userSchema.statics.createAccount = function (name, username, password, callback) {
 
     User.collection.insert({
@@ -59,11 +43,21 @@ userSchema.statics.createAccount = function (name, username, password, callback)
     })
 }
 
-
 // find a user if unique
+userSchema.statics.checkAccount = function (username, password, callback){
+    User.findOne({
+        username,
+        password
+    }, (err, doc)=>{
+        if(err){
+            return false
+        } else {
+            return doc
+        }
+    })
+}
 
 // update user details
-
 userSchema.statics.updateUser = function(id, name, username, password){
     User.updateOne({
         _id: id
@@ -81,7 +75,6 @@ userSchema.statics.updateUser = function(id, name, username, password){
 }
 
 const User = mongoose.model("User", userSchema, 'users')
-
 
 module.exports = {
     User
