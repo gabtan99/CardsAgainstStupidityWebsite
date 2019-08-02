@@ -42,12 +42,30 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
 
 // find a quiz
 quizSchema.statics.searchQuiz = async function (keyword, callback) {
+
     return await Quiz.find({
-        title: {
-            $regex: keyword,
-            $options: "$i"
-        }
+        '$or': [{
+                title: {
+                    $regex: keyword,
+                    $options: "$i"
+                }
+            },
+            {
+                subject: {
+                    $regex: keyword,
+                    $options: "$i"
+                }
+            }, {
+                description: {
+                    $regex: keyword,
+                    $options: "$i"
+                }
+            }
+        ]
+
+
     })
+
 }
 
 // edit a quiz
