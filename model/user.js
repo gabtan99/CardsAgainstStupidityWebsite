@@ -62,7 +62,7 @@ userSchema.statics.updateUser = function(id, name, username, password){
         if(err){
             return false
         }else{
-            return true
+            return doc
         }
     })
 }
