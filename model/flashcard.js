@@ -31,14 +31,13 @@ flashcardSchema.statics.createFlashcard = function (question, answer, callback) 
 
 // find a flashcard
 flashcardSchema.statics.findFlashCard = async (id, callback) => {
-    return await Flashcard.findMany({
+    return await Flashcard.findOne({
         _id: id
     })
 }
 
 // delete a flashcard
-flashcardSchema.statics.deleteFlashCard = function(id){
-    console.log("POST /delete " + req.body.id)
+flashcardSchema.statics.deleteFlashCard = function(id, callback){
     Flashcard.deleteOne({
         _id: id
     }, (err, doc)=>{
@@ -51,6 +50,22 @@ flashcardSchema.statics.deleteFlashCard = function(id){
         }
     })
 }
+
+// delete flashcards
+flashcardSchema.statics.deleteFlashCards = function(id, callback){
+    Flashcard.delete({
+        _id: id
+    }, (err, doc)=>{
+        if(err){
+            return false
+        }else{
+            //res.redirect("/users")
+            console.log(doc)
+            return true
+        }
+    })
+}
+
 // edit a flashcard
 flashcardSchema.statics.editFlashCard = function(id){
     Flashcard.updateOne({

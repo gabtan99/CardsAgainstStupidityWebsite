@@ -41,6 +41,20 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
 }
 
 // find a quiz
+quizSchema.statics.findQuiz = async function (id, callback) {
+    return await Quiz.findOne({
+        _id: id
+    })
+}
+
+//find quizzes
+quizSchema.statics.findQuizzes = async function (id, callback) {
+    return await Quiz.find({
+        _id: id
+    })
+}
+
+// search a quiz
 quizSchema.statics.searchQuiz = async function (keyword, callback) {
     return await Quiz.find({
         title: {
