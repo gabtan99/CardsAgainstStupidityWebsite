@@ -32,6 +32,19 @@ var userSchema = new Schema({
 
 userSchema.plugin(uniqueValidator)
 
+//check if user exists
+userSchema.statics.checkAccount = function (username, password, callback){
+    User.findOne({
+        username,
+        password
+    }, (err, doc)=>{
+        if(err){
+            return false
+        } else {
+            return true
+        }
+    })
+}
 
 
 // create a user

@@ -65,7 +65,6 @@ app.post("/loginuser", urlencoder, (req, res) => {
     let password = req.body.password
 
     if (username == "admin" && password == "1234") {
-
         res.redirect("home")
     } else {
         console.log("incorrect login")
