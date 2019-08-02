@@ -15,9 +15,6 @@ const flashcardSchema = new Schema({
     answer: String
 })
 
-
-
-
 // create a flashcard
 
 flashcardSchema.statics.createFlashcard = function (question, answer, callback) {
