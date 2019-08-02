@@ -41,22 +41,14 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
 }
 
 // find a quiz
-quizSchema.statics.findQuiz = function (title, author, subject, callback){
-    Quiz.findMany({
-        title, 
-        author, 
-        subject
-    }, (err, doc)=>{
-        if(err){
-            console.log("ERROR! Quiz Not Found")
-        } else {
-            return doc
-        }
+quizSchema.statics.searchQuiz = async function (keyword, callback) {
+    return await Quiz.find({
+        title: /.* keyword .*/i
     })
 }
 
 // edit a quiz
-quizSchema.statics.updateQuiz = function(id, title, author, subject, description, public, callback){
+quizSchema.statics.updateQuiz = function (id, title, author, subject, description, public, callback) {
     Quiz.updateOne({
         _id: id
     }, {
@@ -65,24 +57,24 @@ quizSchema.statics.updateQuiz = function(id, title, author, subject, description
         subject: subject,
         description: description,
         public: public
-    }, (err, doc)=>{
-        if(err){
+    }, (err, doc) => {
+        if (err) {
             console.log("ERROR! Edit Quiz Failed")
-        }else{
+        } else {
             return doc
         }
     })
 }
 
 // delete a quiz
-quizSchema.statics.deleteQuiz = function(id, callback){
+quizSchema.statics.deleteQuiz = function (id, callback) {
     Quiz.deleteOne({
         _id: id
-    }, (err, doc)=>{
-        if(err){
+    }, (err, doc) => {
+        if (err) {
             console.log("ERROR! Delete Quiz Failed")
             return false
-        }else{
+        } else {
             return true
         }
     })
