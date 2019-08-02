@@ -30,15 +30,9 @@ flashcardSchema.statics.createFlashcard = function (question, answer, callback) 
 // create many flashcards
 
 // find a flashcard
-flashcardSchema.statics.findFlashCard = function (id, callback){
-    Flashcard.findMany({
+flashcardSchema.statics.findFlashCard = async (id, callback) => {
+    return await Flashcard.findMany({
         _id: id
-    }, (err, doc)=>{
-        if(err){
-            console.log("ERROR! Flashcard Not Found")
-        } else {
-            return doc
-        }
     })
 }
 
@@ -49,7 +43,7 @@ flashcardSchema.statics.deleteFlashCard = function(id){
         _id: id
     }, (err, doc)=>{
         if(err){
-            res.send(err)
+            return false
         }else{
             //res.redirect("/users")
             console.log(doc)
