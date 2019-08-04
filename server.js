@@ -54,14 +54,14 @@ app.get("/logout", (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
 })
 
-app.post("/createAccount", urlencoder, (req, res) => {
-    let name = req.body.name
+app.post("/createAccount", urlencoder, async (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
-    //User.createAccount(name, username, password)
 
-    res.redirect("home")
+    let user = await User.createAccount(username, password, res)
+
+    // res.redirect("home")
 })
 
 
@@ -69,23 +69,19 @@ app.post("/loginuser", urlencoder, async (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
-    /*
-    let user = await User.getAccount(username, password)
-    if (user == null) {
-        console.log("Error")
-    } else {
-        console.log(user)
-    }
-    */
 
-    
+    // let user = await User.loginUser(username, password, res)
+
+
+
     if (username == "admin" && password == "1234") {
         res.redirect("home")
     } else {
         console.log("incorrect login")
         res.sendFile(__dirname + "/public/home-guest.html")
     }
-    
+
+
 })
 
 app.get("/home", (req, res) => {
