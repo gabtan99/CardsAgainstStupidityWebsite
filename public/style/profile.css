@@ -1,8 +1,8 @@
-#edit-button{
+#edit-button {
     width: 88px;
     height: 54px;
     background-color: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin-right: 40px;
     font-family: "Helvetica Neue";
@@ -11,7 +11,7 @@
     color: black;
 }
 
-#edit-button-text{
+#edit-button-text {
     font-family: "Helvetica Neue";
     font-size: 24px;
     font-weight: 700;
@@ -19,15 +19,15 @@
     margin: 12px 0 0 19px;
 }
 
-#logout-button{
+#logout-button {
     width: 112px;
     height: 54px;
     background-color: #000;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
 
-#logout-button-text{
+#logout-button-text {
     color: #fff;
     font-family: "Helvetica Neue";
     font-size: 24px;
@@ -35,13 +35,13 @@
     margin: 12px 0 0 15px;
 }
 
-.profile-buttons{
+.profile-buttons {
     display: flex;
     margin-top: 73px;
     justify-content: center
 }
 
-#avatar{
+#avatar {
     background-image: url("/assets/avatar.png");
     height: 99px;
     width: 77.14px;
@@ -49,15 +49,15 @@
     margin-top: 127px;
 }
 
-.profile-contents{
-    margin-top: 150px;  
+.profile-contents {
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#introduction{
+#introduction {
     height: 42px;
     width: 378px;
     color: #000;
@@ -66,9 +66,9 @@
     font-weight: 700;
     line-height: 42px;
     margin-left: 20px;
-  }
+}
 
-#name{
+#name {
     height: 42px;
     width: 209px;
     color: #000;
@@ -78,9 +78,10 @@
     letter-spacing: NaNpx;
     line-height: 42px;
     margin-top: 27px;
-  }
+    text-align: center;
+}
 
-#username{
+#username {
     height: 28px;
     width: 97px;
     color: #787878;
@@ -90,7 +91,7 @@
     letter-spacing: NaNpx;
     line-height: 28px;
     margin-top: 7px;
-  }
+}
 
 button:focus,
 input:focus,
@@ -99,7 +100,7 @@ select:focus {
     outline: none;
 }
 
-a:hover{
+a:hover {
     transform: scale(1.1);
     cursor: pointer;
 }

@@ -57,11 +57,12 @@ app.get("/logout", (req, res) => {
 app.post("/createAccount", urlencoder, async (req, res) => {
     let username = req.body.username
     let password = req.body.password
+    let confirm = req.body.confirm
 
 
-    let user = await User.createAccount(username, password, res)
+    //let user = await User.createAccount(username, password, res)
 
-    // res.redirect("home")
+    res.redirect("home")
 })
 
 
@@ -69,9 +70,7 @@ app.post("/loginuser", urlencoder, async (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
-
     // let user = await User.loginUser(username, password, res)
-
 
 
     if (username == "admin" && password == "1234") {
@@ -80,7 +79,6 @@ app.post("/loginuser", urlencoder, async (req, res) => {
         console.log("incorrect login")
         res.sendFile(__dirname + "/public/home-guest.html")
     }
-
 
 })
 
