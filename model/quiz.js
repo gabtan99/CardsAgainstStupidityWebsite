@@ -36,25 +36,21 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
         deck
     })
 
-    quiz.save()
+    quiz.save(callback)
 }
 
 quizSchema.statics.findQuiz = async function (id, callback) {
-    return await Quiz.findOne({
-        _id: id
-    })
+
 }
 
 quizSchema.statics.findQuizzes = async function (id, callback) {
-    return await Quiz.find({
-        _id: id
-    })
+
 }
 
 
-quizSchema.statics.searchQuiz = async function (keyword, callback) {
+quizSchema.statics.searchQuiz = function (keyword, callback) {
 
-    return await Quiz.find({
+    Quiz.find({
         '$or': [{
                 title: {
                     $regex: keyword,
@@ -75,7 +71,7 @@ quizSchema.statics.searchQuiz = async function (keyword, callback) {
         ]
 
 
-    })
+    }, callback)
 
 }
 
@@ -89,26 +85,13 @@ quizSchema.statics.updateQuiz = function (id, title, author, subject, descriptio
         subject: subject,
         description: description,
         public: public
-    }, (err, doc) => {
-        if (err) {
-            console.log("ERROR! Edit Quiz Failed")
-        } else {
-            return doc
-        }
-    })
+    }, callback)
 }
 
 quizSchema.statics.deleteQuiz = function (id, callback) {
     Quiz.deleteOne({
         _id: id
-    }, (err, doc) => {
-        if (err) {
-            console.log("ERROR! Delete Quiz Failed")
-            return false
-        } else {
-            return true
-        }
-    })
+    }, callback)
 }
 
 quizSchema.statics.addFlashcardToDeck = function (flashcard_id, quiz_id, callback) {
@@ -118,13 +101,7 @@ quizSchema.statics.addFlashcardToDeck = function (flashcard_id, quiz_id, callbac
         $push: {
             deck: flashcard_id
         }
-    }, (err, doc) => {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log("added flashcard to quiz")
-        }
-    })
+    }, callback)
 }
 
 const Quiz = mongoose.model("Quiz", quizSchema, 'quizzes')

@@ -1,13 +1,5 @@
 const mongoose = require("mongoose")
 
-
-const uri = "mongodb://localhost:27017/cardsagainststupidity"
-mongoose.Promise = global.Promise
-mongoose.connect(uri, {
-    useCreateIndex: true,
-    useNewUrlParser: true
-})
-
 const Schema = mongoose.Schema;
 
 const flashcardSchema = new Schema({
@@ -24,59 +16,35 @@ flashcardSchema.statics.createFlashcard = function (quiz_id, question, answer, c
         answer
     })
 
-    flashcard.save()
+    flashcard.save(callback)
 }
 
 flashcardSchema.statics.findFlashCard = async (id, callback) => {
-    return await Flashcard.findOne({
-        _id: id
-    })
+
 }
 
 flashcardSchema.statics.deleteOneFlashCard = function (id, callback) {
     Flashcard.deleteOne({
         _id: id
-    }, (err, doc) => {
-        if (err) {
-            return false
-        } else {
-            //res.redirect("/users")
-            console.log(doc)
-            return true
-        }
-    })
+    }, callback)
 }
 
 flashcardSchema.statics.deleteFlashCards = function (id, callback) {
     Flashcard.delete({
         _id: id
-    }, (err, doc) => {
-        if (err) {
-            return false
-        } else {
-            //res.redirect("/users")
-            console.log(doc)
-            return true
-        }
-    })
+    }, callback)
 }
 
-flashcardSchema.statics.editFlashCard = function (id, question, answer) {
+flashcardSchema.statics.editFlashCard = function (id, question, answer, callback) {
     Flashcard.updateOne({
         _id: id
     }, {
         question,
         answer
-    }, (err, doc) => {
-        if (err) {
-            return false
-        } else {
-            return doc
-        }
-    })
+    }, callback)
 }
 
-const Flashcard = mongoose.model("Flashcard", flashcardSchema, 'flashcards')
+const Flashcard = mongoose.model("Flashcard", flashcardSchema)
 
 module.exports = {
     Flashcard

@@ -55,26 +55,9 @@ userSchema.statics.createAccount = function (username, password, res, callback) 
     user.setPassword(password);
 
     // save newUser object to database 
-    user.save((err, doc) => {
-        if (err) {
-            return res.status(400).send({
-                message: "Failed to add user."
-            });
-        } else {
-            return res.status(201).send({
-                message: "User added succesfully."
-            });
-        }
-    });
-
+    user.save(callback)
 }
 
-userSchema.statics.getAccount = async (username, password, callback) => {
-    return await User.findOne({
-        username,
-        password
-    })
-}
 
 userSchema.statics.loginUser = function (username, password, res, callback) {
     // find user with requested email 
@@ -103,37 +86,24 @@ userSchema.statics.loginUser = function (username, password, res, callback) {
     });
 }
 
-userSchema.statics.addQuizToPinned = function (quiz_id, user_id, callback) {
+userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
     User.updateOne({
         _id: user_id
     }, {
         $push: {
             pinnedQuizzes: quiz_id
         }
-    }, (err, doc) => {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log("pinned quiz")
-        }
-    })
+    }, callback)
 }
 
 
-userSchema.statics.updateUser = function (id, name, username, password, callback) {
+userSchema.statics.updateUser = function (id, username, password, callback) {
     User.updateOne({
         _id: id
     }, {
-        name: name,
         username: username,
         password: password
-    }, (err, doc) => {
-        if (err) {
-            return false
-        } else {
-            return doc
-        }
-    })
+    }, callback)
 }
 
 userSchema.plugin(uniqueValidator)
