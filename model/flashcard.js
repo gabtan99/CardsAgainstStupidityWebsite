@@ -11,10 +11,6 @@ mongoose.connect(uri, {
 const Schema = mongoose.Schema;
 
 const flashcardSchema = new Schema({
-    quiz_id: {
-        type: Schema.Types.ObjectId,
-        ref: 'Quiz'
-    },
     question: String,
     answer: String
 })
