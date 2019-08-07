@@ -21,16 +21,16 @@ body {
     font-family: "Helvetica Neue";
 }
 
-.navigation a{
+.navigation a {
     text-decoration: underline;
 }
 
-#back-nav{
+#back-nav {
     font-weight: 700;
     color: #757575
 }
 
-a:hover{
+a:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -146,7 +146,7 @@ input::placeholder {
 }
 
 /*actual button*/
-#submitBtn { 
+#submitBtn {
     width: 132px;
     height: 54px;
     margin-top: 24px;
@@ -372,14 +372,14 @@ input[type="radio"] {
     width: 100%;
 }
 
-#createQuiz{
+#createQuiz {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     margin-bottom: 60px;
 }
 
-#createQ{
+#createQ {
     justify-content: center;
     text-align: center;
     width: 170px;
@@ -387,12 +387,13 @@ input[type="radio"] {
     margin-right: 10px;
 }
 
-#createQuiz a{
+#createQuiz a {
     color: black;
 }
 
 /***************************************   QUIZZES CCS     **************************************** */
-#myQuizContainer, #pinnedQuizContainer{
+#myQuizContainer,
+#pinnedQuizContainer {
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -400,20 +401,20 @@ input[type="radio"] {
     flex-direction: column;
 }
 
-.mypinLabels{
+.mypinLabels {
     font-size: 23px;
     width: 100%;
     padding-left: 90px;
 }
 
 /***************************************   EDIT PROFILE CCS     **************************************** */
-.editProfileLabels{
+.editProfileLabels {
     font-size: 16px;
     height: 35px;
     width: 100%;
 }
 
-#editProfileCancel{
+#editProfileCancel {
     width: 132px;
     height: 54px;
     margin-top: 24px;
@@ -432,19 +433,19 @@ input[type="radio"] {
     margin-right: 20px;
 }
 
-#editProfileContainer{
+#editProfileContainer {
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-#editProfileButtonContainer{
+#editProfileButtonContainer {
     margin-top: 5px;
     margin-bottom: 40px;
     display: flex;
     flex-direction: row;
 }
 
-.editProfileInput{
+.editProfileInput {
     width: 433px;
     color: #000;
     font-family: "Helvetica Neue";
@@ -462,30 +463,31 @@ input[type="radio"] {
 
 /**submit button animations**/
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     transform: scale(1.1)
 }
+
 /***************************************  PRESTART CCS     **************************************** */
 
-.prestartContainer{
+.prestartContainer {
     margin-top: 175px;
 }
 
-.prestartForm{
+.prestartForm {
     height: 410px;
 }
 
-.prestartDescrip{
+.prestartDescrip {
     margin-top: 30px;
 }
 
-#middlePrestart{
+#middlePrestart {
     margin-top: 50px;
     justify-content: center;
     text-align: center;
 }
 
-.centerContentPrestart{
+.centerContentPrestart {
     justify-content: center;
     font-size: 18px;
     color: #787878;
@@ -493,14 +495,14 @@ input[type="submit"]:hover{
     font-weight: 700;
 }
 
-.prestartBtnContainer{
+.prestartBtnContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.prestartBtns{
+.prestartBtns {
     margin: 20px;
 }
 
@@ -524,12 +526,12 @@ input[type="submit"]:hover{
     margin-bottom: 10px;
 }
 
-#clockIcon{
+#clockIcon {
     height: 24px;
     width: 24px;
 }
 
-#clockContainer{
+#clockContainer {
     display: flex;
     height: 24px;
     width: 24px;
@@ -537,29 +539,32 @@ input[type="submit"]:hover{
     margin-top: 5px;
 }
 
-#optionsContainer{
+#optionsContainer {
     display: flex;
 }
 
-#mid-botContainer{
+#mid-botContainer {
     display: flex;
     justify-content: center;
     margin-top: 70px;
+    font-size: 16px;
+    font-family: "Helvetica Neue";
+    font-weight: 700;
 }
 
-.flashcrd{
+.flashcrd {
     color: #000;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.resultsPageTitle{
+.resultsPageTitle {
     margin-top: 150px;
 }
 
-.resultsContainer{
+.resultsContainer {
     margin-top: 110px;
     width: 532px;
     justify-content: center;
@@ -568,25 +573,25 @@ a{
     flex-direction: column;
 }
 
-.resultLabels{
+.resultLabels {
     font-size: 25px;
     margin: 15px;
 }
 
-.resultForm{
+.resultForm {
     height: 320px;
     margin-top: -155px;
 }
 
-.resultBtnGang{
+.resultBtnGang {
     margin-top: 50px;
 }
 
-.resultScore{
+.resultScore {
     font-size: 40px;
 }
 
-.resultEndBtn{
+.resultEndBtn {
     color: #000;
     background-color: #FFF;
 }
