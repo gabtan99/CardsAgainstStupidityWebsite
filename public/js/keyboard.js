@@ -5,9 +5,9 @@ document.addEventListener('keyup', function (event) {
 
     var key = event.key || event.keyCode;
 
-    if (key === 'K') {
+    if (key === 'K' || key === 'k' || key === 'd') {
         knewAnswer();
-    } else if (key === 'G') {
+    } else if (key === 'G' || key === 'g' || key === 'a') {
         guessedAnswer();
     }
 });
