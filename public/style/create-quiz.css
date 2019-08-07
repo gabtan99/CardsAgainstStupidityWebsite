@@ -595,3 +595,28 @@ a {
     color: #000;
     background-color: #FFF;
 }
+
+.timerLabel{
+    color: #000;
+    margin-top: 6px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.cardTimer{
+    height: 25px;
+    width: 40px;
+    color: #000;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    letter-spacing: NaNpx;
+    line-height: 42px;
+    display: flex;
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    border-radius: 9px;
+    padding-left: 15px;
+}
