@@ -47,14 +47,18 @@ app.get("/login", (req, res) => {
 })
 
 app.get("/about-guest", (req, res) => {
-    res.sendFile(__dirname + "/public/about.html")
+    res.sendFile(__dirname + "/public/about-guest.html")
+})
+
+app.get("/search-guest", (req, res) => {
+    res.sendFile(__dirname + "/public/search-guest.html")
 })
 
 app.get("/logout", (req, res) => {
     res.sendFile(__dirname + "/public/login.html")
 })
 
-app.post("/createAccount", urlencoder, async (req, res) => {
+app.post("/createAccount", urlencoder, (req, res) => {
     let username = req.body.username
     let password = req.body.password
     let confirm = req.body.confirm
@@ -66,7 +70,7 @@ app.post("/createAccount", urlencoder, async (req, res) => {
 })
 
 
-app.post("/loginuser", urlencoder, async (req, res) => {
+app.post("/loginuser", urlencoder, (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
@@ -90,7 +94,7 @@ app.get("/search", (req, res) => {
     res.render("search.hbs")
 })
 
-app.get("/search-keyword", urlencoder, async (req, res) => {
+app.get("/search-keyword", urlencoder, (req, res) => {
 
     var keyword = req.query.keyword
 

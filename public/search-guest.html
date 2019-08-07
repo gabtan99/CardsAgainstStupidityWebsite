@@ -18,16 +18,15 @@
         </span>
 
         <span class="tab-list">
-            <a class="nav-tab" href="/home">Home</a>
-            <a class="nav-tab selected" href="/search">Search</a>
-            <a class="nav-tab" href="/quiz">Quiz</a>
-            <a class="nav-tab" href="/profile">Profile</a>
+            <a class="nav-tab" href="/">Home</a>
+            <a class="nav-tab" href="/search-guest">Search</a>
+            <a class="nav-tab" href="/login">Login</a>
         </span>
     </div>
 
     <div class="main-body">
 
-        <form id="SearchForm" action="/search-keyword">
+        <form id="SearchForm">
             <div id="pagetitle" class="title"> Search Quizzes </div>
             <div id="searchsubtitle" class="title"> Enter any keyword that describes what you're looking for</div>
 
@@ -36,7 +35,6 @@
         </form>
 
         <div id="searchResultContainer">
-            {{!-- 
             <div class="searchResult">
                 <div id="topResult">
                     <div class="searchResultTitle">Title</div>
@@ -51,19 +49,18 @@
                     </div>
 
                     <div id="buttonsResult">
-                        <a id="pinBtn" class="searchResult-Btns">
+                        <a id="pinBtn" class="searchResult-Btns" href="/register">
                             <span>
                                 <img id="pinIcon" src="../assets/pin.png">
                             </span>
                             Pin Quiz
                         </a>
                         <br>
-                        <a class="searchResult-Btns" href="/quiz/pre_start">Take Quiz</a>
+                        <a class="searchResult-Btns" href="/register">Take Quiz</a>
                     </div>
 
                 </div>
             </div>
-            --}}
         </div>
     </div>
 

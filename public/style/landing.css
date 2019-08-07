@@ -85,32 +85,32 @@
 .step-card {
     align-items: center;
     display: inline-flex;
-    padding: 40px 0px;
-    width: 682.8px;
+    padding: 60px 0px;
+    width: 800px;
     height: 428.8px;
+    justify-content: center;
 }
 
 .step-pic1 {
-    height: 388.8px;
-    width: 312.8px;
+    height: 466.56px;
+    width: 375.36px;
     margin-left: 50px;
 }
 
 .step-pic2 {
-    height: 452.8px;
-    width: 312.8px;
-
+    height: 543.36px;
+    width: 375.36px;
 }
 
 .step-pic3 {
-    height: 453.6px;
-    width: 329.6px;
+    height: 520.07px;
+    width: 375.36px;
     margin-left: 40px;
 }
 
 .step-pic4 {
-    height: 425.6px;
-    width: 350.4px;
+    height: 455.817px;
+    width: 375.36px;
 }
 
 .step-title {
@@ -146,4 +146,16 @@
 .main-instructions {
     text-align: center;
     justify-content: center;
+}
+
+#about {
+    font-family: "Helvetica Neue";
+    font-size: 22px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+}
+
+#aboutContainer {
+    padding: 60px;
 }
