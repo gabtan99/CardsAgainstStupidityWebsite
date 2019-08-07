@@ -107,8 +107,6 @@ app.get("/about", (req, res) => {
     res.render("about.hbs")
 })
 
-
-
 app.listen(3000, function () {
     console.log("port 3000 is live");
 })

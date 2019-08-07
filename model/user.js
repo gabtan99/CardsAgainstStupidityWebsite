@@ -61,7 +61,7 @@ userSchema.statics.createAccount = function (username, password, res, callback) 
 
 userSchema.statics.loginUser = function (username, password, res, callback) {
     // find user with requested email 
-    User.findOne({
+    this.findOne({
         username
     }, (err, doc) => {
         if (doc === null) {
@@ -87,7 +87,7 @@ userSchema.statics.loginUser = function (username, password, res, callback) {
 }
 
 userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
-    User.updateOne({
+    this.updateOne({
         _id: user_id
     }, {
         $push: {
@@ -98,7 +98,7 @@ userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
 
 
 userSchema.statics.updateUser = function (id, username, password, callback) {
-    User.updateOne({
+    this.updateOne({
         _id: id
     }, {
         username: username,

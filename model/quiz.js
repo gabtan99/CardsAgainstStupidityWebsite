@@ -50,7 +50,7 @@ quizSchema.statics.findQuizzes = async function (id, callback) {
 
 quizSchema.statics.searchQuiz = function (keyword, callback) {
 
-    Quiz.find({
+    this.find({
         '$or': [{
                 title: {
                     $regex: keyword,
@@ -77,7 +77,7 @@ quizSchema.statics.searchQuiz = function (keyword, callback) {
 
 
 quizSchema.statics.updateQuiz = function (id, title, author, subject, description, public, callback) {
-    Quiz.updateOne({
+    this.updateOne({
         _id: id
     }, {
         title: title,
@@ -89,13 +89,13 @@ quizSchema.statics.updateQuiz = function (id, title, author, subject, descriptio
 }
 
 quizSchema.statics.deleteQuiz = function (id, callback) {
-    Quiz.deleteOne({
+    this.deleteOne({
         _id: id
     }, callback)
 }
 
 quizSchema.statics.addFlashcardToDeck = function (flashcard_id, quiz_id, callback) {
-    Quiz.updateOne({
+    this.updateOne({
         _id: quiz_id
     }, {
         $push: {
