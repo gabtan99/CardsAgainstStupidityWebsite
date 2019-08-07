@@ -1,7 +1,15 @@
 $(document).ready(function(){
-    console.log('test')
+
     counter = 0
+
+    createCard()
+    
     $('.add-card a').click(function(){
+        createCard()
+        return false;
+    })
+
+    function createCard(){
         counter++
         const cardElementDiv = document.createElement("div")
         cardElementDiv.className = "card-element"
@@ -71,12 +79,10 @@ $(document).ready(function(){
         removeCard.onclick = function(){
             cardElementDiv.remove()
             counter--
-            console.log(counter)
             checkCardLabels(counter)
+            return false
         }
-        
-        return false;
-    })
+    }
 
     function checkCardLabels(counter){
         counterTemp = counter
