@@ -25,14 +25,16 @@ const {
 
 const app = express()
 
-
-app.use(express.static(__dirname + "/public"))
-app.set("view engine", "hbs")
-
 app.use('/profile', require('./routes/profileroute.js'));
 app.use('/quiz', require('./routes/quizroute.js'));
 
 
+app.use(express.static(__dirname + '/public'));
+app.set("view engine", "hbs")
+
+
+
+//////// GUEST STATIC ROUTES ///////////
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/home-guest.html")
@@ -54,6 +56,10 @@ app.get("/search-guest", (req, res) => {
     res.sendFile(__dirname + "/public/search-guest.html")
 })
 
+
+
+//////////// LOGGED-IN USER ROUTES ////////////////
+
 app.get("/logout", (req, res) => {
     res.sendFile(__dirname + "/public/user-login.html")
 })
@@ -67,6 +73,7 @@ app.post("/create-account", urlencoder, (req, res) => {
             res.send("Please select another username")
         } else {
             res.send("1")
+            // new user created
         }
     })
 })
@@ -83,6 +90,7 @@ app.post("/check-login", urlencoder, (req, res) => {
         } else {
             if (doc.validPassword(password)) {
                 res.send("1")
+                // user is logged in
             } else {
                 res.send("Username / Password does not match")
             }
@@ -91,6 +99,7 @@ app.post("/check-login", urlencoder, (req, res) => {
 })
 
 app.post("/check-username", urlencoder, (req, res) => {
+
     let username = req.body.username
 
     User.checkIfUsernameTaken(username, (err, doc) => {
@@ -115,9 +124,6 @@ app.get("/search-keyword", urlencoder, (req, res) => {
 
     var keyword = req.query.keyword
 
-    // let results = await Quiz.searchQuiz(keyword)
-
-    // console.log(results)
 })
 
 app.get("/about", (req, res) => {

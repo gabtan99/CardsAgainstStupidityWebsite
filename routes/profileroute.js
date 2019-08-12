@@ -9,6 +9,7 @@ const urlencoder = bodyparser.urlencoded({
 });
 
 
+
 const {
     User
 } = require("../model/user.js")
@@ -20,6 +21,8 @@ router.get("/", (req, res) => {
 router.get("/edit_profile", (req, res) => {
     res.render("edit-profile.hbs")
 })
+
+
 
 
 

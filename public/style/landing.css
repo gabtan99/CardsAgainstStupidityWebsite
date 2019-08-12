@@ -28,6 +28,13 @@
     line-height: 38px;
 }
 
+
+@media only screen and (max-width: 1110px) {
+    .bigcards {
+        display: none;
+    }
+}
+
 .bigcards {
     height: 501.6px;
     width: 434.79px;
@@ -154,6 +161,10 @@
     font-weight: 700;
     text-decoration: none;
     color: #000;
+}
+
+#about:hover {
+    font-size: 23px;
 }
 
 #aboutContainer {

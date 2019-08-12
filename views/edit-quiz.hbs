@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../style/navbar.css">
     <link rel="stylesheet" href="../style/create-quiz.css">
     <link rel="stylesheet" href="../style/edit-quiz.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/add-flash-cards.js"></script>
     <title>Edit Quiz</title>
 </head>
 
@@ -50,29 +52,35 @@
             <a href="" id="add-card-icon">+</a>
         </div>
 
-        <div class="card-element">
-            <div class="card-header">
-                <a href="" id="remove-card">
-                    <div id="cross-icon">+</div>
-                </a>
-                <div id="card-label">Flashcard 1</div>
-            </div>
-            <div class="cards">
-                <div class="black-card">
-                    <textarea type="text" placeholder="Enter Question Here"></textarea>
-                    <footer>
-                        <p>Cards Against Stupidity</p>
-                    </footer>
-                </div>
+        <div id="card-container">
 
-                <div class="white-card">
-                    <textarea type="text" placeholder="Enter Question Here"></textarea>
-                    <footer>
-                        <p>Cards Against Stupidity</p>
-                    </footer>
+            {{!--
+            <div class="card-element">
+                <div class="card-header">
+                    <a href="" id="remove-card">
+                        <div id="cross-icon">+</div>
+                    </a>
+                    <div id="card-label">Flashcard 1</div>
                 </div>
-            </div>
+                <div class="cards">
+                    <div class="black-card">
+                        <textarea type="text" placeholder="Enter Question Here"></textarea>
+                        <footer>
+                            <p>Cards Against Stupidity</p>
+                        </footer>
+                    </div>
+
+                    <div class="white-card">
+                        <textarea type="text" placeholder="Enter Question Here"></textarea>
+                        <footer>
+                            <p>Cards Against Stupidity</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>--}}
         </div>
+
+
 
         <div class="decision-button">
             <a href="/quiz" class="circle-button" id="cancel-button">

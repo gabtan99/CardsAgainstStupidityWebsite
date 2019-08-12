@@ -162,6 +162,7 @@ input::placeholder {
     justify-content: center;
     background-color: #000;
     color: #FFF;
+    cursor: pointer;
 }
 
 /*button container (sorry for the bad naming HAHA)*/
@@ -285,6 +286,7 @@ input::placeholder {
 #pinBtn {
     background-color: #FFF;
     color: #000;
+    border: solid 1px grey;
 }
 
 #pinIcon {
@@ -596,14 +598,14 @@ a {
     background-color: #FFF;
 }
 
-.timerLabel{
+.timerLabel {
     color: #000;
     margin-top: 6px;
     margin-right: 10px;
     margin-left: 10px;
 }
 
-.cardTimer{
+.cardTimer {
     height: 25px;
     width: 40px;
     color: #000;

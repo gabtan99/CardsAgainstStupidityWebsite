@@ -132,15 +132,16 @@ input[type="submit"]:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    color: #ff0000;
+    color: #e60000;
     font-family: "Helvetica Neue";
     font-size: 19px;
     font-weight: 700;
     padding: 7px 0px;
     border: solid 1px;
-    border-color: red;
-    background-color: #ff000037;
-
+    border-color: #e60000;
+    background-color: #ff4a4a15;
+    list-style-type: none;
+    border-radius: 9px;
 }
 
 .error-box {
