@@ -1,4 +1,5 @@
 $(document).ready(() => {
+    
     $("#submitBtn").click(() => {
 
         if ($("#usernamefield").val() === '') {

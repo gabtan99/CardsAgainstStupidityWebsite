@@ -26,6 +26,8 @@
     margin: 15px 0px;
 }
 
+
+
 .input-field {
     height: 45px;
     width: 500px;
@@ -33,6 +35,14 @@
     padding-left: 15px;
     font-family: "Helvetica Neue";
     display: flex;
+}
+
+.valid-input {
+    border: solid 2px green
+}
+
+.invalid-input {
+    border: solid 2px red
 }
 
 input::placeholder {
@@ -118,8 +128,9 @@ input[type="submit"]:hover {
 }
 
 #error-messages {
-    width: 500px;
+    max-width: 500px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     color: #ff0000;
     font-family: "Helvetica Neue";
@@ -134,8 +145,24 @@ input[type="submit"]:hover {
 
 .error-box {
     display: none;
+
 }
 
 .shown {
     display: block;
+}
+
+
+.valid {
+    font-family: "Helvetica Neue";
+    font-size: 19px;
+    font-weight: 700;
+    color: green;
+}
+
+.invalid {
+    font-family: "Helvetica Neue";
+    font-size: 19px;
+    font-weight: 700;
+    color: red;
 }

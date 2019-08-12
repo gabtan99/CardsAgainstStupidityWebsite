@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../style/reglog.css">
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/register.js"></script>
     <title> Register </title>
 
 </head>
@@ -37,24 +38,34 @@
 
 
         <div class="mainForm">
-            <form id="Form" action="createAccount" method="POST">
 
 
 
-                <input id="usernamefield" type="text" class="input input-field" name="username" placeholder="Username: "
-                    required>
-                <input id="passwordfield" type="password" class="input input-field" name="password"
-                    placeholder="Password: " required>
+            <div class="valid" id="input-valid-div">
 
-                <input id="confirmfield" type="password" class="input input-field" name="confirm"
-                    placeholder="Confirm Password: " required>
+            </div>
+
+            <input id="usernamefield" type="text" class="input input-field" onkeyup="validUsername()" name="username"
+                placeholder="Username: " required>
+
+            <input id="passwordfield" type="password" class="input input-field" name="password" placeholder="Password: "
+                required>
+
+            <input id="confirmfield" type="password" class="input input-field" name="confirm"
+                placeholder="Confirm Password: " required>
+
+            <div class="error-box" id="error-div">
+                <ul id="error-messages">
+                </ul>
+            </div>
 
 
-                <span class="submit-btn">
-                    <input id="submitBtn" type="submit" value="Register">
-                </span>
-            </form>
+            <span class="submit-btn">
+                <input id="submitBtn" type="submit" value="Register">
+            </span>
+
         </div>
+
     </div>
 
 

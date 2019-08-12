@@ -58,15 +58,17 @@ app.get("/logout", (req, res) => {
     res.sendFile(__dirname + "/public/user-login.html")
 })
 
-app.post("/createAccount", urlencoder, (req, res) => {
+app.post("/create-account", urlencoder, (req, res) => {
     let username = req.body.username
     let password = req.body.password
-    let confirm = req.body.confirm
 
-
-    //let user = await User.createAccount(username, password, res)
-
-    res.redirect("home")
+    User.createAccount(username, password, (err, doc) => {
+        if (err) {
+            res.send("Please select another username")
+        } else {
+            res.send("1")
+        }
+    })
 })
 
 
@@ -76,7 +78,6 @@ app.post("/check-login", urlencoder, (req, res) => {
     let password = req.body.password
 
     User.loginUser(username, password, (err, doc) => {
-
         if (doc === null) {
             res.send("Username does not exist")
         } else {
@@ -85,6 +86,18 @@ app.post("/check-login", urlencoder, (req, res) => {
             } else {
                 res.send("Username / Password does not match")
             }
+        }
+    })
+})
+
+app.post("/check-username", urlencoder, (req, res) => {
+    let username = req.body.username
+
+    User.checkIfUsernameTaken(username, (err, doc) => {
+        if (doc === null) {
+            res.send("1")
+        } else {
+            res.send("0")
         }
     })
 })
