@@ -117,12 +117,25 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.errorMessage {
+#error-messages {
+    width: 500px;
     display: flex;
     justify-content: center;
     color: #ff0000;
     font-family: "Helvetica Neue";
     font-size: 19px;
     font-weight: 700;
+    padding: 7px 0px;
+    border: solid 1px;
+    border-color: red;
+    background-color: #ff000037;
+
 }
 
+.error-box {
+    display: none;
+}
+
+.shown {
+    display: block;
+}

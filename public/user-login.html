@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../style/reglog.css">
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/login.js"></script>
     <title> Login </title>
 </head>
 
@@ -31,22 +32,17 @@
         </div>
 
         <div class="mainForm">
-            <form id="Form" action="loginuser" method="POST">
-                <input id="usernamefield" type="text" class="input input-field" placeholder="Username: "
-                    name="username">
-                <input id="passwordfield" type="password" class="input input-field" placeholder="Password: "
-                    name="password">
+            <input id="usernamefield" type="text" class="input input-field" placeholder="Username: ">
+            <input id="passwordfield" type="password" class="input input-field" placeholder="Password:">
 
+            <div class="error-box" id="error-div">
+                <ul id="error-messages">
+                </ul>
+            </div>
 
-                <!--
-                    <div class="errorMessage">
-                    <p> Incorrect is the account </p>
-                </div>
-                 -->
-
-
-                <span class="submit-btn"> <input id="submitBtn" type="submit" value="Login"></span>
-            </form>
+            <span class="submit-btn">
+                <input id="submitBtn" type="submit" value="Login">
+            </span>
         </div>
 
 

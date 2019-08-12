@@ -39,11 +39,11 @@ app.get("/", (req, res) => {
 })
 
 app.get("/register", (req, res) => {
-    res.sendFile(__dirname + "/public/registration.html")
+    res.sendFile(__dirname + "/public/user-registration.html")
 })
 
 app.get("/login", (req, res) => {
-    res.sendFile(__dirname + "/public/login.html")
+    res.sendFile(__dirname + "/public/user-login.html")
 })
 
 app.get("/about-guest", (req, res) => {
@@ -55,7 +55,7 @@ app.get("/search-guest", (req, res) => {
 })
 
 app.get("/logout", (req, res) => {
-    res.sendFile(__dirname + "/public/login.html")
+    res.sendFile(__dirname + "/public/user-login.html")
 })
 
 app.post("/createAccount", urlencoder, (req, res) => {
@@ -70,21 +70,25 @@ app.post("/createAccount", urlencoder, (req, res) => {
 })
 
 
-app.post("/loginuser", urlencoder, (req, res) => {
+app.post("/check-login", urlencoder, (req, res) => {
+
     let username = req.body.username
     let password = req.body.password
 
-    // let user = await User.loginUser(username, password, res)
+    User.loginUser(username, password, (err, doc) => {
 
-
-    if (username == "admin" && password == "1234") {
-        res.redirect("home")
-    } else {
-        console.log("incorrect login")
-        res.sendFile(__dirname + "/public/home-guest.html")
-    }
-
+        if (doc === null) {
+            res.send("Username does not exist")
+        } else {
+            if (doc.validPassword(password)) {
+                res.send("1")
+            } else {
+                res.send("Username / Password does not match")
+            }
+        }
+    })
 })
+
 
 app.get("/home", (req, res) => {
     res.render("home-user.hbs")

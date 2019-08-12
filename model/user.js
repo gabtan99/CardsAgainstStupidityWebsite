@@ -45,7 +45,7 @@ userSchema.methods.setPassword = function (password) {
         1000, 64, `sha512`).toString(`hex`);
 }
 
-userSchema.statics.createAccount = function (username, password, res, callback) {
+userSchema.statics.createAccount = function (username, password, callback) {
 
     var user = new User({
         username,
@@ -59,31 +59,11 @@ userSchema.statics.createAccount = function (username, password, res, callback) 
 }
 
 
-userSchema.statics.loginUser = function (username, password, res, callback) {
+userSchema.statics.loginUser = function (username, password, callback) {
     // find user with requested email 
     this.findOne({
-        username
-    }, (err, doc) => {
-        if (doc === null) {
-            return res.status(400).send({
-                message: "User not found."
-            });
-        } else {
-            if (doc.validPassword(password)) {
-
-                console.log(doc)
-
-                return res.status(201).send({
-                    message: "User Logged In",
-                })
-
-            } else {
-                return res.status(400).send({
-                    message: "Wrong Password"
-                });
-            }
-        }
-    });
+        username,
+    }, callback);
 }
 
 userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
