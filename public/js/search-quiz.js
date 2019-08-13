@@ -171,5 +171,3 @@ function displayResultUser() {
 
     $('#searchResultContainer').prepend(resultContainer)
 }
-
-

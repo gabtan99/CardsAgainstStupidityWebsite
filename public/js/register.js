@@ -1,6 +1,8 @@
 $(document).ready(() => {
 
-    $("#submitBtn").click(() => {
+    $("#registerForm").submit(function (e) {
+
+        e.preventDefault()
 
         let username = $("#usernamefield").val()
         let password = $("#passwordfield").val()

@@ -1,6 +1,10 @@
 $(document).ready(() => {
-    
-    $("#submitBtn").click(() => {
+
+
+    $("#loginForm").submit(function (e) {
+
+        e.preventDefault()
+
 
         if ($("#usernamefield").val() === '') {
             displayError("Enter a username")

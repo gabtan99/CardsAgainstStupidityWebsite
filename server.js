@@ -35,7 +35,7 @@ app.set("view engine", "hbs")
 
 app.use(session({
     resave: true,
-    name: "CAS",
+    name: "CardsAgainstStupidity",
     saveUninitialized: true,
     secret: "secretpass",
     cookie: {
@@ -51,6 +51,8 @@ app.use('/quiz', require('./routes/quizroute.js'));
 //////// GUEST STATIC ROUTES ///////////
 
 app.get("/", (req, res) => {
+
+
     res.sendFile(__dirname + "/public/home-guest.html")
 })
 
