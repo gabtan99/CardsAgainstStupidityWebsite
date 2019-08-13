@@ -22,12 +22,6 @@ $(document).ready(function () {
             public = false;
         }
 
-        console.log(title)
-        console.log(subject)
-        console.log(description)
-        console.log(deck)
-        console.log(public)
-
         $.ajax({
             url: "/quiz/submit_new_quiz",
             method: "GET",
@@ -40,7 +34,11 @@ $(document).ready(function () {
                 public: public
             },
             success: function (result) {
-                console.log("sent quiz deets")
+
+                if (result == "1") {
+                    window.location = "/quiz/"
+                }
+
             },
         })
 

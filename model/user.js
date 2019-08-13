@@ -58,7 +58,7 @@ userSchema.statics.createAccount = function (username, password, callback) {
     user.save(callback)
 }
 
-userSchema.statics.checkIfUsernameTaken = function (username, callback) {
+userSchema.statics.getUser = function (username, callback) {
     this.findOne({
         username
     }, callback)

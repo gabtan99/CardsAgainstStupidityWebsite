@@ -18,11 +18,7 @@ const quizSchema = new Schema({
     subject: String,
     description: String,
     public: Boolean,
-    deck: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Flashcard'
-    }]
-
+    deck: Array
 })
 
 quizSchema.statics.createQuiz = function (title, author, subject, description, public, deck, callback) {

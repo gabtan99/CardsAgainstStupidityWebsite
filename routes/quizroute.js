@@ -15,6 +15,7 @@ const {
     User
 } = require("../model/user.js")
 
+
 router.get("/", (req, res) => {
     res.render("quizzes.hbs")
 })
@@ -28,13 +29,42 @@ router.get("/results_quiz", (req, res) => {
 })
 
 router.get("/create_quiz", (req, res) => {
+
+
+
     res.render("createQuiz.hbs")
 })
 
 router.get("/submit_new_quiz", urlencoder, (req, res) => {
 
-    console.log(req.query.title)
-    res.send("1")
+    let username = req.session.username
+
+    let title = req.query.title
+    let subject = req.query.subject
+    let description = req.query.description
+    let public = req.query.public
+    let deck = req.query.deck
+
+
+    User.getUser(username, (err, doc) => {
+
+
+        Quiz.createQuiz(title, doc, subject, description, public, deck, (err, doc) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send("1")
+            }
+        })
+    })
+
+
+
+
+
+
+
+
 })
 
 router.get("/active_quiz", (req, res) => {

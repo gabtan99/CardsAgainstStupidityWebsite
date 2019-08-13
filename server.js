@@ -17,12 +17,6 @@ const {
     Quiz
 } = require("./model/quiz.js")
 
-const {
-    Flashcard
-} = require("./model/flashcard.js")
-
-
-
 const app = express()
 
 
@@ -119,7 +113,7 @@ app.post("/check-username", urlencoder, (req, res) => {
 
     let username = req.body.username
 
-    User.checkIfUsernameTaken(username, (err, doc) => {
+    User.getUser(username, (err, doc) => {
         if (doc === null) {
             res.send("1")
         } else {
