@@ -91,4 +91,22 @@ $(document).ready(function(){
             counterTemp--
         })
     }
+
+    $('#next-button').click(createFlashcardCollection())
+
+    function createFlashcardCollection(){
+        var cards = []
+        $(".card-element").each(function(){
+            var question = $(this).children(".cards").children(".black-card").children("textarea").val()
+            var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
+            var flashCard = {
+                "Question": question,
+                "Answer": answer
+            }
+            
+            cards.push(flashCard)
+        })
+
+        return cards
+    }
 })
