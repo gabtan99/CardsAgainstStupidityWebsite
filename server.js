@@ -27,14 +27,24 @@ const app = express()
 
 
 
-app.use('/user', require('./routes/userroute.js'));
-app.use('/quiz', require('./routes/quizroute.js'));
 
+app.use(cookieparser())
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs")
 
 
+app.use(session({
+    resave: true,
+    name: "CAS",
+    saveUninitialized: true,
+    secret: "secretpass",
+    cookie: {
+        maxAge: 5 * 60 * 1000
+    }
+}))
 
+app.use('/user', require('./routes/userroute.js'));
+app.use('/quiz', require('./routes/quizroute.js'));
 
 
 
@@ -76,6 +86,7 @@ app.post("/create-account", urlencoder, (req, res) => {
         if (err) {
             res.send("Please select another username")
         } else {
+            req.session.username = doc.username
             res.send("1")
             // new user created
         }
@@ -94,6 +105,7 @@ app.post("/check-login", urlencoder, (req, res) => {
             res.send("Username does not exist")
         } else {
             if (doc.validPassword(password)) {
+                req.session.username = doc.username
                 res.send("1")
                 // user is logged in
             } else {
@@ -174,8 +186,6 @@ app.listen(3000, function () {
 
 
 /*
-
-
 
 
 app.get("/create", (req, res) => {
