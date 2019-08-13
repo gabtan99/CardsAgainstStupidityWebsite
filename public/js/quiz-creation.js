@@ -1,9 +1,68 @@
 var currentTab
 
 $(document).ready(function () {
-    currentTab = 2;
+    currentTab = 0;
     showTab(currentTab)
+
+    $("#createForm").submit(function (e) {
+
+        e.preventDefault()
+
+
+        // quiz details
+        var title = $("#titlebox").val()
+        var subject = $("#subjectbox").val()
+        var description = $("#descripbox").val()
+        var deck = createFlashcardCollection()
+        var public
+
+        if ($('input[name=privacy]:checked').val()) {
+            public = true;
+        } else {
+            public = false;
+        }
+
+        console.log(title)
+        console.log(subject)
+        console.log(description)
+        console.log(deck)
+        console.log(public)
+
+        $.ajax({
+            url: "/quiz/submit_new_quiz",
+            method: "GET",
+            contentType: 'application/json',
+            data: {
+                title: title,
+                subject: subject,
+                description: description,
+                deck: deck,
+                public: public
+            },
+            success: function (result) {
+                console.log("sent quiz deets")
+            },
+        })
+
+    })
+
 })
+
+function createFlashcardCollection() {
+    var cards = []
+    $(".card-element").each(function () {
+        var question = $(this).children(".cards").children(".black-card").children("textarea").val()
+        var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
+        var flashCard = {
+            "Question": question,
+            "Answer": answer
+        }
+
+        cards.push(flashCard)
+    })
+
+    return cards
+}
 
 function showTab(n) {
 

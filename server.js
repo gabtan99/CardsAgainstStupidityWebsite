@@ -26,8 +26,6 @@ const {
 const app = express()
 
 
-
-
 app.use(cookieparser())
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs")
@@ -39,7 +37,7 @@ app.use(session({
     saveUninitialized: true,
     secret: "secretpass",
     cookie: {
-        maxAge: 5 * 60 * 1000
+        maxAge: 60 * 60 * 1000 * 24
     }
 }))
 
@@ -143,34 +141,6 @@ app.get("/search-keyword", urlencoder, (req, res) => {
 
     var keyword = req.query.keyword
 
-
-    var result = {
-        "results": {
-            "DzgvcDDm2I": {
-                "title": "Midterms",
-                "subject": "AUTOMAT",
-                "description": "Chapter 1-5",
-                "nFlashcards": 15,
-                "author": "Denzel Co"
-            },
-
-            "WD2dqvcdaa": {
-                "title": "Final Exam",
-                "subject": "INTR-OS",
-                "description": "Cover to cover coverage",
-                "nFlashcards": 20,
-                "author": "Denzel Lo"
-            },
-
-            "qweqdlw22a": {
-                "title": "Fun",
-                "subject": "WEBAPDE",
-                "description": "Web Trivia",
-                "nFlashcards": 5,
-                "author": "Denzel Ho"
-            }
-        }
-    }
 
 })
 
