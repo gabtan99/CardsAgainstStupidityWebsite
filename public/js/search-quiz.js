@@ -90,25 +90,26 @@ function displayResultGuest() {
     $('#searchResultContainer').prepend(resultContainer)
 }
 
-function displayResultUser() {
+function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
     //UPPER
     const resultContainer = document.createElement("div")
     resultContainer.className = "searchResult"
+    resultContainer.id = dataID
 
     const upperPartResultContainer = document.createElement("div")
     upperPartResultContainer.id = "topResult"
 
     const title = document.createElement("div")
     title.className = "searchResultTitle"
-    title.innerHTML = "Title"
+    title.innerHTML = stringTitle
 
     const subject = document.createElement("div")
     subject.className = "searchResultUpInfo"
-    subject.innerHTML = "Subject"
+    subject.innerHTML = stringSubject
 
     const description = document.createElement("div")
     description.className = "searchResultUpInfo"
-    description.innerHTML = "Description"
+    description.innerHTML = stringDescrip
 
     upperPartResultContainer.append(title)
     upperPartResultContainer.append(subject)
@@ -124,11 +125,11 @@ function displayResultUser() {
 
     const numFlashCards = document.createElement("div")
     numFlashCards.className = "searchResultUpInfo searchResultDownInfo"
-    numFlashCards.innerHTML = "# Flashcards"
+    numFlashCards.innerHTML = nCards + " Flashcards"
 
     const creator = document.createElement("div")
     creator.className = "searchResultUpInfo"
-    creator.innerHTML = "By:"
+    creator.innerHTML = "By:" + stringAuthor
 
     numFlashCardsAndCreatorContainer.append(numFlashCards)
     numFlashCardsAndCreatorContainer.append(creator)
@@ -172,4 +173,51 @@ function displayResultUser() {
     resultContainer.append(lowerPartResultContainer)
 
     $('#searchResultContainer').prepend(resultContainer)
+}
+
+function renderResultUser(){
+    var result = {
+        "results": {
+            "DzgvcDDm2I": {
+                "id": "1",
+                "title": "Midterms",
+                "subject": "AUTOMAT",
+                "description": "Chapter 1-5",
+                "nFlashcards": 15,
+                "author": "Denzel Co"
+            },
+
+            "WD2dqvcdaa": {
+                "id": "2",
+                "title": "Final Exam",
+                "subject": "INTR-OS",
+                "description": "Cover to cover coverage",
+                "nFlashcards": 20,
+                "author": "Denzel Lo"
+            },
+
+            "qweqdlw22a": {
+                "id": "3",
+                "title": "Fun",
+                "subject": "WEBAPDE",
+                "description": "Web Trivia",
+                "nFlashcards": 5,
+                "author": "Denzel Ho"
+            }
+        }
+    }
+
+    var resultEntries = result.results;
+    var EntryIDs = Object.keys(resultEntries);
+
+    for (var i = 0; i < EntryIDs.length; i++) {
+        var resultID = resultEntries[EntryIDs[i]];
+        var result = {
+            resultNum: resultID
+        };
+
+        displayResultUser(result.resultNum["id"], result.resultNum["title"], result.resultNum["subject"], 
+                        result.resultNum["description"], result.resultNum["nFlashcards"], result.resultNum["author"])
+    }
+    
 }
