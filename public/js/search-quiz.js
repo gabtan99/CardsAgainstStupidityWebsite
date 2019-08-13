@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    $('#submitBtn').click(function () {
+    $('#SearchForm').submit(function (e) {
+        e.preventDefault()
+
         displayResultUser();
     })
 })
