@@ -25,12 +25,16 @@ const {
 
 const app = express()
 
-app.use('/profile', require('./routes/profileroute.js'));
-app.use('/quiz', require('./routes/quizroute.js'));
 
+
+app.use('/user', require('./routes/userroute.js'));
+app.use('/quiz', require('./routes/quizroute.js'));
 
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs")
+
+
+
 
 
 
@@ -84,6 +88,7 @@ app.post("/check-login", urlencoder, (req, res) => {
     let username = req.body.username
     let password = req.body.password
 
+
     User.loginUser(username, password, (err, doc) => {
         if (doc === null) {
             res.send("Username does not exist")
@@ -123,6 +128,35 @@ app.get("/search", (req, res) => {
 app.get("/search-keyword", urlencoder, (req, res) => {
 
     var keyword = req.query.keyword
+
+
+    var result = {
+        "results": {
+            "DzgvcDDm2I": {
+                "title": "Midterms",
+                "subject": "AUTOMAT",
+                "description": "Chapter 1-5",
+                "nFlashcards": 15,
+                "author": "Denzel Co"
+            },
+
+            "WD2dqvcdaa": {
+                "title": "Final Exam",
+                "subject": "INTR-OS",
+                "description": "Cover to cover coverage",
+                "nFlashcards": 20,
+                "author": "Denzel Lo"
+            },
+
+            "qweqdlw22a": {
+                "title": "Fun",
+                "subject": "WEBAPDE",
+                "description": "Web Trivia",
+                "nFlashcards": 5,
+                "author": "Denzel Ho"
+            }
+        }
+    }
 
 })
 
