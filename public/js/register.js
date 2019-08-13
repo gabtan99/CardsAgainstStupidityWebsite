@@ -100,7 +100,7 @@ function matchPassword() {
     let confirm = $("#confirmfield").val()
     let password = $("#passwordfield").val()
 
-    if (passwordMatch(password, confirm)) {
+    if (passwordMatch(password, confirm) && isValid(password)) {
         confirmfield.className = "input input-field valid-input"
     } else {
         confirmfield.className = "input input-field invalid-input"
