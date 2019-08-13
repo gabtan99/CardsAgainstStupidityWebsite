@@ -110,4 +110,19 @@ $(document).ready(function(){
 
         return cards
     }
+
+    function editQuiz(){
+        let title = $('#titlebox').val()
+        let subject = $('#subjectbox').val()
+        let description = $('#descripbox').val()
+
+        var quiz = {
+            Title: title,
+            Subject: subject,
+            Description: description,
+            Flahscards: createFlashcardCollection()
+        }
+
+        return quiz
+    }
 })
