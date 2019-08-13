@@ -73,6 +73,44 @@ function validUsername() {
     }
 }
 
+
+function validPassword() {
+    let passwordfield = document.getElementById("passwordfield")
+    let confirm = $("#confirmfield").val()
+    let password = $("#passwordfield").val()
+
+
+
+    if (isValid(password)) {
+        passwordfield.className = "input input-field valid-input"
+    } else {
+        passwordfield.className = "input input-field invalid-input"
+    }
+
+    if (password === '') {
+        passwordfield.className = "input input-field"
+    }
+
+    matchPassword()
+
+}
+
+function matchPassword() {
+    let confirmfield = document.getElementById("confirmfield")
+    let confirm = $("#confirmfield").val()
+    let password = $("#passwordfield").val()
+
+    if (passwordMatch(password, confirm)) {
+        confirmfield.className = "input input-field valid-input"
+    } else {
+        confirmfield.className = "input input-field invalid-input"
+    }
+
+    if (confirm === '') {
+        confirmfield.className = "input input-field"
+    }
+}
+
 function isValid(s) {
     // check for null or too short
     if (!s || s.length < 6) {

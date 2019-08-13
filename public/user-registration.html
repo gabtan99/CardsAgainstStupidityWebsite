@@ -48,10 +48,10 @@
             <input id="usernamefield" type="text" class="input input-field" onkeyup="validUsername()" name="username"
                 placeholder="Username: " required>
 
-            <input id="passwordfield" type="password" class="input input-field" name="password" placeholder="Password: "
-                required>
+            <input id="passwordfield" type="password" class="input input-field" onkeyup="validPassword()"
+                name="password" placeholder="Password: " required>
 
-            <input id="confirmfield" type="password" class="input input-field" name="confirm"
+            <input id="confirmfield" type="password" class="input input-field" onkeyup="matchPassword()" name="confirm"
                 placeholder="Confirm Password: " required>
 
             <div class="error-box" id="error-div">
