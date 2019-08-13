@@ -15,10 +15,20 @@ body {
 
 .navigation {
     margin-top: 150px;
-    width: 470px;
+    width: 523px;
     display: flex;
     align-items: center;
     font-family: "Helvetica Neue";
+    justify-content: center;
+}
+
+.backBtn {
+    width: 523px;
+    display: flex;
+    align-items: center;
+    font-family: "Helvetica Neue";
+    margin-left: 30px;
+    min-height: 19px;
 }
 
 .navigation a {
@@ -76,8 +86,10 @@ input::placeholder {
 
 #pagetitle {
     text-align: center;
-    width: 82%;
+    width: 523px;
     font-size: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 #Form {
@@ -112,7 +124,7 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(22, 22, 22, 0.7);
+    background-color: rgba(22, 22, 22, 0.262);
 }
 
 .selected {
@@ -146,7 +158,8 @@ input::placeholder {
 }
 
 /*actual button*/
-#submitBtn {
+#submitBtn,
+#nextBtn {
     width: 132px;
     height: 54px;
     margin-top: 24px;
@@ -164,6 +177,7 @@ input::placeholder {
     color: #FFF;
     cursor: pointer;
 }
+
 
 /*button container (sorry for the bad naming HAHA)*/
 .submit {
@@ -489,6 +503,10 @@ input[type="submit"]:hover {
     text-align: center;
 }
 
+#step3 {
+    margin-top: 50px;
+}
+
 .centerContentPrestart {
     justify-content: center;
     font-size: 18px;
@@ -621,4 +639,8 @@ a {
     padding-bottom: 5px;
     border-radius: 9px;
     padding-left: 15px;
+}
+
+.tab {
+    display: none;
 }

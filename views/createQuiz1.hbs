@@ -3,9 +3,16 @@
 
 <head>
     <link rel="icon" type="image/ico" href="assets/favico.ico">
-    <title>Create a Quiz</title>
-    <link rel="stylesheet" href="../style/create-quiz.css">
+    <link rel="stylesheet" href="../style/add-card.css">
     <link rel="stylesheet" href="../style/navbar.css">
+    <link rel="stylesheet" href="../style/create-quiz.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/quiz-creation.js"></script>
+    <script src="../js/add-flash-cards.js"></script>
+    <title>Create a Quiz</title>
+
+
+
 </head>
 
 <body>
@@ -25,35 +32,88 @@
 
     <div class="main-body">
 
-        <div class="navigation">
-            <div id="back-nav" style="visibility: hidden">BACK</div>
-            <div id="pagetitle" class="title"> Create a Quiz </div>
-        </div>
+        <form id="createForm">
 
-        <div id="status">
-            <div class="circle statustext selected">
-                <div class="numbers">1</div>
-            </div>
-            <div class="dots">· · · · ·</div>
-            <div class="circle statustext">
-                <div class="numbers">2</div>
-            </div>
-            <div class="dots">· · · · ·</div>
-            <div class="circle statustext">
-                <div class="numbers">3</div>
-            </div>
-        </div>
+            <div id="pagetitle" class="title navigation"> Create a Quiz </div>
 
-        <form id="Form" action="sendquiz1info" method="get">
-            <div id="Title" class="title"> Title </div>
-            <input id="titlebox" type="text" class="input" placeholder="Ex. Operating Systems" name="title">
-            <div id="Subject" class="title"> Subject </div>
-            <input id="subjectbox" type="text" class="input" placeholder="Ex. INTR-OS" name="subject">
-            <div id="Description" class="title"> Description </div>
-            <input id="descripbox" type="text" class="input" placeholder="Ex. Chapters 1-5 Reviewer for Midterms"
-                name="description"> <br>
-            <div class="submit"><input id="submitBtn" type="submit" value="Next"></div>
+            <div class="backBtn">
+                <a onclick="nextPrev(-1)" id="back-nav">BACK</a>
+            </div>
+
+            <div id="status">
+
+                <div class="circle statustext" id="circle1">
+                    <div class="numbers">1</div>
+                </div>
+
+                <div class="dots">· · · · ·</div>
+
+                <div class="circle statustext" id="circle2">
+                    <div class="numbers">2</div>
+                </div>
+
+                <div class="dots">· · · · ·</div>
+
+                <div class="circle statustext" id="circle3">
+                    <div class="numbers">3</div>
+                </div>
+            </div>
+
+            <div id="step1" class="tab">
+                <div id="Form">
+                    <div id="Title" class="title"> Title </div>
+                    <input id="titlebox" type="text" class="input" placeholder="Ex. Operating Systems" name="title">
+                    <div id="Subject" class="title"> Subject </div>
+                    <input id="subjectbox" type="text" class="input" placeholder="Ex. INTR-OS" name="subject">
+                    <div id="Description" class="title"> Description </div>
+                    <input id="descripbox" type="text" class="input"
+                        placeholder="Ex. Chapters 1-5 Reviewer for Midterms" name="description"> <br>
+
+                </div>
+
+            </div>
+
+            <div id="step2" class="tab">
+                <div class="add-card">
+                    <div id="flash-card">Flash Card</div>
+                    <a href="" id="add-card-icon">+</a>
+                </div>
+
+                <div id="card-container">
+
+                </div>
+            </div>
+
+            <div id="step3" class="tab ">
+                <div id="PublishForm">
+                    <div id="publishContainer">
+                        <div><span id="publish-alert" class="title">You are about to publish your quiz titled</span>
+                        </div>
+                        <div id="publishQtitle" class="title">Title</div>
+                        <div id="privacySet" class="title">Privacy Settings</div>
+
+                        <div id="radioContainer">
+                            <div class="title radios"><input type="radio" name="privacy" checked>Public: Share my quiz
+                                with
+                                others!</div>
+                            <div class="title radios"><input type="radio" name="privacy">Private: Only I can access this
+                                quiz!
+                            </div><br>
+                        </div>
+
+                        <div class="submit publish"><input id="submitBtn" type="submit" value="Publish"></div>
+                    </div>
+
+                </div>
+            </div>
+
         </form>
+
+        <div class="submit" id="nextDiv">
+            <button id="nextBtn" onclick="nextPrev(1)"> Next </button>
+        </div>
+
+
     </div>
 
 </body>
