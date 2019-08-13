@@ -93,6 +93,7 @@ $(document).ready(function(){
     }
 
     $('#next-button').click(createFlashcardCollection())
+    $('#save-button').click(createFlashcardCollection())
 
     function createFlashcardCollection(){
         var cards = []
