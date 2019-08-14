@@ -9,7 +9,7 @@ let qdeck
 
 $(document).ready(function () {
 
-    let quiz_id = "5d52c67a41b0010d709d90af"
+    let quiz_id = "5d53c7fdae4bd73948a26620"
 
     $.ajax({
         url: "/quiz/retrieve_quiz",
@@ -26,13 +26,14 @@ $(document).ready(function () {
                 qdescription = result.description
                 qpublic = result.public
                 qdeck = result.deck
+                qauthor = result.author
+                showPrestart()
             }
         },
     })
 
 
 
-    showPrestart()
 
     $('#takeQuizForm').submit(function (e) {
         e.preventDefault()
@@ -55,6 +56,13 @@ function showMainQuiz() {
 function showPrestart() {
     hideAll()
     document.getElementById("preStartContainer").style.display = "block"
+
+    $("#qTitle").text(qtitle)
+    $("#qSubject").text(qsubject)
+    $("#qDescription").text(qdescription)
+    $("#qNumberFlashcards").text(qdeck.length + " Flashcards")
+    $("#qAuthor").text("By " + qauthor.username)
+
 }
 
 function hideAll() {

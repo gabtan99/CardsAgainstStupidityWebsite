@@ -35,18 +35,16 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
     quiz.save(callback)
 }
 
-quizSchema.statics.findQuiz = async function (id, callback) {
-
+quizSchema.statics.findQuizzes = async function (author) {
+    return await this.find({
+        author: author
+    }).populate("author", "username")
 }
 
-quizSchema.statics.findQuizzes = async function(author){
-    return await this.find({author: author}).populate("author")
-}
-
-quizSchema.statics.retrieveQuiz = function (quiz_id, callback) {
-    this.findOne({
+quizSchema.statics.retrieveQuiz = async function (quiz_id, callback) {
+    return await this.findOne({
         _id: quiz_id
-    }, callback)
+    }).populate("author", "username")
 }
 
 quizSchema.statics.searchQuiz = async function (keyword, callback) {
@@ -72,7 +70,7 @@ quizSchema.statics.searchQuiz = async function (keyword, callback) {
         ]
 
 
-    }).populate("author")
+    }).populate("author", "username")
 
 }
 
