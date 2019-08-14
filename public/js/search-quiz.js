@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#SearchForm').submit( async function (e) {
+    $('#SearchForm').submit(async function (e) {
 
         var isGuest = true
 
@@ -7,10 +7,10 @@ $(document).ready(function () {
 
         let keyword = $("#searchbox").val()
 
-        if(keyword === ''){
+        if (keyword === '') {
             emptyContainer()
             displayError("Enter a keyword")
-        } else{
+        } else {
             emptyContainer()
             hideError("")
             await $.ajax({
@@ -20,10 +20,10 @@ $(document).ready(function () {
                     keyword: keyword
                 },
                 success: function (result) {
-                    if(result.length == 0){
+                    if (result.length == 0) {
                         emptyContainer()
                         displayError("No Results Found")
-                    } else { 
+                    } else {
                         emptyContainer()
                         hideError("")
                         renderResultUser(result)
@@ -50,7 +50,7 @@ function hideError(msg) {
     // shows the error message by appending the invisible list
 }
 
-function emptyContainer(){
+function emptyContainer() {
     $("#searchResultContainer").empty()
 }
 
@@ -93,7 +93,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     const creator = document.createElement("div")
     creator.className = "searchResultUpInfo"
-    creator.innerHTML = "By: " + stringAuthor
+    creator.innerHTML = "Made by " + stringAuthor
 
     numFlashCardsAndCreatorContainer.append(numFlashCards)
     numFlashCardsAndCreatorContainer.append(creator)
@@ -139,12 +139,12 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     $('#searchResultContainer').prepend(resultContainer)
 }
 
-function renderResultUser(result){
-    
+function renderResultUser(result) {
+
     console.log(result)
-    
-    for(var i = 0; i < result.length; i++){
-        displayResultUser(result[i]._id, result[i].title, result[i].subject, 
+
+    for (var i = 0; i < result.length; i++) {
+        displayResultUser(result[i]._id, result[i].title, result[i].subject,
             result[i].description, result[i].deck.length, result[i].author.username)
     }
 }

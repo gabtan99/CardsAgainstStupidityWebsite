@@ -93,7 +93,7 @@ function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, n
 
     const creator = document.createElement("div")
     creator.className = "searchResultUpInfo"
-    creator.innerHTML = "By: " + stringAuthor
+    creator.innerHTML = "Made by " + stringAuthor
 
     numFlashCardsAndCreatorContainer.append(numFlashCards)
     numFlashCardsAndCreatorContainer.append(creator)
