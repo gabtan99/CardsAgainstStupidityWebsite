@@ -22,14 +22,10 @@ $(document).ready(function () {
                 console.log("Quiz not found")
             } else {
                 qtitle = result.title
-                qauthor = result.author
                 qsubject = result.subject
                 qdescription = result.description
                 qpublic = result.public
                 qdeck = result.deck
-
-                console.log(qtitle)
-                console.log(subject)
             }
         },
     })
@@ -59,11 +55,6 @@ function showMainQuiz() {
 function showPrestart() {
     hideAll()
     document.getElementById("preStartContainer").style.display = "block"
-
-    document.getElementById("qTitle").innerHTML = qtitle
-    document.getElementById("qSubject").innerHTML = qsubject
-    document.getElementById("qDescription").innerHTML = qdescription
-    //$("#qNumberFlashcards").innerHTML = qdeck.length
 }
 
 function hideAll() {
