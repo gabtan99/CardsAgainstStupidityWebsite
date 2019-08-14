@@ -90,7 +90,6 @@ input::placeholder {
     font-size: 25px;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
 }
 
 #Form {
@@ -596,7 +595,6 @@ a {
 
 .resultForm {
     height: 320px;
-    margin-top: -155px;
 }
 
 .resultBtnGang {
