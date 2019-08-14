@@ -1,18 +1,43 @@
 $(document).ready(function () {
-    $('#SearchForm').submit(function (e) {
+    $('#SearchForm').submit( async function (e) {
+
+        var who = "guest"
+
         e.preventDefault()
 
         let keyword = $("#searchbox").val()
 
-        /*
         if(keyword === ''){
             displayError("Enter a keyword")
         } else{
-
+            await $.ajax({
+                url: "ifUser",
+                method: "GET",
+                data: {
+                },
+                success: function (result) {
+                    if (result == '1') { //if user, set who to user
+                        who = "user"
+                    }
+                },
+            })
+            await $.ajax({
+                url: "search-keyword",
+                method: "GET",
+                data: {
+                    keyword: keyword
+                },
+                success: function (result) {
+                    if(result == "no results"){
+                        console.log(result)
+                    } else if (who == "user") { //if user
+                        renderResultUser(result)
+                    } else { //if guest
+                        renderResultGuest(result)
+                    }
+                },
+            })
         }
-        */
-    renderResultGuest()
-
     })
 })
 
@@ -244,38 +269,7 @@ function renderResultUser(result){
     */
 }
 
-function renderResultGuest(){
-
-    var result = {
-        "results": {
-            "DzgvcDDm2I": {
-                "id": "1",
-                "title": "Midterms",
-                "subject": "AUTOMAT",
-                "description": "Chapter 1-5",
-                "nFlashcards": 15,
-                "author": "Denzel Co"
-            },
-
-            "WD2dqvcdaa": {
-                "id": "2",
-                "title": "Final Exam",
-                "subject": "INTR-OS",
-                "description": "Cover to cover coverage",
-                "nFlashcards": 20,
-                "author": "Denzel Lo"
-            },
-
-            "qweqdlw22a": {
-                "id": "3",
-                "title": "Fun",
-                "subject": "WEBAPDE",
-                "description": "Web Trivia",
-                "nFlashcards": 5,
-                "author": "Denzel Ho"
-            }
-        }
-    }
+function renderResultGuest(result){
 
     var resultEntries = result.results;
     var EntryIDs = Object.keys(resultEntries);

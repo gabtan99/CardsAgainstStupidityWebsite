@@ -135,7 +135,15 @@ app.get("/search-keyword", urlencoder, (req, res) => {
 
     var keyword = req.query.keyword
 
-
+    Quiz.searchQuiz(keyword, (err, doc) =>{
+        if(err){
+            res.send(err)
+        } else if(doc === null){
+            res.send("no results")
+        } else {
+            res.send(doc)
+        }
+    })
 })
 
 app.get("/about", (req, res) => {
@@ -143,11 +151,12 @@ app.get("/about", (req, res) => {
 })
 
 app.get("/ifUser", (req, res) => {
-    if (req.session) {
-        res.send("1")
+
+    if (req.session.username != null) {
+        res.send("1") //user
     }
     else {
-        res.send("0")
+        res.send("0") //guest
     }
 })
 
