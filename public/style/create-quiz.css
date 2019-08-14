@@ -670,6 +670,8 @@ a {
 
 .shown {
     display: block;
+}
+
 #botPrestart {
     margin-top: 10px;
 }
