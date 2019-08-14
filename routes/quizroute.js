@@ -31,17 +31,12 @@ router.get("/", async (req, res) => {
     })
 })
 
-router.get("/pre_start", (req, res) => {
-    res.render("prestart.hbs")
-})
 
 router.get("/results_quiz", (req, res) => {
     res.render("results.hbs")
 })
 
 router.get("/create_quiz", (req, res) => {
-
-
 
     res.render("createQuiz.hbs")
 })
@@ -68,18 +63,24 @@ router.get("/submit_new_quiz", urlencoder, (req, res) => {
             }
         })
     })
-
-
-
-
-
-
-
-
 })
 
-router.get("/active_quiz", (req, res) => {
-    res.render("active-quiz.hbs")
+router.get("/retrieve_quiz", (req, res) => {
+
+    let quiz_id = req.query.qid
+    Quiz.retrieveQuiz(quiz_id, (err, doc) => {
+
+
+        if (doc === null) {
+            res.send("0")
+        } else {
+            res.send(doc)
+        }
+    })
+})
+
+router.get("/take_quiz", (req, res) => {
+    res.render("take-quiz.hbs")
 })
 
 router.get("/edit_quiz", (req, res) => {

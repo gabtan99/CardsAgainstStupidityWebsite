@@ -2,29 +2,48 @@ $(document).ready(function () {
     $('#SearchForm').submit(function (e) {
         e.preventDefault()
 
-        displayResultUser();
+        let keyword = $("#searchbox").val()
+
+        /*
+        if(keyword === ''){
+            displayError("Enter a keyword")
+        } else{
+
+        }
+        */
+    renderResultGuest()
+
     })
 })
 
-function displayResultGuest() {
+function displayError(msg) {
+    $("#error-messages").empty()
+    let error = document.getElementById("error-div")
+    error.className = "error-box shown"
+    $("#error-messages").append('<li>' + msg + '</li')
+    // shows the error message by appending the invisible list
+}
+
+function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
     //UPPER
     const resultContainer = document.createElement("div")
     resultContainer.className = "searchResult"
+    resultContainer.id = dataID
 
     const upperPartResultContainer = document.createElement("div")
     upperPartResultContainer.id = "topResult"
 
     const title = document.createElement("div")
     title.className = "searchResultTitle"
-    title.innerHTML = "Title"
+    title.innerHTML = stringTitle
 
     const subject = document.createElement("div")
     subject.className = "searchResultUpInfo"
-    subject.innerHTML = "Subject"
+    subject.innerHTML = stringSubject
 
     const description = document.createElement("div")
     description.className = "searchResultUpInfo"
-    description.innerHTML = "Description"
+    description.innerHTML = stringDescrip
 
     upperPartResultContainer.append(title)
     upperPartResultContainer.append(subject)
@@ -40,11 +59,11 @@ function displayResultGuest() {
 
     const numFlashCards = document.createElement("div")
     numFlashCards.className = "searchResultUpInfo searchResultDownInfo"
-    numFlashCards.innerHTML = "# Flashcards"
+    numFlashCards.innerHTML = nCards + " Flashcards"
 
     const creator = document.createElement("div")
     creator.className = "searchResultUpInfo"
-    creator.innerHTML = "By:"
+    creator.innerHTML = "By: " + stringAuthor
 
     numFlashCardsAndCreatorContainer.append(numFlashCards)
     numFlashCardsAndCreatorContainer.append(creator)
@@ -56,6 +75,7 @@ function displayResultGuest() {
     const pinButton = document.createElement("a")
     pinButton.id = "pinBtn"
     pinButton.className = "searchResult-Btns"
+    pinButton.href = "/register"
 
     const pinImage = document.createElement("img")
     pinImage.id = "pinIcon"
@@ -73,7 +93,7 @@ function displayResultGuest() {
 
     const takeQuizButton = document.createElement("a")
     takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/pre_start"
+    takeQuizButton.href = "/register"
 
     takeQuizButton.innerHTML = "Take Quiz"
 
@@ -129,7 +149,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     const creator = document.createElement("div")
     creator.className = "searchResultUpInfo"
-    creator.innerHTML = "By:" + stringAuthor
+    creator.innerHTML = "By: " + stringAuthor
 
     numFlashCardsAndCreatorContainer.append(numFlashCards)
     numFlashCardsAndCreatorContainer.append(creator)
@@ -158,7 +178,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     const takeQuizButton = document.createElement("a")
     takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/pre_start"
+    takeQuizButton.href = "/quiz/take_quiz"
 
     takeQuizButton.innerHTML = "Take Quiz"
 
@@ -175,7 +195,57 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     $('#searchResultContainer').prepend(resultContainer)
 }
 
-function renderResultUser(){
+function renderResultUser(result){
+    
+    var resultEntries = result.results;
+    var EntryIDs = Object.keys(resultEntries);
+
+    for (var i = 0; i < EntryIDs.length; i++) {
+        var resultID = resultEntries[EntryIDs[i]];
+        var result = {
+            resultNum: resultID
+        };
+
+        displayResultUser(EntryIDs[i], result.resultNum["title"], result.resultNum["subject"], 
+                        result.resultNum["description"], result.resultNum["nFlashcards"], result.resultNum["author"])
+    }
+    
+    /*
+    var result = {
+        "results": {
+            "DzgvcDDm2I": {
+                "id": "1",
+                "title": "Midterms",
+                "subject": "AUTOMAT",
+                "description": "Chapter 1-5",
+                "nFlashcards": 15,
+                "author": "Denzel Co"
+            },
+
+            "WD2dqvcdaa": {
+                "id": "2",
+                "title": "Final Exam",
+                "subject": "INTR-OS",
+                "description": "Cover to cover coverage",
+                "nFlashcards": 20,
+                "author": "Denzel Lo"
+            },
+
+            "qweqdlw22a": {
+                "id": "3",
+                "title": "Fun",
+                "subject": "WEBAPDE",
+                "description": "Web Trivia",
+                "nFlashcards": 5,
+                "author": "Denzel Ho"
+            }
+        }
+    }
+    */
+}
+
+function renderResultGuest(){
+
     var result = {
         "results": {
             "DzgvcDDm2I": {
@@ -216,8 +286,7 @@ function renderResultUser(){
             resultNum: resultID
         };
 
-        displayResultUser(result.resultNum["id"], result.resultNum["title"], result.resultNum["subject"], 
+        displayResultGuest(EntryIDs[i], result.resultNum["title"], result.resultNum["subject"], 
                         result.resultNum["description"], result.resultNum["nFlashcards"], result.resultNum["author"])
     }
-    
 }

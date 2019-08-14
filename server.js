@@ -142,6 +142,15 @@ app.get("/about", (req, res) => {
     res.render("about.hbs")
 })
 
+app.get("/ifUser", (req, res) => {
+    if (req.session) {
+        res.send("1")
+    }
+    else {
+        res.send("0")
+    }
+})
+
 app.listen(3000, function () {
     console.log("port 3000 is live");
 })
