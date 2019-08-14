@@ -6,6 +6,10 @@
     <title>Edit Profile</title>
     <link rel="stylesheet" href="../style/create-quiz.css">
     <link rel="stylesheet" href="../style/navbar.css">
+    <link rel="stylesheet" href="../style/profile.css">
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/edit-profile.js"></script>
 </head>
 
 <body>
@@ -25,16 +29,27 @@
 
     <div class="main-body">
 
-        <div id="pagetitle" class="title"> Edit Profile </div>
-        <form id="SearchForm" action="/user">
-            <div id="pagetitle" class="title"> Edit Profile
-            </div>
+
+
+
+
+
+        <form id="editForm" action="/user">
+            <div id="pagetitle" class="title"> Edit Profile </div>
 
             <div id="editProfileContainer">
                 <div class="title editProfileLabels">Old Password</div>
-                <input type="password" class="input editProfileInput" placeholder="Old Password" name="oldpassword">
+                <input id="oldpasswordfield" type="password" class="input editProfileInput" placeholder="Old Password"
+                    name="oldpassword">
                 <div class="title editProfileLabels">New Password</div>
-                <input type="password" class="input editProfileInput" placeholder="New Password" name="newpassword">
+                <input id="newpasswordfield" type="password" class="input editProfileInput" placeholder="New Password"
+                    name="newpassword">
+            </div>
+
+            <div class="error-box" id="error-div">
+                <ul id="error-messages">
+                    <li> Test</li>
+                </ul>
             </div>
 
             <div id="editProfileButtonContainer">

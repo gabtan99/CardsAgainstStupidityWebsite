@@ -94,7 +94,7 @@ app.post("/check-login", urlencoder, (req, res) => {
     let password = req.body.password
 
 
-    User.loginUser(username, password, (err, doc) => {
+    User.getUser(username, (err, doc) => {
         if (doc === null) {
             res.send("Username does not exist")
         } else {

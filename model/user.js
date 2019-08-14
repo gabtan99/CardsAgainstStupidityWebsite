@@ -25,7 +25,10 @@ var userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Quiz'
     }],
-    salt: String
+    salt: {
+        type: String,
+        required: true
+    }
 })
 
 
@@ -64,14 +67,6 @@ userSchema.statics.getUser = function (username, callback) {
     }, callback)
 }
 
-
-userSchema.statics.loginUser = function (username, password, callback) {
-    // find user with requested email 
-    this.findOne({
-        username,
-    }, callback);
-}
-
 userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
     this.updateOne({
         _id: user_id
@@ -83,12 +78,20 @@ userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
 }
 
 
-userSchema.statics.updateUser = function (id, username, password, callback) {
-    this.updateOne({
+userSchema.statics.updatePassword = function (id, newpass, callback) {
+
+    let newsalt = crypto.randomBytes(16).toString('hex')
+    let newhash = crypto.pbkdf2Sync(newpass, newsalt,
+        1000, 64, `sha512`).toString(`hex`)
+
+
+    User.updateOne({
         _id: id
     }, {
-        username: username,
-        password: password
+        $set: {
+            hash: newhash,
+            salt: newsalt
+        }
     }, callback)
 }
 

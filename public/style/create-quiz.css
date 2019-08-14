@@ -90,6 +90,7 @@ input::placeholder {
     font-size: 25px;
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 #Form {
@@ -189,7 +190,8 @@ input::placeholder {
 
 /***************************************    SEARCH CCS     **************************************** */
 
-#SearchForm {
+#SearchForm,
+#editForm {
     margin-top: 150px;
     align-items: center;
     justify-content: center;

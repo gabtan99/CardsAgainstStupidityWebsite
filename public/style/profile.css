@@ -106,3 +106,45 @@ a:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+#error-messages {
+    max-width: 442px;
+    width: 442px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #e60000;
+    font-family: "Helvetica Neue";
+    font-size: 19px;
+    font-weight: 700;
+    padding: 7px 0px;
+    border: solid 1px;
+    border-color: #e60000;
+    background-color: #ff4a4a15;
+    list-style-type: none;
+    border-radius: 9px;
+}
+
+.error-box {
+    display: none;
+
+}
+
+.shown {
+    display: block;
+}
+
+
+.valid {
+    font-family: "Helvetica Neue";
+    font-size: 19px;
+    font-weight: 700;
+    color: green;
+}
+
+.invalid {
+    font-family: "Helvetica Neue";
+    font-size: 19px;
+    font-weight: 700;
+    color: red;
+}
