@@ -646,3 +646,30 @@ a {
 .tab {
     display: none;
 }
+
+#error-messages {
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #e60000;
+    font-family: "Helvetica Neue";
+    font-size: 19px;
+    font-weight: 700;
+    padding: 7px 0px;
+    border: solid 1px;
+    border-color: #e60000;
+    background-color: #ff4a4a15;
+    list-style-type: none;
+    border-radius: 9px;
+
+}
+
+.error-box {
+    display: none;
+    width: 95%;
+}
+
+.shown {
+    display: block;
+}

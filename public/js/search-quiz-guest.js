@@ -8,23 +8,11 @@ $(document).ready(function () {
         let keyword = $("#searchbox").val()
 
         if(keyword === ''){
+            emptyContainer()
             displayError("Enter a keyword")
         } else{
-            /*
-            await $.ajax({
-                url: "ifUser",
-                method: "GET",
-                data: {
-                },
-                success: function (result) {
-                    if (result == '1') { //if user, set who to user
-                        isGuest = false
-                    } else if(result == '0'){
-                        isGuest = true
-                    }
-                },
-            })
-            */
+            emptyContainer()
+            hideError("")
             await $.ajax({
                 url: "search-keyword",
                 method: "GET",
@@ -32,9 +20,12 @@ $(document).ready(function () {
                     keyword: keyword
                 },
                 success: function (result) {
-                    if(result == null){
+                    if(result.length == 0){
+                        emptyContainer()
                         displayError("No Results Found")
                     } else { 
+                        emptyContainer()
+                        hideError("")
                         renderResultGuest(result)
                     }
                 },
@@ -49,6 +40,18 @@ function displayError(msg) {
     error.className = "error-box shown"
     $("#error-messages").append('<li>' + msg + '</li')
     // shows the error message by appending the invisible list
+}
+
+function hideError(msg) {
+    $("#error-messages").empty()
+    let error = document.getElementById("error-div")
+    error.className = "error-box tab"
+    $("#error-messages").append('<li>'+'</li')
+    // shows the error message by appending the invisible list
+}
+
+function emptyContainer(){
+    $("#searchResultContainer").empty()
 }
 
 function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
@@ -135,101 +138,6 @@ function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, n
     resultContainer.append(lowerPartResultContainer)
 
     $('#searchResultContainer').prepend(resultContainer)
-}
-
-function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
-    //UPPER
-    const resultContainer = document.createElement("div")
-    resultContainer.className = "searchResult"
-    resultContainer.id = dataID
-
-    const upperPartResultContainer = document.createElement("div")
-    upperPartResultContainer.id = "topResult"
-
-    const title = document.createElement("div")
-    title.className = "searchResultTitle"
-    title.innerHTML = stringTitle
-
-    const subject = document.createElement("div")
-    subject.className = "searchResultUpInfo"
-    subject.innerHTML = stringSubject
-
-    const description = document.createElement("div")
-    description.className = "searchResultUpInfo"
-    description.innerHTML = stringDescrip
-
-    upperPartResultContainer.append(title)
-    upperPartResultContainer.append(subject)
-    upperPartResultContainer.append(description)
-
-    //BOTTOM
-    const lowerPartResultContainer = document.createElement("div")
-    lowerPartResultContainer.id = "botResult"
-
-    //BOT INFO
-    const numFlashCardsAndCreatorContainer = document.createElement("div")
-    numFlashCardsAndCreatorContainer.id = "botInfo"
-
-    const numFlashCards = document.createElement("div")
-    numFlashCards.className = "searchResultUpInfo searchResultDownInfo"
-    numFlashCards.innerHTML = nCards + " Flashcards"
-
-    const creator = document.createElement("div")
-    creator.className = "searchResultUpInfo"
-    creator.innerHTML = "By: " + stringAuthor
-
-    numFlashCardsAndCreatorContainer.append(numFlashCards)
-    numFlashCardsAndCreatorContainer.append(creator)
-
-    //BUTTONS
-    const buttonsContainer = document.createElement("div")
-    buttonsContainer.id = "buttonsResult"
-
-    const pinButton = document.createElement("a")
-    pinButton.id = "pinBtn"
-    pinButton.className = "searchResult-Btns"
-
-    const pinImage = document.createElement("img")
-    pinImage.id = "pinIcon"
-    pinImage.src = "../assets/pin.png"
-    pinImage.className = "pinIconPos"
-
-    pinButton.append(pinImage)
-
-    const pinTag = document.createElement("div")
-    pinTag.innerHTML = "Pin Quiz"
-
-    pinButton.append(pinTag)
-
-    const nextLine = document.createElement("br")
-
-    const takeQuizButton = document.createElement("a")
-    takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/take_quiz"
-
-    takeQuizButton.innerHTML = "Take Quiz"
-
-    buttonsContainer.append(pinButton)
-    buttonsContainer.append(nextLine)
-    buttonsContainer.append(takeQuizButton)
-
-    lowerPartResultContainer.append(numFlashCardsAndCreatorContainer)
-    lowerPartResultContainer.append(buttonsContainer)
-
-    resultContainer.append(upperPartResultContainer)
-    resultContainer.append(lowerPartResultContainer)
-
-    $('#searchResultContainer').prepend(resultContainer)
-}
-
-function renderResultUser(result){
-    
-    console.log(result)
-    
-    for(var i = 0; i < result.length; i++){
-        displayResultUser(result[i]._id, result[i].title, result[i].subject, 
-            result[i].description, result[i].deck.length, result[i].author.username)
-    }
 }
 
 function renderResultGuest(result){
