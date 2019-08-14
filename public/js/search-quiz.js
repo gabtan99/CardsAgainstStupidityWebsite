@@ -34,7 +34,7 @@ $(document).ready(function () {
                         displayError("No Results Found")
                     } else if (!isGuest) { //if user
                         renderResultUser(result)
-                    } else if(isGuest) { //if guest
+                    } else { //if guest
                         renderResultGuest(result)
                     }
                 },
