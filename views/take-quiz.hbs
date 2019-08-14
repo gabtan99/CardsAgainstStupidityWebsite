@@ -32,8 +32,8 @@
     <div class="main-body">
 
         <div id="preStartContainer" class="prestartContainer">
-            <form id="takeQuizForm">
-                <div class="searchResult prestartForm">
+            <form id="takeQuizForm" class="mainForm">
+                <div class=" preStartDisplay prestartForm">
                     <div id="topPrestart">
                         <div class="searchResultTitle centered" id="qTitle">Title</div>
                         <div class="searchResultUpInfo centered" id="qTubject">Subject</div>
@@ -77,17 +77,17 @@
         </div>
 
         <div class="quiz-area">
-            <div id="card-tracker">Question 1/10</div>
+            <div id="card-tracker"></div>
             <div class="questions">
                 <div class="black-card">
-                    <textarea type="text" placeholder="Enter Question Here">What is an operating system?</textarea>
+                    <textarea readonly id="questionArea"></textarea>
                     <footer>
                         <p>Cards Against Stupidity</p>
                     </footer>
                 </div>
 
                 <div class="white-card">
-                    <textarea type="text" placeholder="Enter Question Here">Answer Revealed in 10 seconds.</textarea>
+                    <textarea readonly id="answerArea"></textarea>
                     <footer>
                         <p>Cards Against Stupidity</p>
                     </footer>
@@ -95,19 +95,38 @@
             </div>
 
             <div class="response-button">
-                <a href="" id="guessed-button">
+                <a id="guessed-button">
                     <div id="guessed-icon"></div>
                     <div id="guessed-button-text">I guessed</div>
                 </a>
 
-                <a href="/quiz/results_quiz" id="knew-button">
+                <a id="knew-button">
                     <div id="knew-icon"></div>
                     <div id="knew-button-text">I knew it</div>
                 </a>
             </div>
         </div>
     </div>
+
+    <div id="endResultContainer" class="prestartContainer">
+
+        <div class="searchResult resultForm">
+            <div id="middlePrestart">
+                <div class="centerContentPrestart resultLabels">You got</div>
+                <div class="centerContentPrestart resultLabels flashcrd resultScore" id="correctAnswers">#</div>
+                <div class="centerContentPrestart resultLabels">correct answers!</div>
+            </div>
+
+            <div id="botFinished" class="resultBtnGang">
+                <div class="prestartBtnContainer">
+                    <a class="searchResult-Btns prestartBtns resultEndBtn" href="/quiz">End</a>
+                    <br>
+                    <a class="searchResult-Btns prestartBtns" id="tryAgainBtn">Try Again</a>
+                </div>
+            </div>
+        </div>
     </div>
+
 
 </body>
 
