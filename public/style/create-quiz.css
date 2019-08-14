@@ -305,6 +305,12 @@ input::placeholder {
     border: solid 1px grey;
 }
 
+#editBtn {
+    background-color: #FFF;
+    color: #000;
+    border: solid 1px grey;
+}
+
 #pinIcon {
     height: 24px;
     width: 12px;

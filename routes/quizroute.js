@@ -24,7 +24,6 @@ router.get("/", async (req, res) => {
         }else if(doc){
             let quizObjects = await Quiz.findQuizzes(doc)
             let pinnedQuizes = await User.getPinnedQuizes(username)
-            console.log(pinnedQuizes.pinnedQuizes)
             res.render("quizzes.hbs", {
                 quizzes: quizObjects
             })
@@ -85,7 +84,9 @@ router.get("/take_quiz", (req, res) => {
 })
 
 router.get("/edit_quiz", (req, res) => {
-    res.render("edit-quiz.hbs")
+    res.render("edit-quiz", {
+        
+    })
 })
 
 
