@@ -35,6 +35,7 @@
     padding-left: 15px;
     font-family: "Helvetica Neue";
     display: flex;
+    text-align: center;
 }
 
 .valid-input {
