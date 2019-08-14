@@ -67,6 +67,13 @@ userSchema.statics.getUser = function (username, callback) {
     }, callback)
 }
 
+userSchema.statics.getUsername = function (user_id, callback) {
+    this.findOne({
+        _id: user_id
+    }, callback)
+}
+
+
 userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
     this.updateOne({
         _id: user_id

@@ -35,7 +35,7 @@ $(document).ready(function () {
                     if(result == null){
                         displayError("No Results Found")
                     } else { 
-                        renderResultUser(result)
+                        renderResultGuest(result)
                     }
                 },
             })

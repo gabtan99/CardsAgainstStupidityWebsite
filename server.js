@@ -131,19 +131,13 @@ app.get("/search", (req, res) => {
     res.render("search.hbs")
 })
 
-app.get("/search-keyword", urlencoder, (req, res) => {
+app.get("/search-keyword", urlencoder, async (req, res) => {
 
     var keyword = req.query.keyword
 
-    Quiz.searchQuiz(keyword, (err, doc) =>{
-        if(err){
-            res.send(err)
-        } else if(doc === null){
-            res.send("no results")
-        } else {
-            res.send(doc)
-        }
-    })
+    let results = await Quiz.searchQuiz(keyword)
+
+    res.send(results)
 })
 
 app.get("/about", (req, res) => {
