@@ -73,7 +73,7 @@ function displayResultGuest() {
 
     const takeQuizButton = document.createElement("a")
     takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/pre_start"
+    takeQuizButton.href = "/quiz/take_quiz"
 
     takeQuizButton.innerHTML = "Take Quiz"
 
@@ -158,7 +158,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     const takeQuizButton = document.createElement("a")
     takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/pre_start"
+    takeQuizButton.href = "/quiz/take_quiz"
 
     takeQuizButton.innerHTML = "Take Quiz"
 
@@ -175,7 +175,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     $('#searchResultContainer').prepend(resultContainer)
 }
 
-function renderResultUser(){
+function renderResultUser() {
     var result = {
         "results": {
             "DzgvcDDm2I": {
@@ -216,8 +216,8 @@ function renderResultUser(){
             resultNum: resultID
         };
 
-        displayResultUser(result.resultNum["id"], result.resultNum["title"], result.resultNum["subject"], 
-                        result.resultNum["description"], result.resultNum["nFlashcards"], result.resultNum["author"])
+        displayResultUser(result.resultNum["id"], result.resultNum["title"], result.resultNum["subject"],
+            result.resultNum["description"], result.resultNum["nFlashcards"], result.resultNum["author"])
     }
-    
+
 }

@@ -35,14 +35,11 @@ quizSchema.statics.createQuiz = function (title, author, subject, description, p
     quiz.save(callback)
 }
 
-quizSchema.statics.findQuiz = async function (id, callback) {
-
+quizSchema.statics.retrieveQuiz = function (quiz_id, callback) {
+    this.findOne({
+        _id: quiz_id
+    }, callback)
 }
-
-quizSchema.statics.findQuizzes = async function (id, callback) {
-
-}
-
 
 quizSchema.statics.searchQuiz = function (keyword, callback) {
 
