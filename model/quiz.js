@@ -39,9 +39,11 @@ quizSchema.statics.findQuiz = async function (id, callback) {
 
 }
 
-quizSchema.statics.findQuizzes = function(author, callback){
-    this.find({author: author}, callback)
+quizSchema.statics.findQuizzes = async function(author){
+    return await this.find({author: author}).populate("author")
 }
+
+quizSchema.statics.findPinnedQuizzes = 
 
 
 

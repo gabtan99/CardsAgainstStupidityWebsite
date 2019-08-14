@@ -44,16 +44,17 @@
 
             <div id="myQuizContainer">
                 <div class="title mypinLabels"> My Quizzes </div>
+                {{#each quizzes}}
                 <div class="searchResult">
                     <div id="topResult">
-                        <div class="searchResultTitle">Title</div>
-                        <div class="searchResultUpInfo">Subject</div>
-                        <div class="searchResultUpInfo">Description</div>
+                        <div class="searchResultTitle">{{title}}</div>
+                        <div class="searchResultUpInfo">{{subject}}</div>
+                        <div class="searchResultUpInfo">{{description}}</div>
                     </div>
                     <div id="botResult">
                         <div id="botInfo">
                             <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
-                            <div class="searchResultUpInfo">By: </div>
+                            <div class="searchResultUpInfo">By: {{author.username}}</div>
                         </div>
                         <div id=buttonsResult>
                             <a id="pinBtn" class="searchResult-Btns" href="/quiz/edit_quiz">Edit</a>
@@ -62,7 +63,9 @@
                         </div>
                     </div>
                 </div>
+                {{/each}}
             </div>
+            
 
             <div id="pinnedQuizContainer">
                 <div class="title mypinLabels"> Pinned Quizzes </div>

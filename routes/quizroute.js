@@ -16,23 +16,19 @@ const {
 } = require("../model/user.js")
 
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
     let username = req.session.username
     
-    User.getUser(username, (err, doc) => {
+    User.getUser(username, async (err, doc) => {
         if(err){
             res.send(err)
         }else if(doc){
-            Quiz.findQuizzes(doc, (err, doc) => {
-                if(err){
-                    res.send(err)
-                }else{
-                    console.log(doc)
-                }
+            let quizObjects = await Quiz.findQuizzes(doc)
+            res.render("quizzes.hbs", {
+                quizzes: quizObjects
             })
         }
     })
-    res.render("quizzes.hbs")
 })
 
 router.get("/pre_start", (req, res) => {
