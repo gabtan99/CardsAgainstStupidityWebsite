@@ -17,6 +17,21 @@ const {
 
 
 router.get("/", (req, res) => {
+    let username = req.session.username
+    
+    User.getUser(username, (err, doc) => {
+        if(err){
+            res.send(err)
+        }else if(doc){
+            Quiz.findQuizzes(doc, (err, doc) => {
+                if(err){
+                    res.send(err)
+                }else{
+                    console.log(doc)
+                }
+            })
+        }
+    })
     res.render("quizzes.hbs")
 })
 
