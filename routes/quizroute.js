@@ -18,12 +18,13 @@ const {
 
 router.get("/", async (req, res) => {
     let username = req.session.username
-    
     User.getUser(username, async (err, doc) => {
         if(err){
             res.send(err)
         }else if(doc){
             let quizObjects = await Quiz.findQuizzes(doc)
+            let pinnedQuizes = await User.getPinnedQuizes(username)
+            console.log(pinnedQuizes.pinnedQuizes)
             res.render("quizzes.hbs", {
                 quizzes: quizObjects
             })
