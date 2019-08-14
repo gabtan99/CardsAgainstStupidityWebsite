@@ -213,7 +213,8 @@ input::placeholder {
     line-height: 30px;
 }
 
-#searchResultContainer, #preStartContainer{
+#searchResultContainer,
+#preStartContainer {
     width: 532px;
     height: 100%;
     justify-content: center;
@@ -234,23 +235,23 @@ input::placeholder {
 }
 
 .searchResultTitle {
-    height: 35px;
-    width: 80%;
     color: #000;
     font-family: "Helvetica Neue";
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
     display: flex;
+    justify-content: center;
 }
 
 .searchResultUpInfo {
-    width: 80%;
     height: 25px;
-    font-size: 18px;
+    font-size: 20px;
     color: #787878;
     font-family: "Helvetica Neue";
     font-weight: 700;
+    margin-top: 5px;
     display: flex;
+    justify-content: center;
 }
 
 .searchResultDownInfo {
@@ -496,11 +497,11 @@ input[type="submit"]:hover {
 }
 
 .prestartDescrip {
-    margin-top: 30px;
+    margin-top: 4px;
 }
 
 #middlePrestart {
-    margin-top: 50px;
+    margin-top: 10px;
     justify-content: center;
     text-align: center;
 }
@@ -574,10 +575,6 @@ input[type="submit"]:hover {
     font-weight: 700;
 }
 
-.flashcrd {
-    color: #000;
-}
-
 a {
     text-decoration: none;
 }
@@ -645,4 +642,34 @@ a {
 
 .tab {
     display: none;
+}
+
+#botPrestart {
+    margin-top: 10px;
+}
+
+.footerContentPrestart {
+    margin-top: 20px;
+    display: flex;
+}
+
+.footerInfo {
+    justify-content: center;
+    font-size: 18px;
+    color: #787878;
+    font-family: "Helvetica Neue";
+    font-weight: 700;
+    min-width: 50%
+}
+
+.flashcrd {
+    color: #000;
+}
+
+#topPrestart {
+    padding: 30px 0px;
+}
+
+#qAuthor {
+    text-align: right
 }

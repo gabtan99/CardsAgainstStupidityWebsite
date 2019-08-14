@@ -19,9 +19,9 @@ const {
 router.get("/", async (req, res) => {
     let username = req.session.username
     User.getUser(username, async (err, doc) => {
-        if(err){
+        if (err) {
             res.send(err)
-        }else if(doc){
+        } else if (doc) {
             let quizObjects = await Quiz.findQuizzes(doc)
             let pinnedQuizes = await User.getPinnedQuizes(username)
             console.log(pinnedQuizes.pinnedQuizes)
@@ -66,18 +66,16 @@ router.get("/submit_new_quiz", urlencoder, (req, res) => {
     })
 })
 
-router.get("/retrieve_quiz", (req, res) => {
+router.get("/retrieve_quiz", async (req, res) => {
 
     let quiz_id = req.query.qid
-    Quiz.retrieveQuiz(quiz_id, (err, doc) => {
+    let quiz = await Quiz.retrieveQuiz(quiz_id)
 
-
-        if (doc === null) {
-            res.send("0")
-        } else {
-            res.send(doc)
-        }
-    })
+    if (quiz === null) {
+        res.send("0")
+    } else {
+        res.send(quiz)
+    }
 })
 
 router.get("/take_quiz", (req, res) => {
