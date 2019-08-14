@@ -131,7 +131,8 @@ a:hover {
 }
 
 .shown {
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 

@@ -7,24 +7,39 @@ $(document).ready(() => {
         let oldp = $("#oldpasswordfield").val()
         let newp = $("#newpasswordfield").val()
 
-        $.ajax({
-            url: "update-password",
-            method: "POST",
-            data: {
-                oldpass: oldp,
-                newpass: newp
-            },
-            success: function (result) {
-                if (result == '1') {
-                    window.location = "/user"
-                } else {
-                    displayError(result)
-                }
-            },
-        })
+        if (isValid(newp)) {
+            $.ajax({
+                url: "update-password",
+                method: "POST",
+                data: {
+                    oldpass: oldp,
+                    newpass: newp
+                },
+                success: function (result) {
+                    if (result == '1') {
+                        window.location = "/user"
+                    } else {
+                        displayError(result)
+                    }
+                },
+            })
+        } else {
+            displayError("Password must be at laest 6 characters")
+        }
+
+
 
     })
 })
+
+function isValid(s) {
+    // check for null or too short
+    if (!s || s.length < 6) {
+        return false;
+    }
+    // all requirements have been satisfied
+    return true;
+}
 
 function displayError(msg) {
     $("#error-messages").empty()
