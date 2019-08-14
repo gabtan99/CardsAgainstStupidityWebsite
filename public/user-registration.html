@@ -45,13 +45,13 @@
                 </div>
 
                 <input id="usernamefield" type="text" class="input input-field" onkeyup="validUsername()"
-                    name="username" placeholder="Username: " required>
+                    name="username" placeholder="Username" autocomplete="off" required >
 
                 <input id="passwordfield" type="password" class="input input-field" onkeyup="validPassword()"
-                    name="password" placeholder="Password: " required>
+                    name="password" placeholder="Password" autocomplete="off" required>
 
                 <input id="confirmfield" type="password" class="input input-field" onkeyup="matchPassword()"
-                    name="confirm" placeholder="Confirm Password: " required>
+                    name="confirm" placeholder="Confirm Password" autocomplete="off" required>
 
                 <div class="error-box" id="error-div">
                     <ul id="error-messages">
