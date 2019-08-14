@@ -49,9 +49,9 @@ quizSchema.statics.retrieveQuiz = function (quiz_id, callback) {
     }, callback)
 }
 
-quizSchema.statics.searchQuiz = function (keyword, callback) {
+quizSchema.statics.searchQuiz = async function (keyword, callback) {
 
-    this.find({
+    return await this.find({
         '$or': [{
                 title: {
                     $regex: keyword,
@@ -72,7 +72,7 @@ quizSchema.statics.searchQuiz = function (keyword, callback) {
         ]
 
 
-    }, callback)
+    }).populate("author")
 
 }
 

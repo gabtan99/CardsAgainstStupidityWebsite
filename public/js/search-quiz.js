@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('#SearchForm').submit( async function (e) {
 
-        var who = "guest"
+        var isGuest = true
 
         e.preventDefault()
 
@@ -17,7 +17,9 @@ $(document).ready(function () {
                 },
                 success: function (result) {
                     if (result == '1') { //if user, set who to user
-                        who = "user"
+                        isGuest = false
+                    } else if(result == '0'){
+                        isGuest = true
                     }
                 },
             })
@@ -28,11 +30,11 @@ $(document).ready(function () {
                     keyword: keyword
                 },
                 success: function (result) {
-                    if(result == "no results"){
-                        console.log(result)
-                    } else if (who == "user") { //if user
+                    if(result == null){
+                        displayError("No Results Found")
+                    } else if (!isGuest) { //if user
                         renderResultUser(result)
-                    } else { //if guest
+                    } else if(isGuest) { //if guest
                         renderResultGuest(result)
                     }
                 },
@@ -222,65 +224,20 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
 function renderResultUser(result){
     
-    var resultEntries = result.results;
-    var EntryIDs = Object.keys(resultEntries);
-
-    for (var i = 0; i < EntryIDs.length; i++) {
-        var resultID = resultEntries[EntryIDs[i]];
-        var result = {
-            resultNum: resultID
-        };
-
-        displayResultUser(EntryIDs[i], result.resultNum["title"], result.resultNum["subject"], 
-                        result.resultNum["description"], result.resultNum["nFlashcards"], result.resultNum["author"])
-    }
+    console.log(result)
     
-    /*
-    var result = {
-        "results": {
-            "DzgvcDDm2I": {
-                "id": "1",
-                "title": "Midterms",
-                "subject": "AUTOMAT",
-                "description": "Chapter 1-5",
-                "nFlashcards": 15,
-                "author": "Denzel Co"
-            },
-
-            "WD2dqvcdaa": {
-                "id": "2",
-                "title": "Final Exam",
-                "subject": "INTR-OS",
-                "description": "Cover to cover coverage",
-                "nFlashcards": 20,
-                "author": "Denzel Lo"
-            },
-
-            "qweqdlw22a": {
-                "id": "3",
-                "title": "Fun",
-                "subject": "WEBAPDE",
-                "description": "Web Trivia",
-                "nFlashcards": 5,
-                "author": "Denzel Ho"
-            }
-        }
+    for(var i = 0; i < result.length; i++){
+        displayResultUser(result[i]._id, result[i].title, result[i].subject, 
+            result[i].description, result[i].deck.length, result[i].author.username)
     }
-    */
 }
 
 function renderResultGuest(result){
 
-    var resultEntries = result.results;
-    var EntryIDs = Object.keys(resultEntries);
-
-    for (var i = 0; i < EntryIDs.length; i++) {
-        var resultID = resultEntries[EntryIDs[i]];
-        var result = {
-            resultNum: resultID
-        };
-
-        displayResultGuest(EntryIDs[i], result.resultNum["title"], result.resultNum["subject"], 
-                        result.resultNum["description"], result.resultNum["nFlashcards"], result.resultNum["author"])
+    console.log(result)
+    
+    for(var i = 0; i < result.length; i++){
+        displayResultGuest(result[i]._id, result[i].title, result[i].subject, 
+            result[i].description, result[i].deck.length, result[i].author.username)
     }
 }
