@@ -10,8 +10,4 @@ $(document).ready(function () {
         $("#takeform").submit()
     })
 
-
-
-
-
 })
