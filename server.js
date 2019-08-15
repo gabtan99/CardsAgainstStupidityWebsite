@@ -143,18 +143,22 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
     await User.getUser(username, (err, doc) => {
         if (err) {
             console.log(err)
-        }
-        else {
-            actualName = doc.username
-            console.log(actualName)
+        } else {
+            if(!doc){
+                res.send(results)
+            } else {
+                actualName = doc.username
 
-            let output = {
-                searchResults: results,
-                authorName: actualName
+                console.log(actualName)
+
+                let output = {
+                    searchResults: results,
+                    authorName: actualName
+                }
+                console.log(output)
+            
+                res.send(output)
             }
-            console.log(output)
-        
-            res.send(output)
         }
     }) 
 

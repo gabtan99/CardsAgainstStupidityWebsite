@@ -141,8 +141,6 @@ function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, n
 }
 
 function renderResultGuest(result){
-
-    console.log(result)
     
     for(var i = 0; i < result.length; i++){
         displayResultGuest(result[i]._id, result[i].title, result[i].subject, 

@@ -103,7 +103,7 @@ function displayResultUserPin(dataID, stringTitle, stringSubject, stringDescrip,
     const buttonsContainer = document.createElement("div")
     buttonsContainer.id = "buttonsResult"
 
-    const pinButton = document.createElement("button")
+    const pinButton = document.createElement("a")
     pinButton.id = "pinBtn"
     pinButton.setAttribute('data-id', dataID)
     pinButton.className = "searchResult-Btns pinButton"
@@ -189,7 +189,7 @@ function displayResultUserEdit(dataID, stringTitle, stringSubject, stringDescrip
     const buttonsContainer = document.createElement("div")
     buttonsContainer.id = "buttonsResult"
 
-    const pinButton = document.createElement("button")
+    const pinButton = document.createElement("a")
     pinButton.id = "pinBtn"
     pinButton.setAttribute('data-id', dataID)
     pinButton.className = "searchResult-Btns pinButton"
