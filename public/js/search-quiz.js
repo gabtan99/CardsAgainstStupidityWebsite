@@ -116,6 +116,7 @@ function displayResultUserPin(dataID, stringTitle, stringSubject, stringDescrip,
     pinButton.append(pinImage)
 
     const pinTag = document.createElement("div")
+    pinTag.id = "tagPin"
     pinTag.innerHTML = "Pin Quiz"
 
     pinButton.append(pinTag)
@@ -242,9 +243,34 @@ function renderResultUser(result) {
 }
 
 
-function addFunctionality () {
-    $("#pinBtn").click(function(){
+// function addFunctionality () {
+//     $("#pinBtn").click(function(){
+//         $("#searchid").val($(this).attr("data-id"))
+//         $('#hiddensearchform').submit()
+//     })
+// }
+
+function addFunctionality(){
+    $("#pinBtn").click(async function (e) {
+
+        e.preventDefault()
+
         $("#searchid").val($(this).attr("data-id"))
-        $('#hiddensearchform').submit()
+
+        await $.ajax({
+            url: "actionQuiz",
+            method: "GET",
+            data: {
+            },
+            success: function (result) {
+                if (result == '1') {
+                    console.log("Pin Success")
+                    $("#tagPin").html("Unpin")
+                } else {
+                    console.log("Pin Fail")
+                }
+            },
+        })
+        
     })
 }

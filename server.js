@@ -184,8 +184,6 @@ app.get("/actionQuiz", (req, res) =>{
         }
     }) 
 
-
-
     User.addQuizToPinned(userID, quizID, (err, doc) => {
         if(err){
             console.log(err)
