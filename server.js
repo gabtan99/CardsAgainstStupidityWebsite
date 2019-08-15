@@ -137,6 +137,8 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
 
     let results = await Quiz.searchQuiz(keyword)
 
+    
+
     res.send(results)
 })
 
@@ -150,8 +152,6 @@ app.get("/actionQuiz", (req, res) =>{
     let quizID = req.query.id
     let userID
 
-
-    
     User.getUser(username, (err, doc) => {
         if (err) {
             console.log(err)
@@ -159,7 +159,10 @@ app.get("/actionQuiz", (req, res) =>{
         else {
             userID = doc._id
         }
-    }) //get the user based on username
+    }) 
+
+
+
     User.addQuizToPinned(userID, quizID, (err, doc) => {
         if(err){
             console.log(err)
