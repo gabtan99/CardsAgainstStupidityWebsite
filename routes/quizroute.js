@@ -32,12 +32,8 @@ router.get("/", async (req, res) => {
 })
 
 
-router.get("/results_quiz", (req, res) => {
-    res.render("results.hbs")
-})
 
 router.get("/create_quiz", (req, res) => {
-
     res.render("createQuiz.hbs")
 })
 
@@ -63,23 +59,10 @@ router.get("/submit_new_quiz", urlencoder, (req, res) => {
     })
 })
 
-router.get("/retrieve_quiz", async (req, res) => {
 
-    let quiz_id = req.query.qid
-    let quiz = await Quiz.retrieveQuiz(quiz_id)
 
-    if (quiz === null) {
-        res.send("0")
-    } else {
-        res.send(quiz)
-    }
-})
+// /edit is now /edit_quiz
 
-router.get("/edit", async (req, res)=>{
-    res.render("edit-quiz.hbs", {
-        quiz: await Quiz.retrieveQuiz(req.query.id)
-    })
-})
 
 router.get("/update_quiz", (req, res) => {
     let username = req.session.username
@@ -107,7 +90,12 @@ router.get("/unpin_quiz", (req, res) => {
     console.log("unpin")
 })
 
-router.get("/edit_quiz", (req, res) => {
+router.get("/edit_quiz", async (req, res) => {
+
+
+    res.render("edit-quiz.hbs", {
+        quiz: await Quiz.retrieveQuiz(req.query.id)
+    })
 
     console.log(req.query.id)
     console.log("edit")
@@ -127,5 +115,42 @@ router.get("/take_quiz", (req, res) => {
     })
 })
 
+router.get("/retrieve_quiz", async (req, res) => {
+
+    let quiz_id = req.query.qid
+    let quiz = await Quiz.retrieveQuiz(quiz_id)
+
+    if (quiz === null) {
+        res.send("0")
+    } else {
+        res.send(quiz)
+    }
+})
+
+app.get("/pin_quiz1", (req, res) => {
+
+    let username = req.session.username
+    let quizID = req.query.id
+    let userID
+
+    User.getUser(username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            userID = doc._id
+        }
+    })
+
+    User.addQuizToPinned(userID, quizID, (err, doc) => {
+        if (err) {
+            console.log(err)
+            res.send("0")
+        } else {
+            console.log("action quiz success!")
+            res.send("1")
+        }
+    })
+
+})
 
 module.exports = router;

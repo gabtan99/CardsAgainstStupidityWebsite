@@ -53,7 +53,4 @@ router.post("/update-password", urlencoder, (req, res) => {
 })
 
 
-
-
-
 module.exports = router;
