@@ -75,10 +75,10 @@ quizSchema.statics.searchQuiz = async function (keyword, callback) {
 
 }
 
-quizSchema.statics.getFiveQuizzes = function (callback) {
-    this.find({
+quizSchema.statics.getFiveQuizzes = async function (callback) {
+    return await this.find({
         public: true
-    }, callback).limit(5).populate("author", "username")
+    }).limit(5).populate("author", "username")
 }
 
 

@@ -155,9 +155,30 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
     })
 })
 
-app.get("/get-five-quizzes", (req, res) => {
-    Quiz.getFiveQuizzes((err, doc) => {
-        res.send(doc)
+app.get("/get-five-quizzes-guest", async (req, res) => {
+    let results = await Quiz.getFiveQuizzes()
+
+    res.send(results)
+})
+
+app.get("/get-five-quizzes-user", async (req, res) => {
+
+    let results = await Quiz.getFiveQuizzes()
+    User.getUser(req.session.username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            if (doc == null) {
+                res.send(results)
+            } else {
+                let response = {
+                    user_id: doc._id,
+                    pinned: doc.pinnedQuizzes,
+                    quizzes: results
+                }
+                res.send(response)
+            }
+        }
     })
 })
 

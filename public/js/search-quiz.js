@@ -1,7 +1,17 @@
 $(document).ready(function () {
+
+    $.ajax({
+        url: "/get-five-quizzes-user",
+        method: "GET",
+        success: function (result) {
+            emptyContainer()
+            hideError("")
+            renderResultUser(result)
+        }
+    })
+
     $('#SearchForm').submit(async function (e) {
 
-        var isGuest = true
 
         e.preventDefault()
 

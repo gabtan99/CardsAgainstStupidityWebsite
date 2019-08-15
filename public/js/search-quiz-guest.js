@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 
     $.ajax({
-        url: "/get-five-quizzes",
+        url: "/get-five-quizzes-guest",
         method: "GET",
         success: function (result) {
             emptyContainer()
@@ -12,8 +12,6 @@ $(document).ready(function () {
     })
 
     $('#SearchForm').submit(async function (e) {
-
-        var isGuest = true
 
         e.preventDefault()
 
