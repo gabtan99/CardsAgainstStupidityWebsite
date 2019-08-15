@@ -155,7 +155,11 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
     })
 })
 
-
+app.get("/get-five-quizzes", (req, res) => {
+    Quiz.getFiveQuizzes((err, doc) => {
+        res.send(doc)
+    })
+})
 
 
 

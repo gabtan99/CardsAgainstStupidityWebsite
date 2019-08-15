@@ -1,5 +1,17 @@
 $(document).ready(function () {
-    $('#SearchForm').submit( async function (e) {
+
+
+    $.ajax({
+        url: "/get-five-quizzes",
+        method: "GET",
+        success: function (result) {
+            emptyContainer()
+            hideError("")
+            renderResultGuest(result)
+        }
+    })
+
+    $('#SearchForm').submit(async function (e) {
 
         var isGuest = true
 
@@ -7,10 +19,10 @@ $(document).ready(function () {
 
         let keyword = $("#searchbox").val()
 
-        if(keyword === ''){
+        if (keyword === '') {
             emptyContainer()
             displayError("Enter a keyword")
-        } else{
+        } else {
             emptyContainer()
             hideError("")
             await $.ajax({
@@ -20,10 +32,10 @@ $(document).ready(function () {
                     keyword: keyword
                 },
                 success: function (result) {
-                    if(result.length == 0){
+                    if (result.length == 0) {
                         emptyContainer()
                         displayError("No Results Found")
-                    } else { 
+                    } else {
                         emptyContainer()
                         hideError("")
                         renderResultGuest(result)
@@ -46,11 +58,11 @@ function hideError(msg) {
     $("#error-messages").empty()
     let error = document.getElementById("error-div")
     error.className = "error-box tab"
-    $("#error-messages").append('<li>'+'</li')
+    $("#error-messages").append('<li>' + '</li')
     // shows the error message by appending the invisible list
 }
 
-function emptyContainer(){
+function emptyContainer() {
     $("#searchResultContainer").empty()
 }
 
@@ -140,10 +152,10 @@ function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, n
     $('#searchResultContainer').prepend(resultContainer)
 }
 
-function renderResultGuest(result){
-    
-    for(var i = 0; i < result.length; i++){
-        displayResultGuest(result[i]._id, result[i].title, result[i].subject, 
+function renderResultGuest(result) {
+
+    for (var i = 0; i < result.length; i++) {
+        displayResultGuest(result[i]._id, result[i].title, result[i].subject,
             result[i].description, result[i].deck.length, result[i].author.username)
     }
 }

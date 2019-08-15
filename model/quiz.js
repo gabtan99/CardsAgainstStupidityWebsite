@@ -75,6 +75,12 @@ quizSchema.statics.searchQuiz = async function (keyword, callback) {
 
 }
 
+quizSchema.statics.getFiveQuizzes = function (callback) {
+    this.find({
+        public: true
+    }, callback).limit(5).populate("author", "username")
+}
+
 
 quizSchema.statics.updateQuiz = function (id, title, author, subject, description, public, deck, callback) {
     this.updateOne({
