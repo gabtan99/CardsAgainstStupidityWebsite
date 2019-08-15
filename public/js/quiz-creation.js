@@ -120,6 +120,7 @@ function checkInputs(currentTab){
 
         return true
     }else if(currentTab == 1){
+        return true
     }
 }
 
