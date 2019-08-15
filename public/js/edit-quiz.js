@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    $("button.editBtn").click(function(){
+        $("#editid").val($(this).attr("data-id"))
+        $("#editform").submit()
+    })
 
     $("button.save").click(function(){
         var id = $("#Form").attr("data-id")
@@ -30,10 +34,6 @@ $(document).ready(function(){
     })
     counter = checkNumberOfCards()
     checkCardLabels(counter)
-    $("button.editBtn").click(function(){
-        $("#editid").val($(this).attr("data-id"))
-        $("#editform").submit()
-    })
 
     $('.add-card a').click(function(){
         createCard()
