@@ -137,9 +137,28 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
 
     let results = await Quiz.searchQuiz(keyword)
 
-    
+    let username = req.session.username
+    let actualName
 
-    res.send(results)
+    await User.getUser(username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            actualName = doc.username
+            console.log(actualName)
+
+            let output = {
+                searchResults: results,
+                authorName: actualName
+            }
+            console.log(output)
+        
+            res.send(output)
+        }
+    }) 
+
+    
 })
 
 app.get("/about", (req, res) => {
