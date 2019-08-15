@@ -158,7 +158,26 @@ input::placeholder {
 }
 
 /*actual button*/
-#submitBtn,
+#submitBtn {
+    width: 132px;
+    height: 54px;
+    margin-top: 24px;
+    margin-bottom: 15px;
+    border-radius: 9px;
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #FFF;
+    cursor: pointer;
+}
+
+
 #nextBtn {
     width: 132px;
     height: 54px;
@@ -177,6 +196,8 @@ input::placeholder {
     color: #FFF;
     cursor: pointer;
 }
+
+
 
 
 /*button container (sorry for the bad naming HAHA)*/
@@ -408,8 +429,7 @@ input[type="radio"] {
 }
 
 .publish {
-    margin-top: 25px;
-    margin-bottom: -50px;
+    margin-top: 0px;
 }
 
 #radioContainer {
@@ -421,7 +441,7 @@ input[type="radio"] {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 #createQ {
@@ -450,6 +470,7 @@ input[type="radio"] {
     font-size: 23px;
     width: 100%;
     padding-left: 90px;
+    margin-top: 10px;
 }
 
 /***************************************   EDIT PROFILE CCS     **************************************** */
