@@ -263,6 +263,10 @@ async function renderResultUser(result) {
 
 }
 
+function changeFunctionality() {
+
+}
+
 
 function addFunctionality(dataID, container, actionType) {
 

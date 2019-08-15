@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../style/add-card.css">
     <link rel="stylesheet" href="../style/navbar.css">
     <script src="../js/jquery.min.js"></script>
-    <script src="../js/edit-quiz.js"></script>
+    <script src="../js/quizzes.js"></script>
 </head>
 
 <body>
@@ -51,20 +51,27 @@
                     <div id="topResult">
                         <div class="searchResultTitle">{{title}}</div>
                         <div class="searchResultUpInfo">{{subject}}</div>
-                        <div class="searchResultUpInfo">{{description}}</div>
+                        <div class="searchResultUpInfo" id="quizDescriptionInfo">{{description}}</div>
                     </div>
                     <div id="botResult">
                         <div id="botInfo">
+                            {{#if public}}
+                                <div class="searchResultUpInfo" id="privacyLabel">Public</div>
+                            {{else}}
+                                <div class="searchResultUpInfo" id="privacyLabel">Private</div>
+                            {{/if}}
                             <div class="searchResultUpInfo searchResultDownInfo">{{deck.length}} Flashcards</div>
-                            <div class="searchResultUpInfo">Made by {{author.username}}</div>
+                            <div class="searchResultUpInfo">by {{author.username}}</div>
                         </div>
                         <div id=buttonsResult>
                             <button id="pinBtn" class="searchResult-Btns editBtn" data-id="{{_id}}">Edit</button>
                             <br>
-                            <button id="takeQuizBtn" class="searchResult-Btns" data-id="{{_id}}">Take Quiz</a>
+                            <button id="takeQuizBtn" class="searchResult-Btns takeBtn" data-id="{{_id}}">Take Quiz</a>
                         </div>
                     </div>
                 </div>
+                {{else}}
+                    <div id="no_quiz_tag">No quizzes to show...</div>
                 {{/each}}
             </div>
 
@@ -72,7 +79,7 @@
                 <input type="hidden" name="id" id="editid">
             </form>
 
-            <form action="quiz/take_quiz" id="takeform">
+            <form action="/quiz/take_quiz" id="takeform">
                 <input type="hidden" name="id" id="takeid">
             </form>
 

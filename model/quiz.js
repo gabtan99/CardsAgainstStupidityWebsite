@@ -67,7 +67,8 @@ quizSchema.statics.searchQuiz = async function (keyword, callback) {
                     $options: "$i"
                 }
             }
-        ]
+        ],
+        public: true
 
 
     }).populate("author", "username")

@@ -140,16 +140,22 @@ app.get("/search-keyword", urlencoder, async (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            let response = {
-                user_id: doc._id,
-                pinned: doc.pinnedQuizzes,
-                quizzes: results
-            }
+            if (doc == null) {
+                res.send(results)
+            } else {
+                let response = {
+                    user_id: doc._id,
+                    pinned: doc.pinnedQuizzes,
+                    quizzes: results
+                }
 
-            res.send(response)
+                res.send(response)
+            }
         }
     })
 })
+
+
 
 
 

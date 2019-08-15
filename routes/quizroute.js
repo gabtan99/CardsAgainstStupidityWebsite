@@ -72,7 +72,7 @@ router.get("/update_quiz", (req, res) => {
     let description = req.query.description
     let public = req.query.public
     let deck = req.query.deck
-
+    console.log(public)
     User.getUser(username, (err, doc) => {
         Quiz.updateQuiz(id, title, doc, subject, description, public, deck, (err, doc) => {
             if (err) {
