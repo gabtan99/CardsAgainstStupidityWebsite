@@ -97,6 +97,9 @@ function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, n
     const numFlashCardsAndCreatorContainer = document.createElement("div")
     numFlashCardsAndCreatorContainer.id = "botInfo"
 
+    const privacyType = document.createElement("div")
+    privacyType.className = "searchResultUpInfo"
+
     const numFlashCards = document.createElement("div")
     numFlashCards.className = "searchResultUpInfo searchResultDownInfo"
     numFlashCards.innerHTML = nCards + " Flashcards"
@@ -105,6 +108,7 @@ function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, n
     creator.className = "searchResultUpInfo"
     creator.innerHTML = "Made by " + stringAuthor
 
+    numFlashCardsAndCreatorContainer.append(privacyType)
     numFlashCardsAndCreatorContainer.append(numFlashCards)
     numFlashCardsAndCreatorContainer.append(creator)
 

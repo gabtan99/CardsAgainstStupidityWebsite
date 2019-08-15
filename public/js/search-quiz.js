@@ -96,6 +96,9 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     const numFlashCardsAndCreatorContainer = document.createElement("div")
     numFlashCardsAndCreatorContainer.id = "botInfo"
 
+    const privacyType = document.createElement("div")
+    privacyType.className = "searchResultUpInfo"
+
     const numFlashCards = document.createElement("div")
     numFlashCards.className = "searchResultUpInfo searchResultDownInfo"
     numFlashCards.innerHTML = nCards + " Flashcards"
@@ -104,6 +107,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     creator.className = "searchResultUpInfo"
     creator.innerHTML = "Made by " + stringAuthor
 
+    numFlashCardsAndCreatorContainer.append(privacyType)
     numFlashCardsAndCreatorContainer.append(numFlashCards)
     numFlashCardsAndCreatorContainer.append(creator)
 
@@ -123,10 +127,21 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     pinImage.src = "../assets/pin.png"
     pinImage.className = "pinIconPos"
 
-    pinButton.append(pinImage)
-
-    pinTag.innerHTML = "Pin Quiz"
     pinTag.id = "tagPin"
+
+    switch(actionType){
+        case "pin":
+            pinButton.append(pinImage)
+            pinTag.innerHTML = "Pin Quiz"
+        break;
+        case "unpin":
+            pinButton.append(pinImage)
+            pinTag.innerHTML = "Unpin"
+        break;
+        case "edit":
+            pinTag.innerHTML = "Edit"
+        break;
+    }
 
     pinButton.append(pinTag)
 
@@ -161,70 +176,13 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
             pinQuiz(this)
         } else if ($(this).find("#tagPin").html() == "Unpin") {
             unpinQuiz(this)
+        } else if ($(this).find("#tagPin").html() == "Edit") {
+            $("#editid").val($(this).attr("data-id"))
+            $("#hiddenEditForm").submit()
         } else {
             alert("None!")
         }
     })
-
-    // switch (actionType) {
-    //     case "pin":
-    //         addFunctionality(dataID, buttonsContainer, actionType)
-    //         $("button.pinButton").click(function (e) {
-    //             e.preventDefault()
-    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-    //                 pinQuiz(this)
-    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-    //                 unpinQuiz(this)
-    //             } else {
-    //                 alert("None!")
-    //             }
-    //         })
-    //         $("button.unpinButton").click(function (e) {
-    //             e.preventDefault()
-    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-    //                 pinQuiz(this)
-    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-    //                 unpinQuiz(this)
-    //             } else {
-    //                 alert("None!")
-    //             }
-    //         })
-    //         break;
-    //     case "unpin":
-    //         addFunctionality(dataID, buttonsContainer, actionType)
-    //         $("button.pinButton").click(function (e) {
-    //             e.preventDefault()
-    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-    //                 pinQuiz(this)
-    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-    //                 unpinQuiz(this)
-    //             } else {
-    //                 alert("None!")
-    //             }
-    //         })
-    //         $("button.unpinButton").click(function (e) {
-    //             e.preventDefault()
-    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-    //                 pinQuiz(this)
-    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-    //                 unpinQuiz(this)
-    //             } else {
-    //                 alert("None!")
-    //             }
-    //         })
-    //         break;
-
-    //     case "edit":
-    //         addFunctionality(dataID, buttonsContainer, actionType)
-    //         $("button.editButton").click(function () {
-
-
-    //             $("#editid").val($(this).attr("data-id"))
-    //             $("#hiddenEditForm").submit()
-    //         })
-    //         break;
-    // }
-
 }
 
 async function pinQuiz(button) {
@@ -257,17 +215,13 @@ async function unpinQuiz(button) {
     })
 }
 
-
 async function renderResultUser(result) {
-
 
     for (var i = 0; i < result.quizzes.length; i++) {
 
         let isPinned = false
 
-
         for (var j = 0; j < result.pinned.length; j++) {
-
             if (result.quizzes[i]._id == result.pinned) {
                 isPinned = true
                 break;
@@ -287,39 +241,4 @@ async function renderResultUser(result) {
             }
         }
     }
-
-
 }
-
-
-// function addFunctionality () {
-//     $("#pinBtn").click(function(){
-//         $("#searchid").val($(this).attr("data-id"))
-//         $('#hiddensearchform').submit()
-//     })
-// }
-
-// function addFunctionality(){
-//     $("#pinBtn").click(async function (e) {
-
-//         e.preventDefault()
-
-//         $("#searchid").val($(this).attr("data-id"))
-
-//         await $.ajax({
-//             url: "actionQuiz",
-//             method: "GET",
-//             data: {
-//             },
-//             success: function (result) {
-//                 if (result == '1') {
-//                     console.log("Pin Success")
-//                     $("#tagPin").html("Unpin")
-//                 } else {
-//                     console.log("Pin Fail")
-//                 }
-//             },
-//         })
-
-//     })
-// }

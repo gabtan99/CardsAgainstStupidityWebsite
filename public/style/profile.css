@@ -42,11 +42,9 @@
 }
 
 #avatar {
-    background-image: url("/assets/avatar.png");
-    height: 99px;
-    width: 77.14px;
-    background-position: -15px -13px;
-    margin-top: 127px;
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
 }
 
 .profile-contents {

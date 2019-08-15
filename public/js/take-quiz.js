@@ -123,7 +123,7 @@ function showResults() {
     hideAll()
     document.getElementById("endResultContainer").style.display = "flex"
 
-    $("#correctAnswers").text(score)
+    $("#correctAnswers").text(score + "/" + qdeck.length)
 
     $("#tryAgainBtn").click(() => {
         document.location.reload()
