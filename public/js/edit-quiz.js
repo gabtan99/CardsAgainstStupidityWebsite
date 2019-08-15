@@ -11,7 +11,7 @@ $(document).ready(function () {
         }else{
             var public = false
         }
-
+        
         if(title == '' || subject == '' || description == '' || deck == null){
             displayError("Please fill out all the contents")
         }else{
@@ -175,7 +175,7 @@ $(document).ready(function () {
             var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
 
             if(question== '' || answer == ''){
-                return null
+                cards = null
             }else{
                 var flashCard = {
                     "Question": question,
