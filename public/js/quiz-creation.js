@@ -89,9 +89,11 @@ function nextPrev(n) {
 
     tabs[currentTab].style.display = "none"
 
-
-    currentTab = currentTab + n
-
+    if(checkInputs(currentTab)){
+        currentTab = currentTab + n
+    }else{
+        displayError(currentTab)
+    }
     showTab(currentTab)
 }
 
@@ -104,4 +106,35 @@ function fixStepIndicator(n) {
     }
 
     ind[n].className = "circle statustext selected"
+}
+
+function checkInputs(currentTab){
+    if(currentTab == 0){
+        let title = $("#titlebox").val()
+        let subject = $("#subjectbox").val()
+        let description = $("#descripbox").val()
+
+        if(title == '' || subject == '' || description == ''){
+            return false
+        }
+
+        return true
+    }else if(currentTab == 1){
+    }
+}
+
+function displayError(msg) {
+    $("#error-messages").empty()
+    let error = document.getElementById("error-div")
+    error.className += "shown"
+    $("#error-messages").append('<li>' + msg + '</li')
+    // shows the error message by appending the invisible list
+}
+
+function checkNumberOfCards() {
+    counter = 0
+    $(".card-element").each(function () {
+        counter++
+    })
+    return counter
 }
