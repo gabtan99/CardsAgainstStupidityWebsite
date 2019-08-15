@@ -51,9 +51,7 @@ router.get("/submit_new_quiz", urlencoder, (req, res) => {
     let public = req.query.public
     let deck = req.query.deck
 
-
     User.getUser(username, (err, doc) => {
-
 
         Quiz.createQuiz(title, doc, subject, description, public, deck, (err, doc) => {
             if (err) {
@@ -75,6 +73,25 @@ router.get("/retrieve_quiz", async (req, res) => {
     } else {
         res.send(quiz)
     }
+})
+
+router.post("/unpin_quiz", (req, res) => {
+
+
+    console.log("unpin")
+})
+
+router.post("/edit_quiz", (req, res) => {
+
+    console.log("edit")
+
+})
+
+router.post("/pin_quiz", (req, res) => {
+
+
+    console.log("pin")
+
 })
 
 router.get("/take_quiz", (req, res) => {

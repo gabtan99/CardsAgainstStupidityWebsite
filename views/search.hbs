@@ -33,10 +33,10 @@
 
             <input id="searchbox" type="text" class="input" placeholder="Ex. INTR-OS" name="keyword">
             <div class="error-box" id="error-div">
-                    <ul id="error-messages">
-                    </ul>
+                <ul id="error-messages">
+                </ul>
             </div>
-            <div class="submit"><input id="submitBtn" type="submit" value="Search" ></div>
+            <div class="submit"><input id="submitBtn" type="submit" value="Search"></div>
 
         </form>
 
@@ -71,8 +71,16 @@
             --}}
         </div>
 
-        <form action="actionQuiz" id="hiddensearchform">
-            <input type="hidden" name="id" id="searchid">
+        <form action="/quiz/pin_quiz" id="hiddenPinForm" method="POST">
+            <input type="hidden" name="id" id="pinid">
+        </form>
+
+        <form action="/quiz/unpin_quiz" id="hiddenUnpinForm" method="POST">
+            <input type="hidden" name="id" id="unpinid">
+        </form>
+
+        <form action="/quiz/edit_quiz" id="hiddenEditForm" method="POST">
+            <input type="hidden" name="id" id="editid">
         </form>
     </div>
 

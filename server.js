@@ -69,7 +69,7 @@ app.get("/search-guest", (req, res) => {
 //////////// LOGGED-IN USER ROUTES ////////////////
 
 app.get("/logout", (req, res) => {
-    res.sendFile(__dirname + "/public/user-login.html")
+    res.redirect("/login")
 })
 
 app.post("/create-account", urlencoder, (req, res) => {
@@ -134,41 +134,27 @@ app.get("/search", (req, res) => {
 app.get("/search-keyword", urlencoder, async (req, res) => {
 
     var keyword = req.query.keyword
-
     let results = await Quiz.searchQuiz(keyword)
 
-    res.send(results)
+    User.getUser(req.session.username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            let response = {
+                user_id: doc._id,
+                pinned: doc.pinnedQuizzes,
+                quizzes: results
+            }
+
+            res.send(response)
+
+        }
+    })
+
 })
 
 app.get("/about", (req, res) => {
     res.render("about.hbs")
-})
-
-app.get("/actionQuiz", (req, res) =>{
-
-    let username = req.session.username
-    let quizID = req.query.id
-    let userID
-
-
-    
-    User.getUser(username, (err, doc) => {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            userID = doc._id
-        }
-    }) //get the user based on username
-    User.addQuizToPinned(userID, quizID, (err, doc) => {
-        if(err){
-            console.log(err)
-            res.send("0")
-        } else {
-            console.log("action quiz success!")
-            res.send("1")
-        }
-    })
 })
 
 app.listen(3000, function () {

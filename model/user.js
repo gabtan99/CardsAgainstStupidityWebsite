@@ -71,6 +71,8 @@ userSchema.statics.getUsername = function (user_id, callback) {
     this.findOne({
         _id: user_id
     }, callback)
+
+
 }
 
 
@@ -84,8 +86,10 @@ userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
     }, callback)
 }
 
-userSchema.statics.getPinnedQuizes = async function(username){
-    return await this.findOne({username}).populate("pinnedQuizzes")
+userSchema.statics.getPinnedQuizes = async function (username) {
+    return await this.findOne({
+        username
+    }).populate("pinnedQuizzes")
 }
 
 userSchema.statics.updatePassword = function (id, newpass, callback) {

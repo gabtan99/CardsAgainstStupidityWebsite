@@ -1,3 +1,5 @@
+let user_id
+
 $(document).ready(function () {
     $('#SearchForm').submit(async function (e) {
 
@@ -20,10 +22,11 @@ $(document).ready(function () {
                     keyword: keyword
                 },
                 success: function (result) {
-                    if (result.length == 0) {
+                    if (result.quizzes.length == 0) {
                         emptyContainer()
                         displayError("No Results Found")
                     } else {
+                        user_id = result.user_id
                         emptyContainer()
                         hideError("")
                         renderResultUser(result)
@@ -55,9 +58,8 @@ function emptyContainer() {
     $("#searchResultContainer").empty()
 }
 
-function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
+function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor, actionType) {
     //UPPER
-
     const resultContainer = document.createElement("div")
     resultContainer.className = "searchResult"
 
@@ -103,22 +105,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     const buttonsContainer = document.createElement("div")
     buttonsContainer.id = "buttonsResult"
 
-    const pinButton = document.createElement("button")
-    pinButton.id = "pinBtn"
-    pinButton.setAttribute('data-id', dataID)
-    pinButton.className = "searchResult-Btns pinButton"
 
-    const pinImage = document.createElement("img")
-    pinImage.id = "pinIcon"
-    pinImage.src = "../assets/pin.png"
-    pinImage.className = "pinIconPos"
-
-    pinButton.append(pinImage)
-
-    const pinTag = document.createElement("div")
-    pinTag.innerHTML = "Pin Quiz"
-
-    pinButton.append(pinTag)
 
     const nextLine = document.createElement("br")
 
@@ -128,7 +115,16 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     takeQuizButton.innerHTML = "Take Quiz"
 
-    buttonsContainer.append(pinButton)
+
+
+
+    const hiddenForm = document.createElement("form")
+    hiddenForm.action = "/quiz/pin_quiz"
+    hiddenForm.id = "hidden"
+
+
+
+
     buttonsContainer.append(nextLine)
     buttonsContainer.append(takeQuizButton)
 
@@ -139,22 +135,118 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     resultContainer.append(lowerPartResultContainer)
 
     $('#searchResultContainer').prepend(resultContainer)
+
+    switch (actionType) {
+        case "pin":
+            addFunctionality(dataID, buttonsContainer, actionType)
+            $("button.pinButton").click(function () {
+                $("pinid").val($(this).attr("data-id"))
+                $("#hiddenPinForm").submit()
+            })
+            break;
+        case "unpin":
+            addFunctionality(dataID, buttonsContainer, actionType)
+            $("button.pinButton").click(function () {
+                $("unpinid").val($(this).attr("data-id"))
+                $("#hiddenUnpinForm").submit()
+            })
+            break;
+
+        case "edit":
+            addFunctionality(dataID, buttonsContainer, actionType)
+            $("button.pinButton").click(function () {
+                $("editid").val($(this).attr("data-id"))
+                $("#hiddenEditForm").submit()
+            })
+            break;
+    }
+
 }
+
 
 function renderResultUser(result) {
 
-    console.log(result)
+    for (var i = 0; i < result.quizzes.length; i++) {
 
-    for (var i = 0; i < result.length; i++) {
-        displayResultUser(result[i]._id, result[i].title, result[i].subject,
-            result[i].description, result[i].deck.length, result[i].author.username)
+        if (result.quizzes[i].author._id == result.user_id) {
+            displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "edit")
+        } else {
+
+            displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "pin")
+
+            result.pinned.forEach(function (item) {
+                if (item._id == result.quizzes[i]._id) {
+                    displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                        result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "unpin")
+                    break;
+                }
+            })
+        }
     }
+
+
 }
 
 
-function addFunctionality () {
-    $("#pinBtn").click(function(){
-        $("#searchid").val($(this).attr("data-id"))
-        $('#hiddensearchform').submit()
-    })
+function addFunctionality(dataID, container, actionType) {
+
+    const pinButton = document.createElement("button")
+    const pinImage = document.createElement("img")
+    const pinTag = document.createElement("div")
+
+    switch (actionType) {
+        case "pin":
+
+            pinButton.id = "pinBtn"
+            pinButton.setAttribute('data-id', dataID)
+            pinButton.className = "searchResult-Btns pinButton"
+
+
+
+            pinImage.id = "pinIcon"
+            pinImage.src = "../assets/pin.png"
+            pinImage.className = "pinIconPos"
+
+            pinButton.append(pinImage)
+
+            pinTag.innerHTML = "Pin Quiz"
+
+            pinButton.append(pinTag)
+            container.prepend(pinButton)
+
+            break;
+
+        case "unpin":
+            pinButton.id = "pinBtn"
+            pinButton.setAttribute('data-id', dataID)
+            pinButton.className = "searchResult-Btns pinButton"
+
+
+            pinImage.id = "pinIcon"
+            pinImage.src = "../assets/pin.png"
+            pinImage.className = "pinIconPos"
+
+            pinButton.append(pinImage)
+
+            pinTag.innerHTML = "Unpin"
+
+            pinButton.append(pinTag)
+            container.prepend(pinButton)
+
+            break;
+
+        case "edit":
+            pinButton.id = "pinBtn"
+            pinButton.setAttribute('data-id', dataID)
+            pinButton.className = "searchResult-Btns pinButton"
+
+
+            pinTag.innerHTML = "Edit"
+
+            pinButton.append(pinTag)
+            container.prepend(pinButton)
+            break;
+    }
 }
