@@ -4,7 +4,7 @@ $(document).ready(function () {
         $("#editform").submit()
     })
 
-    $("button.save").click(function(){
+    $("button#save-button").click(function(){
         var id = $("#Form").attr("data-id")
         var title = $("#titlebox").val()
         var subject = $("#subjectbox").val()
