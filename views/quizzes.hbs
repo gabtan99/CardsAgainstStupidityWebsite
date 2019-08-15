@@ -79,26 +79,24 @@
                 <input type="hidden" name="id" id="editid">
             </form>
 
-            <form action="/quiz/take_quiz" id="takeform">
-                <input type="hidden" name="id" id="takeid">
-            </form>
-
+            
 
             <div id="pinnedQuizContainer">
                 <div class="title mypinLabels"> Pinned Quizzes </div>
+                {{#each pinnedquizzes}}
                 <div class="searchResult">
                     <div id="topResult">
-                        <div class="searchResultTitle">Title</div>
-                        <div class="searchResultUpInfo">Subject</div>
-                        <div class="searchResultUpInfo">Description</div>
+                        <div class="searchResultTitle">Title {{title}}</div>
+                        <div class="searchResultUpInfo">{{subject}}</div>
+                        <div class="searchResultUpInfo">{{description}}</div>
                     </div>
                     <div id="botResult">
                         <div id="botInfo">
                             <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
-                            <div class="searchResultUpInfo">By: </div>
+                            <div class="searchResultUpInfo">By: {{author.username}}</div>
                         </div>
                         <div id=buttonsResult>
-                            <a id="pinBtn" class="searchResult-Btns">
+                            <a id="unpinBtn" class="searchResult-Btns unpinBtn" data-id="{{_id}}">
                                 <span>
                                     <img id="pinIcon" src="../assets/pin.png">
                                 </span>
@@ -109,7 +107,17 @@
                         </div>
                     </div>
                 </div>
+                {{/each}}
             </div>
+
+            <form action="/quiz/unpin_quiz" id="unpinform">
+                <input type="hidden" name="id" id="unpinid">
+            </form>
+
+
+            <form action="/quiz/take_quiz" id="takeform">
+                <input type="hidden" name="id" id="takeid">
+            </form>
         </div>
     </div>
 

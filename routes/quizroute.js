@@ -22,11 +22,19 @@ router.get("/", async (req, res) => {
         if (err) {
             res.send(err)
         } else if (doc) {
-            let quizObjects = await Quiz.findQuizzes(doc)
-            let pinnedQuizes = await User.getPinnedQuizes(username)
-            res.render("quizzes.hbs", {
-                quizzes: quizObjects
+            let myQuizObjects = await Quiz.findQuizzes(doc)
+            
+            await User.getUser(username, async (err, doc) => {
+                let results = await Quiz.getQuizzesById(doc.pinnedQuizzes)
+                console.log(results)
+                res.render("quizzes.hbs", {
+                    quizzes: myQuizObjects,
+                    pinnedquizzes: results
+                })
             })
+            
+
+           
         }
     })
 })
