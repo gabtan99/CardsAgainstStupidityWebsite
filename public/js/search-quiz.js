@@ -154,14 +154,26 @@ function renderResultUser(result) {
 
     for (var i = 0; i < result.quizzes.length; i++) {
 
+        let isPinned = false
+
+        for (var j = 0; j < result.pinned.length; j++) {
+            if (result.quizzes[i]._id == result.pinned[j]._id) {
+                isPinned = true
+                break;
+            }
+        }
+
         if (result.quizzes[i].author._id == result.user_id) {
             displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
                 result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "edit")
         } else {
-
-            displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
-                result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "pin")
-
+            if (isPinned) {
+                displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                    result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "unpin")
+            } else {
+                displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                    result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "pin")
+            }
         }
     }
 
