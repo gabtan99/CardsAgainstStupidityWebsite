@@ -130,46 +130,54 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     switch (actionType) {
         case "pin":
             addFunctionality(dataID, buttonsContainer, actionType)
-            $("button.pinButton").click(function () {
-
-
-
-
-
-
-
-
-
-
-                $("#pinid").val($(this).attr("data-id"))
-                $("#hiddenPinForm").submit()
+            $("button.pinButton").click(function (e) {
+                e.preventDefault()
+                if(document.getElementById("tagPin").innerHTML == "Pin Quiz"){
+                    pinQuiz(this)
+                } else if (document.getElementById("tagPin").innerHTML == "Unpin"){
+                    unpinQuiz(this)
+                } else{
+                    alert("None!")
+                }
+            })
+            $("button.unpinButton").click(function (e) {
+                e.preventDefault()
+                if(document.getElementById("tagPin").innerHTML == "Pin Quiz"){
+                    pinQuiz(this)
+                } else if (document.getElementById("tagPin").innerHTML == "Unpin"){
+                    unpinQuiz(this)
+                } else{
+                    alert("None!")
+                }
             })
             break;
         case "unpin":
             addFunctionality(dataID, buttonsContainer, actionType)
-            $("button.unpinButton").click(function () {
-
-
-
-
-
-
-
-
-
-                $("#unpinid").val($(this).attr("data-id"))
-                $("#hiddenUnpinForm").submit()
+                $("button.pinButton").click(function (e) {
+                    e.preventDefault()
+                    if(document.getElementById("tagPin").innerHTML == "Pin Quiz"){
+                        pinQuiz(this)
+                    } else if (document.getElementById("tagPin").innerHTML == "Unpin"){
+                        unpinQuiz(this)
+                    } else{
+                        alert("None!")
+                    }
+                })
+            $("button.unpinButton").click(function (e) {
+                e.preventDefault()
+                if(document.getElementById("tagPin").innerHTML == "Pin Quiz"){
+                    pinQuiz(this)
+                } else if (document.getElementById("tagPin").innerHTML == "Unpin"){
+                    unpinQuiz(this)
+                } else{
+                    alert("None!")
+                }
             })
             break;
 
         case "edit":
             addFunctionality(dataID, buttonsContainer, actionType)
             $("button.editButton").click(function () {
-
-
-
-
-
 
 
                 $("#editid").val($(this).attr("data-id"))
@@ -180,14 +188,58 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
 }
 
+async function pinQuiz(button){
+    $("#pinid").val($(button).attr("data-id"))
+        await $.ajax({
+            url: "/quiz/pin_quiz",
+            method: "GET",
+            data: {
+                id: $(button).attr("data-id")
+            },
+            success: function (result) {
+                if (result == '1') {
+                    console.log("Pin Success")
+                    $("#tagPin").html("Unpin")
+                    $(button).className = "searchResult-Btns unpinButton"
 
-function renderResultUser(result) {
+                } 
+                else {
+                    console.log("Pin Fail")
+                }
+            },
+        })
+}
+
+async function unpinQuiz(button){
+    $("#unpinid").val($(button).attr("data-id"))
+
+    await $.ajax({
+        url: "/quiz/unpin_quiz",
+        method: "GET",
+        data: {
+            id: $(button).attr("data-id")
+        },
+        success: function (result) {
+            if (result == '1') {
+                console.log("Unpin Success")
+                $("#tagPin").html("Pin Quiz")
+                $(button).className = "searchResult-Btns pinButton"
+            } else {
+                console.log("Unpin Fail")
+            }
+        },
+    })
+}
+
+
+async function renderResultUser(result) {
 
     for (var i = 0; i < result.quizzes.length; i++) {
 
         let isPinned = false
 
         for (var j = 0; j < result.pinned.length; j++) {
+
             if (result.quizzes[i]._id == result.pinned[j]._id) {
                 isPinned = true
                 break;
@@ -232,6 +284,7 @@ function addFunctionality(dataID, container, actionType) {
             pinButton.append(pinImage)
 
             pinTag.innerHTML = "Pin Quiz"
+            pinTag.id = "tagPin"
 
             pinButton.append(pinTag)
             container.prepend(pinButton)
@@ -251,6 +304,7 @@ function addFunctionality(dataID, container, actionType) {
             pinButton.append(pinImage)
 
             pinTag.innerHTML = "Unpin"
+            pinTag.id = "tagPin"
 
             pinButton.append(pinTag)
             container.prepend(pinButton)

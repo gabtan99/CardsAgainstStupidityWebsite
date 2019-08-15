@@ -83,11 +83,30 @@ router.get("/update_quiz", (req, res) => {
         })
     })
 })
-router.get("/unpin_quiz", (req, res) => {
+router.get("/unpin_quiz", async (req, res) => {
+
+    let username = req.session.username
+    let quizID = req.query.id
+    let userID
+
+    User.getUser(username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            userID = doc._id
+        }
+    })
 
 
-    console.log(req.query.id)
-    console.log("unpin")
+    User.removeQuizToPinned(userID, quizID, (err, doc) => {
+        if (err) {
+            console.log(err)
+            res.send("0")
+        } else {
+            console.log("unpin success!")
+            res.send("1")
+        }
+    })
 })
 
 router.get("/edit_quiz", async (req, res) => {
@@ -97,12 +116,36 @@ router.get("/edit_quiz", async (req, res) => {
 
 })
 
-router.get("/pin_quiz", (req, res) => {
+router.get("/pin_quiz", async (req, res) => {
 
-    console.log(req.query.id)
-    console.log("pin")
+    let username = req.session.username
+    let quizID = req.query.id
+    let userID
 
+    User.getUser(username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            userID = doc._id
+        }
+    })
+
+    let result = await Quiz.retrieveQuiz(quizID)
+
+
+
+    User.addQuizToPinned(userID, result, (err, doc) => {
+        if (err) {
+            console.log(err)
+            res.send("0")
+        } else {
+            console.log("pin success!")
+            res.send("1")
+        }
+    })
 })
+
+
 
 router.get("/take_quiz", (req, res) => {
     res.render("take-quiz.hbs", {
@@ -120,32 +163,6 @@ router.get("/retrieve_quiz", async (req, res) => {
     } else {
         res.send(quiz)
     }
-})
-
-router.get("/pin_quiz1", (req, res) => {
-
-    let username = req.session.username
-    let quizID = req.query.id
-    let userID
-
-    User.getUser(username, (err, doc) => {
-        if (err) {
-            console.log(err)
-        } else {
-            userID = doc._id
-        }
-    })
-
-    User.addQuizToPinned(userID, quizID, (err, doc) => {
-        if (err) {
-            console.log(err)
-            res.send("0")
-        } else {
-            console.log("action quiz success!")
-            res.send("1")
-        }
-    })
-
 })
 
 module.exports = router;
