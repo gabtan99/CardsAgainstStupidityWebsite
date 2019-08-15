@@ -77,8 +77,10 @@ router.get("/retrieve_quiz", async (req, res) => {
     }
 })
 
-router.get("/edit", (req, res)=>{
-    console.log(req.query.id)
+router.get("/edit", async (req, res)=>{
+    res.render("edit-quiz.hbs", {
+        quiz: await Quiz.retrieveQuiz(req.query.id)
+    })
 })
 
 
