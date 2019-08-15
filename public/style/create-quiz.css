@@ -637,6 +637,7 @@ a {
 .resultEndBtn {
     color: #000;
     background-color: #FFF;
+    border: solid 1px grey;
 }
 
 .timerLabel {
@@ -706,7 +707,7 @@ a {
 }
 
 #botFinished {
-    margin-top: 60px
+    margin-top: 30px
 }
 
 .footerContentPrestart {
