@@ -36,6 +36,8 @@ $(document).ready(function () {
     checkCardLabels(counter)
     addRemoveCardListeners()
 
+    $("#public").prop("checked", true);
+
     $('.add-card a').click(function () {
         createCard()
         return false;
