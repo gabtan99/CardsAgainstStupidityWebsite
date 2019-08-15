@@ -12,26 +12,32 @@ $(document).ready(function () {
             var public = false
         }
 
-        $.ajax({
-            url: "/quiz/update_quiz",
-            method: "GET",
-            contentType: 'application/json',
-            data: {
-                id: id,
-                title: title,
-                subject: subject,
-                description: description,
-                deck: deck,
-                public: public
-            },
-            success: function (result) {
+        if(title == '' || subject == '' || description == ''){
+            displayError("Please fill out all the contents")
+        }else{
+            $.ajax({
+                url: "/quiz/update_quiz",
+                method: "GET",
+                contentType: 'application/json',
+                data: {
+                    id: id,
+                    title: title,
+                    subject: subject,
+                    description: description,
+                    deck: deck,
+                    public: public
+                },
+                success: function (result) {
+    
+                    if (result == "1") {
+                        window.location = "/quiz/"
+                    }
+    
+                },
+            })
+        }
 
-                if (result == "1") {
-                    window.location = "/quiz/"
-                }
-
-            },
-        })
+        
     })
     counter = checkNumberOfCards()
     checkCardLabels(counter)
@@ -173,4 +179,12 @@ $(document).ready(function () {
         $("#takeid").val($(this).attr("data-id"))
         $("#takeform").submit()
     })
+
+    function displayError(msg) {
+        $("#error-messages").empty()
+        let error = document.getElementById("error-div")
+        error.className += "shown"
+        $("#error-messages").append('<li>' + msg + '</li')
+        // shows the error message by appending the invisible list
+    }
 })
