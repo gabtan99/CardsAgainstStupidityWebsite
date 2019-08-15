@@ -1,5 +1,3 @@
-let user_id
-
 $(document).ready(function () {
     $('#SearchForm').submit(async function (e) {
 
@@ -26,11 +24,9 @@ $(document).ready(function () {
                         emptyContainer()
                         displayError("No Results Found")
                     } else {
-                        user_id = result.user_id
                         emptyContainer()
                         hideError("")
                         renderResultUser(result)
-                        addFunctionality()
                     }
                 },
             })
@@ -106,7 +102,6 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     buttonsContainer.id = "buttonsResult"
 
 
-
     const nextLine = document.createElement("br")
 
     const takeQuizButton = document.createElement("a")
@@ -114,15 +109,6 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     takeQuizButton.href = "/quiz/take_quiz"
 
     takeQuizButton.innerHTML = "Take Quiz"
-
-
-
-
-    const hiddenForm = document.createElement("form")
-    hiddenForm.action = "/quiz/pin_quiz"
-    hiddenForm.id = "hidden"
-
-
 
 
     buttonsContainer.append(nextLine)
@@ -140,22 +126,22 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
         case "pin":
             addFunctionality(dataID, buttonsContainer, actionType)
             $("button.pinButton").click(function () {
-                $("pinid").val($(this).attr("data-id"))
+                $("#pinid").val($(this).attr("data-id"))
                 $("#hiddenPinForm").submit()
             })
             break;
         case "unpin":
             addFunctionality(dataID, buttonsContainer, actionType)
-            $("button.pinButton").click(function () {
-                $("unpinid").val($(this).attr("data-id"))
+            $("button.unpinButton").click(function () {
+                $("#unpinid").val($(this).attr("data-id"))
                 $("#hiddenUnpinForm").submit()
             })
             break;
 
         case "edit":
             addFunctionality(dataID, buttonsContainer, actionType)
-            $("button.pinButton").click(function () {
-                $("editid").val($(this).attr("data-id"))
+            $("button.editButton").click(function () {
+                $("#editid").val($(this).attr("data-id"))
                 $("#hiddenEditForm").submit()
             })
             break;
@@ -176,13 +162,6 @@ function renderResultUser(result) {
             displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
                 result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "pin")
 
-            result.pinned.forEach(function (item) {
-                if (item._id == result.quizzes[i]._id) {
-                    displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
-                        result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "unpin")
-                    break;
-                }
-            })
         }
     }
 
@@ -203,8 +182,6 @@ function addFunctionality(dataID, container, actionType) {
             pinButton.setAttribute('data-id', dataID)
             pinButton.className = "searchResult-Btns pinButton"
 
-
-
             pinImage.id = "pinIcon"
             pinImage.src = "../assets/pin.png"
             pinImage.className = "pinIconPos"
@@ -219,9 +196,9 @@ function addFunctionality(dataID, container, actionType) {
             break;
 
         case "unpin":
-            pinButton.id = "pinBtn"
+            pinButton.id = "upinBtn"
             pinButton.setAttribute('data-id', dataID)
-            pinButton.className = "searchResult-Btns pinButton"
+            pinButton.className = "searchResult-Btns unpinButton"
 
 
             pinImage.id = "pinIcon"
@@ -238,9 +215,9 @@ function addFunctionality(dataID, container, actionType) {
             break;
 
         case "edit":
-            pinButton.id = "pinBtn"
+            pinButton.id = "editBtn"
             pinButton.setAttribute('data-id', dataID)
-            pinButton.className = "searchResult-Btns pinButton"
+            pinButton.className = "searchResult-Btns editButton"
 
 
             pinTag.innerHTML = "Edit"

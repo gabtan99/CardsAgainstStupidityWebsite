@@ -75,21 +75,23 @@ router.get("/retrieve_quiz", async (req, res) => {
     }
 })
 
-router.post("/unpin_quiz", (req, res) => {
+router.get("/unpin_quiz", (req, res) => {
 
 
+    console.log(req.query.id)
     console.log("unpin")
 })
 
-router.post("/edit_quiz", (req, res) => {
+router.get("/edit_quiz", (req, res) => {
 
+    console.log(req.query.id)
     console.log("edit")
 
 })
 
-router.post("/pin_quiz", (req, res) => {
+router.get("/pin_quiz", (req, res) => {
 
-
+    console.log(req.query.id)
     console.log("pin")
 
 })
