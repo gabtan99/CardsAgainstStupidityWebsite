@@ -239,3 +239,36 @@ function addFunctionality(dataID, container, actionType) {
             break;
     }
 }
+
+
+// function addFunctionality () {
+//     $("#pinBtn").click(function(){
+//         $("#searchid").val($(this).attr("data-id"))
+//         $('#hiddensearchform').submit()
+//     })
+// }
+
+// function addFunctionality(){
+//     $("#pinBtn").click(async function (e) {
+
+//         e.preventDefault()
+
+//         $("#searchid").val($(this).attr("data-id"))
+
+//         await $.ajax({
+//             url: "actionQuiz",
+//             method: "GET",
+//             data: {
+//             },
+//             success: function (result) {
+//                 if (result == '1') {
+//                     console.log("Pin Success")
+//                     $("#tagPin").html("Unpin")
+//                 } else {
+//                     console.log("Pin Fail")
+//                 }
+//             },
+//         })
+        
+//     })
+// }
