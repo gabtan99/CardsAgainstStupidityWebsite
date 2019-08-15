@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const uniqueValidator = require('mongoose-unique-validator')
 const crypto = require("crypto")
+const Schema = mongoose.Schema;
 
 const uri = "mongodb://localhost:27017/cardsagainststupidity"
 mongoose.Promise = global.Promise
@@ -9,7 +10,7 @@ mongoose.connect(uri, {
     useNewUrlParser: true
 })
 
-const Schema = mongoose.Schema;
+
 
 var userSchema = new Schema({
     username: {
@@ -76,12 +77,24 @@ userSchema.statics.getUsername = function (user_id, callback) {
 }
 
 
-userSchema.statics.addQuizToPinned = function (user_id, quiz_id, callback) {
+userSchema.statics.addQuizToPinned = function (user_id, quiz, callback) {
     this.updateOne({
         _id: user_id
     }, {
         $push: {
-            pinnedQuizzes: quiz_id
+            pinnedQuizzes: quiz
+        }
+    }, callback)
+}
+
+userSchema.statics.removeQuizToPinned = function (user_id, quiz_id, callback){
+
+    console.log(quiz_id)
+    this.updateOne({
+        _id: user_id
+    }, {
+        $pull: {
+         pinnedQuizzes : "5d553a0923d2f84594a0f56d"
         }
     }, callback)
 }
