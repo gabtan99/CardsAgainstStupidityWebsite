@@ -8,6 +8,7 @@ let qpublic
 let qdeck
 let nQuestion
 let timerMax
+let timer
 
 $(document).ready(function () {
 
@@ -56,39 +57,43 @@ $(document).ready(function () {
 
 function showNextQuestion() {
 
-    console.log(nQuestion)
-    if (nQuestion <= qdeck.length - 1) {
-        let pair = qdeck[nQuestion]
-        var question = pair["Question"]
-        var answer = pair["Answer"]
 
-        if (timerCount > 0) {
-            timerCount = timerMax;
-
-            $("#questionArea").text(question)
-            $("#card-tracker").text("Question " + (nQuestion + 1) + "/" + qdeck.length)
-
-            var timer = setInterval(function () {
-
-                $("#answerArea").text("Answer Revealed in " + timerCount + " seconds.")
-
-                if (timerCount == -1) {
-                    clearInterval(timer);
-                    $("#answerArea").text(answer)
-                } else {
-                    timerCount--;
-                }
-
-            }, 1000);
-        } else {
-            $("#questionArea").text(question)
-            $("#answerArea").text(answer)
-        }
+    if (nQuestion < qdeck.length) {
+        startTimer()
 
     } else {
         showResults()
     }
 
+}
+
+function startTimer() {
+
+    let pair = qdeck[nQuestion]
+    var question = pair["Question"]
+    var answer = pair["Answer"]
+
+    if (timerCount > 0) {
+        timerCount = timerMax;
+
+        $("#questionArea").text(question)
+        $("#card-tracker").text("Question " + (nQuestion + 1) + "/" + qdeck.length)
+
+        timer = setInterval(async function () {
+
+            $("#answerArea").text("Answer Revealed in " + timerCount + " seconds.")
+
+            if (timerCount == -1) {
+                $("#answerArea").text(answer)
+            } else {
+                timerCount--;
+            }
+
+        }, 1000);
+    } else {
+        $("#questionArea").text(question)
+        $("#answerArea").text(answer)
+    }
 }
 
 
@@ -164,10 +169,12 @@ function addButtonFunction() {
 function knewAnswer() {
     nQuestion++
     score++
+    clearInterval(timer);
     showNextQuestion()
 }
 
 function guessedAnswer() {
     nQuestion++
+    clearInterval(timer);
     showNextQuestion()
 }
