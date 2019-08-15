@@ -77,14 +77,8 @@ router.get("/retrieve_quiz", async (req, res) => {
     }
 })
 
-router.get("/take_quiz", (req, res) => {
-    res.render("take-quiz.hbs")
-})
-
-router.get("/edit_quiz", (req, res) => {
-    res.render("edit-quiz", {
-        
-    })
+router.get("/edit", (req, res)=>{
+    console.log(req.query.id)
 })
 
 
