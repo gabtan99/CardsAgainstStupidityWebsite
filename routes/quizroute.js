@@ -127,7 +127,7 @@ router.get("/retrieve_quiz", async (req, res) => {
     }
 })
 
-app.get("/pin_quiz1", (req, res) => {
+router.get("/pin_quiz1", (req, res) => {
 
     let username = req.session.username
     let quizID = req.query.id
