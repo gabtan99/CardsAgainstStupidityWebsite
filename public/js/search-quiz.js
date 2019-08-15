@@ -111,6 +111,24 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     const buttonsContainer = document.createElement("div")
     buttonsContainer.id = "buttonsResult"
 
+    const pinButton = document.createElement("a")
+    const pinImage = document.createElement("img")
+    const pinTag = document.createElement("div")
+
+    pinButton.id = "pinBtn"
+    pinButton.setAttribute('data-id', dataID)
+    pinButton.className = "searchResult-Btns pinButton"
+
+    pinImage.id = "pinIcon"
+    pinImage.src = "../assets/pin.png"
+    pinImage.className = "pinIconPos"
+
+    pinButton.append(pinImage)
+
+    pinTag.innerHTML = "Pin Quiz"
+    pinTag.id = "tagPin"
+
+    pinButton.append(pinTag)
 
     const nextLine = document.createElement("br")
 
@@ -119,7 +137,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     takeQuizButton.className = "searchResult-Btns takeButton"
     takeQuizButton.innerHTML = "Take Quiz"
 
-
+    buttonsContainer.append(pinButton)
     buttonsContainer.append(nextLine)
     buttonsContainer.append(takeQuizButton)
 
@@ -137,69 +155,79 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
         $("#hiddenTakeForm").submit()
     })
 
-    switch (actionType) {
-        case "pin":
-            addFunctionality(dataID, buttonsContainer, actionType)
-            $("button.pinButton").click(function (e) {
-                e.preventDefault()
-                if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-                    pinQuiz(this)
-                } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-                    unpinQuiz(this)
-                } else {
-                    alert("None!")
-                }
-            })
-            $("button.unpinButton").click(function (e) {
-                e.preventDefault()
-                if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-                    pinQuiz(this)
-                } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-                    unpinQuiz(this)
-                } else {
-                    alert("None!")
-                }
-            })
-            break;
-        case "unpin":
-            addFunctionality(dataID, buttonsContainer, actionType)
-            $("button.pinButton").click(function (e) {
-                e.preventDefault()
-                if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-                    pinQuiz(this)
-                } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-                    unpinQuiz(this)
-                } else {
-                    alert("None!")
-                }
-            })
-            $("button.unpinButton").click(function (e) {
-                e.preventDefault()
-                if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
-                    pinQuiz(this)
-                } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
-                    unpinQuiz(this)
-                } else {
-                    alert("None!")
-                }
-            })
-            break;
+    $("#pinBtn").click(async function (e) {
+        e.preventDefault()
+        if ($(this).find("#tagPin").html() == "Pin Quiz") {
+            pinQuiz(this)
+        } else if ($(this).find("#tagPin").html() == "Unpin") {
+            unpinQuiz(this)
+        } else {
+            alert("None!")
+        }
+    })
 
-        case "edit":
-            addFunctionality(dataID, buttonsContainer, actionType)
-            $("button.editButton").click(function () {
+    // switch (actionType) {
+    //     case "pin":
+    //         addFunctionality(dataID, buttonsContainer, actionType)
+    //         $("button.pinButton").click(function (e) {
+    //             e.preventDefault()
+    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
+    //                 pinQuiz(this)
+    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
+    //                 unpinQuiz(this)
+    //             } else {
+    //                 alert("None!")
+    //             }
+    //         })
+    //         $("button.unpinButton").click(function (e) {
+    //             e.preventDefault()
+    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
+    //                 pinQuiz(this)
+    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
+    //                 unpinQuiz(this)
+    //             } else {
+    //                 alert("None!")
+    //             }
+    //         })
+    //         break;
+    //     case "unpin":
+    //         addFunctionality(dataID, buttonsContainer, actionType)
+    //         $("button.pinButton").click(function (e) {
+    //             e.preventDefault()
+    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
+    //                 pinQuiz(this)
+    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
+    //                 unpinQuiz(this)
+    //             } else {
+    //                 alert("None!")
+    //             }
+    //         })
+    //         $("button.unpinButton").click(function (e) {
+    //             e.preventDefault()
+    //             if (document.getElementById("tagPin").innerHTML == "Pin Quiz") {
+    //                 pinQuiz(this)
+    //             } else if (document.getElementById("tagPin").innerHTML == "Unpin") {
+    //                 unpinQuiz(this)
+    //             } else {
+    //                 alert("None!")
+    //             }
+    //         })
+    //         break;
+
+    //     case "edit":
+    //         addFunctionality(dataID, buttonsContainer, actionType)
+    //         $("button.editButton").click(function () {
 
 
-                $("#editid").val($(this).attr("data-id"))
-                $("#hiddenEditForm").submit()
-            })
-            break;
-    }
+    //             $("#editid").val($(this).attr("data-id"))
+    //             $("#hiddenEditForm").submit()
+    //         })
+    //         break;
+    // }
 
 }
 
 async function pinQuiz(button) {
-    $("#pinid").val($(button).attr("data-id"))
     await $.ajax({
         url: "/quiz/pin_quiz",
         method: "GET",
@@ -208,20 +236,13 @@ async function pinQuiz(button) {
         },
         success: function (result) {
             if (result == '1') {
-
-                $("#tagPin").html("Unpin")
-                $(button).className = "searchResult-Btns unpinButton"
-
-            } else {
-
+                $(button).find("#tagPin").html("Unpin")
             }
         },
     })
 }
 
 async function unpinQuiz(button) {
-    $("#unpinid").val($(button).attr("data-id"))
-
     await $.ajax({
         url: "/quiz/unpin_quiz",
         method: "GET",
@@ -230,11 +251,7 @@ async function unpinQuiz(button) {
         },
         success: function (result) {
             if (result == '1') {
-
-                $("#tagPin").html("Pin Quiz")
-                $(button).className = "searchResult-Btns pinButton"
-            } else {
-
+                $(button).find("#tagPin").html("Pin Quiz")
             }
         },
     })
@@ -272,72 +289,6 @@ async function renderResultUser(result) {
     }
 
 
-}
-
-function changeFunctionality() {
-
-}
-
-
-function addFunctionality(dataID, container, actionType) {
-
-    const pinButton = document.createElement("button")
-    const pinImage = document.createElement("img")
-    const pinTag = document.createElement("div")
-
-    switch (actionType) {
-        case "pin":
-
-            pinButton.id = "pinBtn"
-            pinButton.setAttribute('data-id', dataID)
-            pinButton.className = "searchResult-Btns pinButton"
-
-            pinImage.id = "pinIcon"
-            pinImage.src = "../assets/pin.png"
-            pinImage.className = "pinIconPos"
-
-            pinButton.append(pinImage)
-
-            pinTag.innerHTML = "Pin Quiz"
-            pinTag.id = "tagPin"
-
-            pinButton.append(pinTag)
-            container.prepend(pinButton)
-
-            break;
-
-        case "unpin":
-            pinButton.id = "unpinBtn"
-            pinButton.setAttribute('data-id', dataID)
-            pinButton.className = "searchResult-Btns unpinButton"
-
-
-            pinImage.id = "pinIcon"
-            pinImage.src = "../assets/pin.png"
-            pinImage.className = "pinIconPos"
-
-            pinButton.append(pinImage)
-
-            pinTag.innerHTML = "Unpin"
-            pinTag.id = "tagPin"
-
-            pinButton.append(pinTag)
-            container.prepend(pinButton)
-
-            break;
-
-        case "edit":
-            pinButton.id = "editBtn"
-            pinButton.setAttribute('data-id', dataID)
-            pinButton.className = "searchResult-Btns editButton"
-
-
-            pinTag.innerHTML = "Edit"
-
-            pinButton.append(pinTag)
-            container.prepend(pinButton)
-            break;
-    }
 }
 
 
