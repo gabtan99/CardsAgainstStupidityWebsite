@@ -18,7 +18,6 @@ $(document).ready(function () {
         let keyword = $("#searchbox").val()
 
         if (keyword === '') {
-            emptyContainer()
             displayError("Enter a keyword")
         } else {
             emptyContainer()
@@ -105,7 +104,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     const creator = document.createElement("div")
     creator.className = "searchResultUpInfo"
-    creator.innerHTML = "Made by " + stringAuthor
+    creator.innerHTML = "by " + stringAuthor
 
     numFlashCardsAndCreatorContainer.append(privacyType)
     numFlashCardsAndCreatorContainer.append(numFlashCards)
@@ -129,18 +128,18 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     pinTag.id = "tagPin"
 
-    switch(actionType){
+    switch (actionType) {
         case "pin":
             pinButton.append(pinImage)
             pinTag.innerHTML = "Pin Quiz"
-        break;
+            break;
         case "unpin":
             pinButton.append(pinImage)
             pinTag.innerHTML = "Unpin"
-        break;
+            break;
         case "edit":
             pinTag.innerHTML = "Edit"
-        break;
+            break;
     }
 
     pinButton.append(pinTag)

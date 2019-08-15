@@ -73,8 +73,9 @@ function startTimer() {
     var question = pair["Question"]
     var answer = pair["Answer"]
 
+    timerCount = timerMax;
+
     if (timerCount > 0) {
-        timerCount = timerMax;
 
         $("#questionArea").text(question)
         $("#card-tracker").text("Question " + (nQuestion + 1) + "/" + qdeck.length)

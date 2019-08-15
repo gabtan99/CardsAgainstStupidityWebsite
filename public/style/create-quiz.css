@@ -242,6 +242,7 @@ input::placeholder {
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
 }
 
 .searchResult {
@@ -484,7 +485,7 @@ input[type="radio"] {
     width: 132px;
     height: 54px;
     margin-top: 24px;
-    margin-bottom: 100px;
+    margin-bottom: 15px;
     border-radius: 9px;
     font-family: "Helvetica Neue";
     font-size: 20px;

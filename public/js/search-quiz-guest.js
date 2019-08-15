@@ -18,7 +18,6 @@ $(document).ready(function () {
         let keyword = $("#searchbox").val()
 
         if (keyword === '') {
-            emptyContainer()
             displayError("Enter a keyword")
         } else {
             emptyContainer()
@@ -106,7 +105,7 @@ function displayResultGuest(dataID, stringTitle, stringSubject, stringDescrip, n
 
     const creator = document.createElement("div")
     creator.className = "searchResultUpInfo"
-    creator.innerHTML = "Made by " + stringAuthor
+    creator.innerHTML = "by " + stringAuthor
 
     numFlashCardsAndCreatorContainer.append(privacyType)
     numFlashCardsAndCreatorContainer.append(numFlashCards)

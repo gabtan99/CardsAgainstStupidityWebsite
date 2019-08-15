@@ -56,9 +56,9 @@
                     <div id="botResult">
                         <div id="botInfo">
                             {{#if public}}
-                                <div class="searchResultUpInfo" id="privacyLabel">Public</div>
+                            <div class="searchResultUpInfo" id="privacyLabel">Public</div>
                             {{else}}
-                                <div class="searchResultUpInfo" id="privacyLabel">Private</div>
+                            <div class="searchResultUpInfo" id="privacyLabel">Private</div>
                             {{/if}}
                             <div class="searchResultUpInfo searchResultDownInfo">{{deck.length}} Flashcards</div>
                             <div class="searchResultUpInfo">by {{author.username}}</div>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 {{else}}
-                    <div id="no_quiz_tag">You have no quizzes.</div>
+                <div id="no_quiz_tag">You have no quizzes.</div>
                 {{/each}}
             </div>
 
@@ -79,7 +79,7 @@
                 <input type="hidden" name="id" id="editid">
             </form>
 
-            
+
 
             <div id="pinnedQuizContainer">
                 <div class="title mypinLabels"> Pinned Quizzes </div>
@@ -92,8 +92,9 @@
                     </div>
                     <div id="botResult">
                         <div id="botInfo">
-                            <div class="searchResultUpInfo searchResultDownInfo"># Flashcards</div>
-                            <div class="searchResultUpInfo">By: {{author.username}}</div>
+                            <div class="searchResultUpInfo" id="privacyLabel"></div>
+                            <div class="searchResultUpInfo searchResultDownInfo">{{deck.length}} Flashcards</div>
+                            <div class="searchResultUpInfo">by {{author.username}}</div>
                         </div>
                         <div id=buttonsResult>
                             <a id="unpinBtn" class="searchResult-Btns unpinBtn" data-id="{{_id}}">
@@ -103,12 +104,12 @@
                                 Unpin
                             </a>
                             <br>
-                            <button class="searchResult-Btns takeBtn" data-id = "{{_id}}">Take Quiz</a>
+                            <button class="searchResult-Btns takeBtn" data-id="{{_id}}">Take Quiz</a>
                         </div>
                     </div>
                 </div>
                 {{else}}
-                    <div id="no_quiz_tag">You have no pinned quizzes.</div>
+                <div id="no_quiz_tag">You have no pinned quizzes.</div>
                 {{/each}}
             </div>
 
