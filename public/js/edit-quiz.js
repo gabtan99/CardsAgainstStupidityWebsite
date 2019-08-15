@@ -4,7 +4,7 @@ $(document).ready(function () {
         $("#editform").submit()
     })
 
-    $("button#save-button").click(function(){
+    $("button#save-button").click(function () {
         var id = $("#Form").attr("data-id")
         var title = $("#titlebox").val()
         var subject = $("#subjectbox").val()
@@ -36,12 +36,12 @@ $(document).ready(function () {
     checkCardLabels(counter)
     addRemoveCardListeners()
 
-    $('.add-card a').click(function(){
+    $('.add-card a').click(function () {
         createCard()
         return false;
     })
 
-    function createCard(){
+    function createCard() {
         counter++
         const cardElementDiv = document.createElement("div")
         cardElementDiv.className = "card-element"
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
         const cardLabel = document.createElement("div")
         cardLabel.id = "card-label"
-        cardLabel.innerHTML = "Flashcard " + counter 
+        cardLabel.innerHTML = "Flashcard " + counter
 
         const cardsDiv = document.createElement('div')
         cardsDiv.className = "cards"
@@ -84,8 +84,8 @@ $(document).ready(function () {
         const parWhite = document.createElement('p')
         parWhite.innerHTML = "Cards Against Stupidity"
         ///////////////
-        
-        
+
+
 
 
         footerBlack.append(parBlack)
@@ -93,7 +93,7 @@ $(document).ready(function () {
         blackCardDiv.append(textAreaBlack)
         blackCardDiv.append(footerBlack)
 
-        
+
         whiteCardDiv.append(textAreaWhite)
         whiteCardDiv.append(footerWhite)
         cardsDiv.append(blackCardDiv)
@@ -107,8 +107,8 @@ $(document).ready(function () {
         cardElementDiv.append(cardsDiv)
 
         $('#card-container').prepend(cardElementDiv)
-        
-        removeCard.onclick = function(){
+
+        removeCard.onclick = function () {
             console.log("test delete")
             cardElementDiv.remove()
             counter--
@@ -117,17 +117,17 @@ $(document).ready(function () {
         }
     }
 
-    function checkCardLabels(counter){
+    function checkCardLabels(counter) {
         counterTemp = counter
-        $(".card-element").each(function(){
-            $(this).children(".card-header").children("#card-label").html("Flashcard "+counterTemp)
+        $(".card-element").each(function () {
+            $(this).children(".card-header").children("#card-label").html("Flashcard " + counterTemp)
             counterTemp--
         })
     }
 
-    function checkNumberOfCards(){
+    function checkNumberOfCards() {
         counter = 0
-        $(".card-element").each(function(){
+        $(".card-element").each(function () {
             counter++
         })
         return counter
@@ -153,10 +153,10 @@ $(document).ready(function () {
                 "Question": question,
                 "Answer": answer
             }
-    
+
             cards.push(flashCard)
         })
-    
+
         return cards
     }
 

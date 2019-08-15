@@ -105,9 +105,8 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     const nextLine = document.createElement("br")
 
     const takeQuizButton = document.createElement("a")
-    takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/take_quiz"
-
+    takeQuizButton.setAttribute('data-id', dataID)
+    takeQuizButton.className = "searchResult-Btns takeButton"
     takeQuizButton.innerHTML = "Take Quiz"
 
 
@@ -122,10 +121,26 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     $('#searchResultContainer').prepend(resultContainer)
 
+
+    $("a.takeButton").click(function () {
+        $("#takeid").val($(this).attr("data-id"))
+        $("#hiddenTakeForm").submit()
+    })
+
     switch (actionType) {
         case "pin":
             addFunctionality(dataID, buttonsContainer, actionType)
             $("button.pinButton").click(function () {
+
+
+
+
+
+
+
+
+
+
                 $("#pinid").val($(this).attr("data-id"))
                 $("#hiddenPinForm").submit()
             })
@@ -133,6 +148,15 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
         case "unpin":
             addFunctionality(dataID, buttonsContainer, actionType)
             $("button.unpinButton").click(function () {
+
+
+
+
+
+
+
+
+
                 $("#unpinid").val($(this).attr("data-id"))
                 $("#hiddenUnpinForm").submit()
             })
@@ -141,6 +165,13 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
         case "edit":
             addFunctionality(dataID, buttonsContainer, actionType)
             $("button.editButton").click(function () {
+
+
+
+
+
+
+
                 $("#editid").val($(this).attr("data-id"))
                 $("#hiddenEditForm").submit()
             })
@@ -269,6 +300,6 @@ function addFunctionality(dataID, container, actionType) {
 //                 }
 //             },
 //         })
-        
+
 //     })
 // }
