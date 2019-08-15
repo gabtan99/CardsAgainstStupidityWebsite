@@ -51,7 +51,7 @@
                     <div id="topResult">
                         <div class="searchResultTitle">{{title}}</div>
                         <div class="searchResultUpInfo">{{subject}}</div>
-                        <div class="searchResultUpInfo">{{description}}</div>
+                        <div class="searchResultUpInfo" id="quizDescriptionInfo">{{description}}</div>
                     </div>
                     <div id="botResult">
                         <div id="botInfo">
@@ -61,7 +61,7 @@
                                 <div class="searchResultUpInfo" id="privacyLabel">Private</div>
                             {{/if}}
                             <div class="searchResultUpInfo searchResultDownInfo">{{deck.length}} Flashcards</div>
-                            <div class="searchResultUpInfo">Made by {{author.username}}</div>
+                            <div class="searchResultUpInfo">by {{author.username}}</div>
                         </div>
                         <div id=buttonsResult>
                             <button id="pinBtn" class="searchResult-Btns editBtn" data-id="{{_id}}">Edit</button>
