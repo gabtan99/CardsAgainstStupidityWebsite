@@ -99,11 +99,6 @@ userSchema.statics.removeQuizToPinned = function (user_id, quiz_id, callback) {
 
 }
 
-userSchema.statics.getPinnedQuizes = async function (username) {
-    return await this.findOne({
-        username
-    }).populate("pinnedQuizzes")
-}
 
 userSchema.statics.updatePassword = function (id, newpass, callback) {
 

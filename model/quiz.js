@@ -95,6 +95,14 @@ quizSchema.statics.updateQuiz = function (id, title, author, subject, descriptio
     }, callback)
 }
 
+quizSchema.statics.getQuizzesById = async function (ids) {
+    return await this.find({
+        _id: { 
+            $in: ids
+        }
+    }).populate("author", "username")
+}
+
 quizSchema.statics.deleteQuiz = function (id, callback) {
     this.deleteOne({
         _id: id

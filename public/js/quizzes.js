@@ -10,4 +10,26 @@ $(document).ready(function () {
         $("#takeform").submit()
     })
 
+    $("a.unpinBtn").click(function () {
+
+        let id = $(this).attr("data-id")
+
+        $.ajax ({
+            url: "/quiz/unpin_quiz",
+            method: "GET",
+            data: {
+                id: id
+            },
+            success: function(result) {
+                if(result == "1") {
+                    $("a[data-id='"+id+"']").parent().parent().parent().remove()
+                }
+            }
+
+        })
+
+
+        
+    })
+
 })
