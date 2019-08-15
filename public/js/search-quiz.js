@@ -20,7 +20,7 @@ $(document).ready(function () {
                     keyword: keyword
                 },
                 success: function (result) {
-                    if (result.length == 0) {
+                    if (result.quizzes.length == 0) {
                         emptyContainer()
                         displayError("No Results Found")
                     } else {
@@ -54,11 +54,10 @@ function emptyContainer() {
     $("#searchResultContainer").empty()
 }
 
-function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
+function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor, actionType) {
     //UPPER
     const resultContainer = document.createElement("div")
     resultContainer.className = "searchResult"
-    resultContainer.id = dataID
 
     const upperPartResultContainer = document.createElement("div")
     upperPartResultContainer.id = "topResult"
@@ -102,21 +101,6 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     const buttonsContainer = document.createElement("div")
     buttonsContainer.id = "buttonsResult"
 
-    const pinButton = document.createElement("a")
-    pinButton.id = "pinBtn"
-    pinButton.className = "searchResult-Btns"
-
-    const pinImage = document.createElement("img")
-    pinImage.id = "pinIcon"
-    pinImage.src = "../assets/pin.png"
-    pinImage.className = "pinIconPos"
-
-    pinButton.append(pinImage)
-
-    const pinTag = document.createElement("div")
-    pinTag.innerHTML = "Pin Quiz"
-
-    pinButton.append(pinTag)
 
     const nextLine = document.createElement("br")
 
@@ -126,7 +110,7 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
 
     takeQuizButton.innerHTML = "Take Quiz"
 
-    buttonsContainer.append(pinButton)
+
     buttonsContainer.append(nextLine)
     buttonsContainer.append(takeQuizButton)
 
@@ -137,14 +121,121 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     resultContainer.append(lowerPartResultContainer)
 
     $('#searchResultContainer').prepend(resultContainer)
+
+    switch (actionType) {
+        case "pin":
+            addFunctionality(dataID, buttonsContainer, actionType)
+            $("button.pinButton").click(function () {
+                $("#pinid").val($(this).attr("data-id"))
+                $("#hiddenPinForm").submit()
+            })
+            break;
+        case "unpin":
+            addFunctionality(dataID, buttonsContainer, actionType)
+            $("button.unpinButton").click(function () {
+                $("#unpinid").val($(this).attr("data-id"))
+                $("#hiddenUnpinForm").submit()
+            })
+            break;
+
+        case "edit":
+            addFunctionality(dataID, buttonsContainer, actionType)
+            $("button.editButton").click(function () {
+                $("#editid").val($(this).attr("data-id"))
+                $("#hiddenEditForm").submit()
+            })
+            break;
+    }
+
 }
+
 
 function renderResultUser(result) {
 
-    console.log(result)
+    for (var i = 0; i < result.quizzes.length; i++) {
 
-    for (var i = 0; i < result.length; i++) {
-        displayResultUser(result[i]._id, result[i].title, result[i].subject,
-            result[i].description, result[i].deck.length, result[i].author.username)
+        let isPinned = false
+
+        for (var j = 0; j < result.pinned.length; j++) {
+            if (result.quizzes[i]._id == result.pinned[j]._id) {
+                isPinned = true
+                break;
+            }
+        }
+
+        if (result.quizzes[i].author._id == result.user_id) {
+            displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "edit")
+        } else {
+            if (isPinned) {
+                displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                    result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "unpin")
+            } else {
+                displayResultUser(result.quizzes[i]._id, result.quizzes[i].title, result.quizzes[i].subject,
+                    result.quizzes[i].description, result.quizzes[i].deck.length, result.quizzes[i].author.username, "pin")
+            }
+        }
+    }
+
+
+}
+
+
+function addFunctionality(dataID, container, actionType) {
+
+    const pinButton = document.createElement("button")
+    const pinImage = document.createElement("img")
+    const pinTag = document.createElement("div")
+
+    switch (actionType) {
+        case "pin":
+
+            pinButton.id = "pinBtn"
+            pinButton.setAttribute('data-id', dataID)
+            pinButton.className = "searchResult-Btns pinButton"
+
+            pinImage.id = "pinIcon"
+            pinImage.src = "../assets/pin.png"
+            pinImage.className = "pinIconPos"
+
+            pinButton.append(pinImage)
+
+            pinTag.innerHTML = "Pin Quiz"
+
+            pinButton.append(pinTag)
+            container.prepend(pinButton)
+
+            break;
+
+        case "unpin":
+            pinButton.id = "upinBtn"
+            pinButton.setAttribute('data-id', dataID)
+            pinButton.className = "searchResult-Btns unpinButton"
+
+
+            pinImage.id = "pinIcon"
+            pinImage.src = "../assets/pin.png"
+            pinImage.className = "pinIconPos"
+
+            pinButton.append(pinImage)
+
+            pinTag.innerHTML = "Unpin"
+
+            pinButton.append(pinTag)
+            container.prepend(pinButton)
+
+            break;
+
+        case "edit":
+            pinButton.id = "editBtn"
+            pinButton.setAttribute('data-id', dataID)
+            pinButton.className = "searchResult-Btns editButton"
+
+
+            pinTag.innerHTML = "Edit"
+
+            pinButton.append(pinTag)
+            container.prepend(pinButton)
+            break;
     }
 }

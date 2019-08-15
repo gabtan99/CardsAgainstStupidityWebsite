@@ -102,6 +102,32 @@ router.get("/update_quiz", (req, res) => {
         })
     })
 })
+router.get("/unpin_quiz", (req, res) => {
+
+
+    console.log(req.query.id)
+    console.log("unpin")
+})
+
+router.get("/edit_quiz", (req, res) => {
+
+    console.log(req.query.id)
+    console.log("edit")
+
+})
+
+router.get("/pin_quiz", (req, res) => {
+
+    console.log(req.query.id)
+    console.log("pin")
+
+})
+
+router.get("/take_quiz", (req, res) => {
+    res.render("take-quiz.hbs", {
+        quizID: req.query.id
+    })
+})
 
 
 module.exports = router;

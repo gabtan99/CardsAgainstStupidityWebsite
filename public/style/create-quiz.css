@@ -308,7 +308,8 @@ input::placeholder {
     flex-direction: column;
 }
 
-#pinBtn {
+#pinBtn,
+#unPin {
     background-color: #FFF;
     color: #000;
     border: solid 1px grey;
@@ -319,6 +320,8 @@ input::placeholder {
     color: #000;
     border: solid 1px grey;
 }
+
+
 
 #pinIcon {
     height: 24px;

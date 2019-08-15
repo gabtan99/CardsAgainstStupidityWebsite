@@ -69,7 +69,7 @@ app.get("/search-guest", (req, res) => {
 //////////// LOGGED-IN USER ROUTES ////////////////
 
 app.get("/logout", (req, res) => {
-    res.sendFile(__dirname + "/public/user-login.html")
+    res.redirect("/login")
 })
 
 app.post("/create-account", urlencoder, (req, res) => {
@@ -134,24 +134,27 @@ app.get("/search", (req, res) => {
 app.get("/search-keyword", urlencoder, async (req, res) => {
 
     var keyword = req.query.keyword
-
     let results = await Quiz.searchQuiz(keyword)
 
-    res.send(results)
+    User.getUser(req.session.username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            let response = {
+                user_id: doc._id,
+                pinned: doc.pinnedQuizzes,
+                quizzes: results
+            }
+
+            res.send(response)
+
+        }
+    })
+
 })
 
 app.get("/about", (req, res) => {
     res.render("about.hbs")
-})
-
-app.get("/ifUser", (req, res) => {
-
-    if (req.session.username != null) {
-        res.send("1") //user
-    }
-    else {
-        res.send("0") //guest
-    }
 })
 
 app.listen(3000, function () {
