@@ -91,8 +91,6 @@ function nextPrev(n) {
 
     if(checkInputs(currentTab)){
         currentTab = currentTab + n
-    }else{
-        displayError(currentTab)
     }
     showTab(currentTab)
 }
@@ -115,11 +113,16 @@ function checkInputs(currentTab){
         let description = $("#descripbox").val()
 
         if(title == '' || subject == '' || description == ''){
+            displayError("Pleas fill out all the requirements")
             return false
         }
 
         return true
     }else if(currentTab == 1){
+        if(checkNumberOfCards() == 0){
+            displayError("You should have at least one flash card")
+            return false
+        }
         return true
     }
 }
