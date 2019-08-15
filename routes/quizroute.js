@@ -51,9 +51,7 @@ router.get("/submit_new_quiz", urlencoder, (req, res) => {
     let public = req.query.public
     let deck = req.query.deck
 
-
     User.getUser(username, (err, doc) => {
-
 
         Quiz.createQuiz(title, doc, subject, description, public, deck, (err, doc) => {
             if (err) {
