@@ -89,9 +89,6 @@ userSchema.statics.addQuizToPinned = function (user_id, quiz, callback) {
 
 userSchema.statics.removeQuizToPinned = function (user_id, quiz_id, callback) {
 
-    console.log(quiz_id)
-    console.log(user_id)
-
     this.updateOne({
         _id: user_id
     }, {

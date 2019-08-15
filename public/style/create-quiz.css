@@ -282,7 +282,7 @@ input::placeholder {
     display: flex;
 }
 
-#quizDescriptionInfo{
+#quizDescriptionInfo {
     margin-top: 3px;
     font-size: 15px;
 }
@@ -317,7 +317,7 @@ input::placeholder {
 }
 
 #pinBtn,
-#unPin {
+#unpinBtn {
     background-color: #FFF;
     color: #000;
     border: solid 1px grey;
@@ -739,7 +739,7 @@ a {
     justify-content: center;
 }
 
-#no_quiz_tag{
+#no_quiz_tag {
     background-color: #fff;
     font-size: 20px;
     color: #787878;
