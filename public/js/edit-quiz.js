@@ -12,26 +12,32 @@ $(document).ready(function () {
             var public = false
         }
 
-        $.ajax({
-            url: "/quiz/update_quiz",
-            method: "GET",
-            contentType: 'application/json',
-            data: {
-                id: id,
-                title: title,
-                subject: subject,
-                description: description,
-                deck: deck,
-                public: public
-            },
-            success: function (result) {
+        if(title == '' || subject == '' || description == '' || deck == null){
+            displayError("Please fill out all the contents")
+        }else{
+            $.ajax({
+                url: "/quiz/update_quiz",
+                method: "GET",
+                contentType: 'application/json',
+                data: {
+                    id: id,
+                    title: title,
+                    subject: subject,
+                    description: description,
+                    deck: deck,
+                    public: public
+                },
+                success: function (result) {
+    
+                    if (result == "1") {
+                        window.location = "/quiz/"
+                    }
+    
+                },
+            })
+        }
 
-                if (result == "1") {
-                    window.location = "/quiz/"
-                }
-
-            },
-        })
+        
     })
     counter = checkNumberOfCards()
     checkCardLabels(counter)
@@ -118,11 +124,15 @@ $(document).ready(function () {
         $('#card-container').prepend(cardElementDiv)
 
         removeCard.onclick = function () {
-            console.log("test delete")
-            cardElementDiv.remove()
-            counter--
-            checkCardLabels(counter)
-            return false
+            if(checkNumberOfCards() == 1){
+                displayError("You should have at least one flashcard")
+                return false
+            }else{
+                cardElementDiv.remove()
+                counter--
+                checkCardLabels(counter)
+                return false
+            }
         }
     }
 
@@ -145,10 +155,15 @@ $(document).ready(function () {
     function addRemoveCardListeners(){
         $(".card-element").each(function(){
             $(this).children(".card-header").children("#remove-card").click(function(){
-                $(this).parent().parent().remove()
-                counter--
-                checkCardLabels(counter)
-                return false
+                if(checkNumberOfCards() == 1){
+                    displayError("You should have at least one flashcard")
+                    return false
+                }else{
+                    $(this).parent().parent().remove()
+                    counter--
+                    checkCardLabels(counter)
+                    return false
+                }
             })
         })
     }
@@ -158,12 +173,17 @@ $(document).ready(function () {
         $(".card-element").each(function () {
             var question = $(this).children(".cards").children(".black-card").children("textarea").val()
             var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
-            var flashCard = {
-                "Question": question,
-                "Answer": answer
-            }
 
-            cards.push(flashCard)
+            if(question== '' || answer == ''){
+                return null
+            }else{
+                var flashCard = {
+                    "Question": question,
+                    "Answer": answer
+                }
+
+                cards.push(flashCard)
+            }
         })
 
         return cards
@@ -173,4 +193,12 @@ $(document).ready(function () {
         $("#takeid").val($(this).attr("data-id"))
         $("#takeform").submit()
     })
+
+    function displayError(msg) {
+        $("#error-messages").empty()
+        let error = document.getElementById("error-div")
+        error.className += "shown"
+        $("#error-messages").append('<li>' + msg + '</li')
+        // shows the error message by appending the invisible list
+    }
 })

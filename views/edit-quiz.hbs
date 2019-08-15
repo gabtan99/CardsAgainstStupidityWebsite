@@ -31,11 +31,11 @@
             <div id="edit-quiz">Edit Quiz</div>
             <form id="Form" data-id="{{quiz._id}}">
                 <div id="Title" class="title"> Title </div>
-                <input id="titlebox" type="text" class="input" value="{{quiz.title}}"">
+                <input id="titlebox" type="text" class="input" value="{{quiz.title}}">
                 <div id="Subject" class="title"> Subject </div>
-                <input id="subjectbox" type="text" class="input" value="{{quiz.subject}}"">
+                <input id="subjectbox" type="text" class="input" value="{{quiz.subject}}">
                 <div id="Description" class="title"> Description </div>
-                <input id="descripbox" type="text" class="input" value="{{quiz.description}}"">
+                <input id="descripbox" type="text" class="input" value="{{quiz.description}}">
                 <br>
                 <div class="title">Privacy</div>
                 <div id="radioContainer">
@@ -80,7 +80,10 @@
         {{/each}}
         </div>
 
-
+        <div class="error-box" id="error-div">
+            <ul id="error-messages">
+            </ul>
+        </div>
 
         <div class="decision-button">
             <a href="/quiz" class="circle-button" id="cancel-button">
