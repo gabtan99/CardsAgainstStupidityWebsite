@@ -91,14 +91,9 @@ router.get("/unpin_quiz", (req, res) => {
 })
 
 router.get("/edit_quiz", async (req, res) => {
-
-
     res.render("edit-quiz.hbs", {
         quiz: await Quiz.retrieveQuiz(req.query.id)
     })
-
-    console.log(req.query.id)
-    console.log("edit")
 
 })
 
