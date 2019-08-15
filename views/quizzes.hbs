@@ -103,17 +103,12 @@
                                 Unpin
                             </a>
                             <br>
-                            <a class="searchResult-Btns" href="/quiz/pre_start">Take Quiz</a>
+                            <button class="searchResult-Btns takeBtn" data-id = "{{_id}}">Take Quiz</a>
                         </div>
                     </div>
                 </div>
                 {{/each}}
             </div>
-
-            <form action="/quiz/unpin_quiz" id="unpinform">
-                <input type="hidden" name="id" id="unpinid">
-            </form>
-
 
             <form action="/quiz/take_quiz" id="takeform">
                 <input type="hidden" name="id" id="takeid">

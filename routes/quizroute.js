@@ -26,7 +26,6 @@ router.get("/", async (req, res) => {
             
             await User.getUser(username, async (err, doc) => {
                 let results = await Quiz.getQuizzesById(doc.pinnedQuizzes)
-                console.log(results)
                 res.render("quizzes.hbs", {
                     quizzes: myQuizObjects,
                     pinnedquizzes: results
