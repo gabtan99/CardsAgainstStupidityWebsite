@@ -75,7 +75,7 @@ quizSchema.statics.searchQuiz = async function (keyword, callback) {
 }
 
 
-quizSchema.statics.updateQuiz = function (id, title, author, subject, description, public, callback) {
+quizSchema.statics.updateQuiz = function (id, title, author, subject, description, public, deck, callback) {
     this.updateOne({
         _id: id
     }, {
@@ -83,7 +83,8 @@ quizSchema.statics.updateQuiz = function (id, title, author, subject, descriptio
         author: author,
         subject: subject,
         description: description,
-        public: public
+        public: public,
+        deck: deck
     }, callback)
 }
 

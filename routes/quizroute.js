@@ -83,5 +83,25 @@ router.get("/edit", async (req, res)=>{
     })
 })
 
+router.get("/update_quiz", (req, res) => {
+    let username = req.session.username
+    let id = req.query.id
+    let title = req.query.title
+    let subject = req.query.subject
+    let description = req.query.description
+    let public = req.query.public
+    let deck = req.query.deck
+
+    User.getUser(username, (err, doc) => {
+        Quiz.updateQuiz(id, title, doc, subject, description, public, deck, (err, doc) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send("1")
+            }
+        })
+    })
+})
+
 
 module.exports = router;

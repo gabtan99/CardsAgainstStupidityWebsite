@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../style/create-quiz.css">
     <link rel="stylesheet" href="../style/edit-quiz.css">
     <script src="../js/jquery.min.js"></script>
-    <script src="../js/add-flash-cards.js"></script>
+    <script src="../js/edit-quiz.js"></script>
     <title>Edit Quiz</title>
 </head>
 
@@ -29,7 +29,7 @@
     <div class="main-body">
         <div class="edit-descriptions">
             <div id="edit-quiz">Edit Quiz</div>
-            <form id="Form">
+            <form id="Form" data-id="{{quiz._id}}">
                 <div id="Title" class="title"> Title </div>
                 <input id="titlebox" type="text" class="input" value="{{quiz.title}}"">
                 <div id="Subject" class="title"> Subject </div>
@@ -53,31 +53,31 @@
         </div>
 
         <div id="card-container">
-
-            {{!--
+        {{#each quiz.deck}}
             <div class="card-element">
                 <div class="card-header">
                     <a href="" id="remove-card">
                         <div id="cross-icon">+</div>
                     </a>
-                    <div id="card-label">Flashcard 1</div>
+                    <div id="card-label"></div>
                 </div>
                 <div class="cards">
                     <div class="black-card">
-                        <textarea type="text" placeholder="Enter Question Here"></textarea>
+                        <textarea type="text" placeholder="Enter Question Here">{{"Question"}}</textarea>
                         <footer>
                             <p>Cards Against Stupidity</p>
                         </footer>
                     </div>
 
                     <div class="white-card">
-                        <textarea type="text" placeholder="Enter Question Here"></textarea>
+                        <textarea type="text" placeholder="Enter Question Here">{{"Answer"}}</textarea>
                         <footer>
                             <p>Cards Against Stupidity</p>
                         </footer>
                     </div>
                 </div>
-            </div>--}}
+            </div>
+        {{/each}}
         </div>
 
 
@@ -87,9 +87,9 @@
                 <div id="cancel-button-text">CANCEL</div>
             </a>
 
-            <a href="/quiz" class="circle-button" id="save-button">
+            <button class="circle-button save" id="save-button">
                 <div id="save-button-text">SAVE</div>
-            </a>
+            </button>
         </div>
 
     </div>
