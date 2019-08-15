@@ -62,24 +62,29 @@ function showNextQuestion() {
         var question = pair["Question"]
         var answer = pair["Answer"]
 
+        if (timerCount > 0) {
+            timerCount = timerMax;
 
-        timerCount = timerMax;
+            $("#questionArea").text(question)
+            $("#card-tracker").text("Question " + (nQuestion + 1) + "/" + qdeck.length)
 
-        $("#questionArea").text(question)
-        $("#card-tracker").text("Question " + (nQuestion + 1) + "/" + qdeck.length)
+            var timer = setInterval(function () {
 
-        var timer = setInterval(function () {
+                $("#answerArea").text("Answer Revealed in " + timerCount + " seconds.")
 
-            $("#answerArea").text("Answer Revealed in " + timerCount + " seconds.")
+                if (timerCount == -1) {
+                    clearInterval(timer);
+                    $("#answerArea").text(answer)
+                } else {
+                    timerCount--;
+                }
 
-            if (timerCount == -1) {
-                clearInterval(timer);
-                $("#answerArea").text(answer)
-            } else {
-                timerCount--;
-            }
+            }, 1000);
+        } else {
+            $("#questionArea").text(question)
+            $("#answerArea").text(answer)
+        }
 
-        }, 1000);
     } else {
         showResults()
     }
