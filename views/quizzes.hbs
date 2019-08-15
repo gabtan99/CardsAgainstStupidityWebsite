@@ -61,7 +61,7 @@
                         <div id=buttonsResult>
                             <button id="pinBtn" class="searchResult-Btns editBtn" data-id="{{_id}}">Edit</button>
                             <br>
-                            <a class="searchResult-Btns" href="/quiz/pre_start">Take Quiz</a>
+                            <button id="takeQuizBtn" class="searchResult-Btns" data-id="{{_id}}">Take Quiz</a>
                         </div>
                     </div>
                 </div>
@@ -71,6 +71,11 @@
             <form action="quiz/edit" id="editform">
                 <input type="hidden" name="id" id="editid">
             </form>
+
+            <form action="quiz/take_quiz" id="takeform">
+                <input type="hidden" name="id" id="takeid">
+            </form>
+
 
             <div id="pinnedQuizContainer">
                 <div class="title mypinLabels"> Pinned Quizzes </div>
