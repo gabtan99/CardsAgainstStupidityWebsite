@@ -55,6 +55,11 @@
                     </div>
                     <div id="botResult">
                         <div id="botInfo">
+                            {{#if public}}
+                                <div class="searchResultUpInfo" id="privacyLabel">Public</div>
+                            {{else}}
+                                <div class="searchResultUpInfo" id="privacyLabel">Private</div>
+                            {{/if}}
                             <div class="searchResultUpInfo searchResultDownInfo">{{deck.length}} Flashcards</div>
                             <div class="searchResultUpInfo">Made by {{author.username}}</div>
                         </div>
