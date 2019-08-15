@@ -34,6 +34,7 @@ $(document).ready(function () {
     })
     counter = checkNumberOfCards()
     checkCardLabels(counter)
+    addRemoveCardListeners()
 
     $('.add-card a').click(function(){
         createCard()
@@ -130,6 +131,17 @@ $(document).ready(function () {
             counter++
         })
         return counter
+    }
+
+    function addRemoveCardListeners(){
+        $(".card-element").each(function(){
+            $(this).children(".card-header").children("#remove-card").click(function(){
+                $(this).parent().parent().remove()
+                counter--
+                checkCardLabels(counter)
+                return false
+            })
+        })
     }
 
     function createFlashcardCollection() {
