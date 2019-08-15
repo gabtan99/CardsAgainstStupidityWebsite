@@ -89,6 +89,7 @@ function nextPrev(n) {
 
     tabs[currentTab].style.display = "none"
 
+
     currentTab = currentTab + n
 
     showTab(currentTab)

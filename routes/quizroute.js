@@ -78,13 +78,13 @@ router.get("/retrieve_quiz", async (req, res) => {
 })
 
 router.get("/take_quiz", (req, res) => {
-    res.render("take-quiz.hbs")
+    res.render("take-quiz.hbs", {
+        quizID: req.query.id
+    })
 })
 
-router.get("/edit_quiz", (req, res) => {
-    res.render("edit-quiz", {
-        
-    })
+router.get("/edit", (req, res) => {
+    console.log(req.query.id)
 })
 
 

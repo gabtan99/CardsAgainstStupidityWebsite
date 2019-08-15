@@ -12,7 +12,7 @@ let timerMax
 $(document).ready(function () {
 
 
-    let quiz_id = "5d53c7fdae4bd73948a26620"
+    let quiz_id = $("#mainQuiz").attr("data-id")
 
     $.ajax({
         url: "/quiz/retrieve_quiz",
