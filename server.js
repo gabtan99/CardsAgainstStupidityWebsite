@@ -131,40 +131,6 @@ app.get("/search", (req, res) => {
     res.render("search.hbs")
 })
 
-app.get("/search-keyword", urlencoder, async (req, res) => {
-
-    var keyword = req.query.keyword
-
-    let results = await Quiz.searchQuiz(keyword)
-
-    let username = req.session.username
-    let actualName
-
-    await User.getUser(username, (err, doc) => {
-        if (err) {
-            console.log(err)
-        } else {
-            if(!doc){
-                res.send(results)
-            } else {
-                actualName = doc.username
-
-                console.log(actualName)
-
-                let output = {
-                    searchResults: results,
-                    authorName: actualName
-                }
-                console.log(output)
-            
-                res.send(output)
-            }
-        }
-    }) 
-
-    
-})
-
 app.get("/about", (req, res) => {
     res.render("about.hbs")
 })

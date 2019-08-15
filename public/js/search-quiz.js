@@ -55,192 +55,6 @@ function emptyContainer() {
     $("#searchResultContainer").empty()
 }
 
-function displayResultUserPin(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
-    //UPPER
-
-    const resultContainer = document.createElement("div")
-    resultContainer.className = "searchResult"
-
-    const upperPartResultContainer = document.createElement("div")
-    upperPartResultContainer.id = "topResult"
-
-    const title = document.createElement("div")
-    title.className = "searchResultTitle"
-    title.innerHTML = stringTitle
-
-    const subject = document.createElement("div")
-    subject.className = "searchResultUpInfo"
-    subject.innerHTML = stringSubject
-
-    const description = document.createElement("div")
-    description.className = "searchResultUpInfo"
-    description.innerHTML = stringDescrip
-
-    upperPartResultContainer.append(title)
-    upperPartResultContainer.append(subject)
-    upperPartResultContainer.append(description)
-
-    //BOTTOM
-    const lowerPartResultContainer = document.createElement("div")
-    lowerPartResultContainer.id = "botResult"
-
-    //BOT INFO
-    const numFlashCardsAndCreatorContainer = document.createElement("div")
-    numFlashCardsAndCreatorContainer.id = "botInfo"
-
-    const numFlashCards = document.createElement("div")
-    numFlashCards.className = "searchResultUpInfo searchResultDownInfo"
-    numFlashCards.innerHTML = nCards + " Flashcards"
-
-    const creator = document.createElement("div")
-    creator.className = "searchResultUpInfo"
-    creator.innerHTML = "Made by " + stringAuthor
-
-    numFlashCardsAndCreatorContainer.append(numFlashCards)
-    numFlashCardsAndCreatorContainer.append(creator)
-
-    //BUTTONS
-    const buttonsContainer = document.createElement("div")
-    buttonsContainer.id = "buttonsResult"
-
-    const pinButton = document.createElement("a")
-    pinButton.id = "pinBtn"
-    pinButton.setAttribute('data-id', dataID)
-    pinButton.className = "searchResult-Btns pinButton"
-
-    const pinImage = document.createElement("img")
-    pinImage.id = "pinIcon"
-    pinImage.src = "../assets/pin.png"
-    pinImage.className = "pinIconPos"
-
-    pinButton.append(pinImage)
-
-    const pinTag = document.createElement("div")
-    pinTag.id = "tagPin"
-    pinTag.innerHTML = "Pin Quiz"
-
-    pinButton.append(pinTag)
-
-    const nextLine = document.createElement("br")
-
-    const takeQuizButton = document.createElement("a")
-    takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/take_quiz"
-
-    takeQuizButton.innerHTML = "Take Quiz"
-
-    buttonsContainer.append(pinButton)
-    buttonsContainer.append(nextLine)
-    buttonsContainer.append(takeQuizButton)
-
-    lowerPartResultContainer.append(numFlashCardsAndCreatorContainer)
-    lowerPartResultContainer.append(buttonsContainer)
-
-    resultContainer.append(upperPartResultContainer)
-    resultContainer.append(lowerPartResultContainer)
-
-    $('#searchResultContainer').prepend(resultContainer)
-}
-
-function displayResultUserEdit(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
-    //UPPER
-
-    const resultContainer = document.createElement("div")
-    resultContainer.className = "searchResult"
-
-    const upperPartResultContainer = document.createElement("div")
-    upperPartResultContainer.id = "topResult"
-
-    const title = document.createElement("div")
-    title.className = "searchResultTitle"
-    title.innerHTML = stringTitle
-
-    const subject = document.createElement("div")
-    subject.className = "searchResultUpInfo"
-    subject.innerHTML = stringSubject
-
-    const description = document.createElement("div")
-    description.className = "searchResultUpInfo"
-    description.innerHTML = stringDescrip
-
-    upperPartResultContainer.append(title)
-    upperPartResultContainer.append(subject)
-    upperPartResultContainer.append(description)
-
-    //BOTTOM
-    const lowerPartResultContainer = document.createElement("div")
-    lowerPartResultContainer.id = "botResult"
-
-    //BOT INFO
-    const numFlashCardsAndCreatorContainer = document.createElement("div")
-    numFlashCardsAndCreatorContainer.id = "botInfo"
-
-    const numFlashCards = document.createElement("div")
-    numFlashCards.className = "searchResultUpInfo searchResultDownInfo"
-    numFlashCards.innerHTML = nCards + " Flashcards"
-
-    const creator = document.createElement("div")
-    creator.className = "searchResultUpInfo"
-    creator.innerHTML = "Made by " + stringAuthor
-
-    numFlashCardsAndCreatorContainer.append(numFlashCards)
-    numFlashCardsAndCreatorContainer.append(creator)
-
-    //BUTTONS
-    const buttonsContainer = document.createElement("div")
-    buttonsContainer.id = "buttonsResult"
-
-    const pinButton = document.createElement("a")
-    pinButton.id = "pinBtn"
-    pinButton.setAttribute('data-id', dataID)
-    pinButton.className = "searchResult-Btns pinButton"
-
-    // const pinImage = document.createElement("img")
-    // pinImage.id = "pinIcon"
-    // pinImage.src = "../assets/pin.png"
-    // pinImage.className = "pinIconPos"
-
-    //pinButton.append(pinImage)
-
-    const pinTag = document.createElement("div")
-    pinTag.innerHTML = "Edit"
-
-    pinButton.append(pinTag)
-
-    const nextLine = document.createElement("br")
-
-    const takeQuizButton = document.createElement("a")
-    takeQuizButton.className = "searchResult-Btns"
-    takeQuizButton.href = "/quiz/take_quiz"
-
-    takeQuizButton.innerHTML = "Take Quiz"
-
-    buttonsContainer.append(pinButton)
-    buttonsContainer.append(nextLine)
-    buttonsContainer.append(takeQuizButton)
-
-    lowerPartResultContainer.append(numFlashCardsAndCreatorContainer)
-    lowerPartResultContainer.append(buttonsContainer)
-
-    resultContainer.append(upperPartResultContainer)
-    resultContainer.append(lowerPartResultContainer)
-
-    $('#searchResultContainer').prepend(resultContainer)
-}
-
-function renderResultUser(result) {
-
-    //alert(result.authorName)
-    for (var i = 0; i < result.searchResults.length; i++) {
-        if(result.authorName == result.searchResults[i].author.username){ //quiz belongs to the user
-            displayResultUserEdit(result.searchResults[i]._id, result.searchResults[i].title, result.searchResults[i].subject,
-                result.searchResults[i].description, result.searchResults[i].deck.length, result.searchResults[i].author.username)
-        } else {
-            displayResultUserPin(result.searchResults[i]._id, result.searchResults[i].title, result.searchResults[i].subject,
-                result.searchResults[i].description, result.searchResults[i].deck.length, result.searchResults[i].author.username)
-        }
-    }    
-}
 
 
 // function addFunctionality () {
@@ -250,27 +64,27 @@ function renderResultUser(result) {
 //     })
 // }
 
-function addFunctionality(){
-    $("#pinBtn").click(async function (e) {
+// function addFunctionality(){
+//     $("#pinBtn").click(async function (e) {
 
-        e.preventDefault()
+//         e.preventDefault()
 
-        $("#searchid").val($(this).attr("data-id"))
+//         $("#searchid").val($(this).attr("data-id"))
 
-        await $.ajax({
-            url: "actionQuiz",
-            method: "GET",
-            data: {
-            },
-            success: function (result) {
-                if (result == '1') {
-                    console.log("Pin Success")
-                    $("#tagPin").html("Unpin")
-                } else {
-                    console.log("Pin Fail")
-                }
-            },
-        })
+//         await $.ajax({
+//             url: "actionQuiz",
+//             method: "GET",
+//             data: {
+//             },
+//             success: function (result) {
+//                 if (result == '1') {
+//                     console.log("Pin Success")
+//                     $("#tagPin").html("Unpin")
+//                 } else {
+//                     console.log("Pin Fail")
+//                 }
+//             },
+//         })
         
-    })
-}
+//     })
+// }
