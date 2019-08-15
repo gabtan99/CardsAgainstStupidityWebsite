@@ -87,16 +87,19 @@ userSchema.statics.addQuizToPinned = function (user_id, quiz, callback) {
     }, callback)
 }
 
-userSchema.statics.removeQuizToPinned = function (user_id, quiz_id, callback){
+userSchema.statics.removeQuizToPinned = function (user_id, quiz_id, callback) {
 
     console.log(quiz_id)
+    console.log(user_id)
+
     this.updateOne({
         _id: user_id
     }, {
         $pull: {
-         pinnedQuizzes : "5d553a0923d2f84594a0f56d"
+            pinnedQuizzes: quiz_id
         }
     }, callback)
+
 }
 
 userSchema.statics.getPinnedQuizes = async function (username) {

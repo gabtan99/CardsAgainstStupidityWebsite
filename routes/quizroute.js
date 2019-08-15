@@ -83,30 +83,29 @@ router.get("/update_quiz", (req, res) => {
         })
     })
 })
-router.get("/unpin_quiz", async (req, res) => {
+router.get("/unpin_quiz", (req, res) => {
 
     let username = req.session.username
     let quizID = req.query.id
-    let userID
 
     User.getUser(username, (err, doc) => {
         if (err) {
             console.log(err)
         } else {
-            userID = doc._id
+            User.removeQuizToPinned(doc._id, quizID, (err, doc) => {
+                if (err) {
+                    console.log(err)
+                    res.send("0")
+                } else {
+                    console.log("unpin success!")
+                    res.send("1")
+                }
+            })
         }
     })
 
 
-    User.removeQuizToPinned(userID, quizID, (err, doc) => {
-        if (err) {
-            console.log(err)
-            res.send("0")
-        } else {
-            console.log("unpin success!")
-            res.send("1")
-        }
-    })
+
 })
 
 router.get("/edit_quiz", async (req, res) => {
