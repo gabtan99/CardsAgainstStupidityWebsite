@@ -6,6 +6,11 @@ $(document).ready(function () {
         var subject = $("#subjectbox").val()
         var description = $("#descripbox").val()
         var deck = createFlashcardCollection()
+        if($("#public:checked").val()){
+            var public = true
+        }else{
+            var public = false
+        }
 
         $.ajax({
             url: "/quiz/update_quiz",
@@ -17,7 +22,7 @@ $(document).ready(function () {
                 subject: subject,
                 description: description,
                 deck: deck,
-                public: true
+                public: public
             },
             success: function (result) {
 
@@ -32,7 +37,13 @@ $(document).ready(function () {
     checkCardLabels(counter)
     addRemoveCardListeners()
 
-    $("#public").prop("checked", true);
+    if($("#public").val()=="true"){
+        $("#private").prop("checked", false)
+        $("#public").prop("checked", true)
+    }else{
+        $("#public").prop("checked", false)
+        $("#private").prop("checked", true)
+    }
 
     $('.add-card a').click(function () {
         createCard()
