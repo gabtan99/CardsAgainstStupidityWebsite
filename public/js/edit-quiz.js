@@ -1,8 +1,4 @@
 $(document).ready(function () {
-    $("button.editBtn").click(function () {
-        $("#editid").val($(this).attr("data-id"))
-        $("#editform").submit()
-    })
 
     $("button#save-button").click(function () {
         var id = $("#Form").attr("data-id")
