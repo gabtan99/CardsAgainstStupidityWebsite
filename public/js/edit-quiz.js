@@ -12,7 +12,7 @@ $(document).ready(function () {
             var public = false
         }
 
-        if(title == '' || subject == '' || description == ''){
+        if(title == '' || subject == '' || description == '' || deck == null){
             displayError("Please fill out all the contents")
         }else{
             $.ajax({
@@ -124,11 +124,15 @@ $(document).ready(function () {
         $('#card-container').prepend(cardElementDiv)
 
         removeCard.onclick = function () {
-            console.log("test delete")
-            cardElementDiv.remove()
-            counter--
-            checkCardLabels(counter)
-            return false
+            if(checkNumberOfCards() == 1){
+                displayError("You should have at least one flashcard")
+                return false
+            }else{
+                cardElementDiv.remove()
+                counter--
+                checkCardLabels(counter)
+                return false
+            }
         }
     }
 
@@ -151,10 +155,15 @@ $(document).ready(function () {
     function addRemoveCardListeners(){
         $(".card-element").each(function(){
             $(this).children(".card-header").children("#remove-card").click(function(){
-                $(this).parent().parent().remove()
-                counter--
-                checkCardLabels(counter)
-                return false
+                if(checkNumberOfCards() == 1){
+                    displayError("You should have at least one flashcard")
+                    return false
+                }else{
+                    $(this).parent().parent().remove()
+                    counter--
+                    checkCardLabels(counter)
+                    return false
+                }
             })
         })
     }
@@ -164,12 +173,17 @@ $(document).ready(function () {
         $(".card-element").each(function () {
             var question = $(this).children(".cards").children(".black-card").children("textarea").val()
             var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
-            var flashCard = {
-                "Question": question,
-                "Answer": answer
-            }
 
-            cards.push(flashCard)
+            if(question== '' || answer == ''){
+                return null
+            }else{
+                var flashCard = {
+                    "Question": question,
+                    "Answer": answer
+                }
+
+                cards.push(flashCard)
+            }
         })
 
         return cards
