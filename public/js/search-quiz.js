@@ -27,6 +27,7 @@ $(document).ready(function () {
                         emptyContainer()
                         hideError("")
                         renderResultUser(result)
+                        addFunctionality()
                     }
                 },
             })
@@ -56,9 +57,9 @@ function emptyContainer() {
 
 function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nCards, stringAuthor) {
     //UPPER
+
     const resultContainer = document.createElement("div")
     resultContainer.className = "searchResult"
-    resultContainer.id = dataID
 
     const upperPartResultContainer = document.createElement("div")
     upperPartResultContainer.id = "topResult"
@@ -102,9 +103,10 @@ function displayResultUser(dataID, stringTitle, stringSubject, stringDescrip, nC
     const buttonsContainer = document.createElement("div")
     buttonsContainer.id = "buttonsResult"
 
-    const pinButton = document.createElement("a")
+    const pinButton = document.createElement("button")
     pinButton.id = "pinBtn"
-    pinButton.className = "searchResult-Btns"
+    pinButton.setAttribute('data-id', dataID)
+    pinButton.className = "searchResult-Btns pinButton"
 
     const pinImage = document.createElement("img")
     pinImage.id = "pinIcon"
@@ -147,4 +149,12 @@ function renderResultUser(result) {
         displayResultUser(result[i]._id, result[i].title, result[i].subject,
             result[i].description, result[i].deck.length, result[i].author.username)
     }
+}
+
+
+function addFunctionality () {
+    $("#pinBtn").click(function(){
+        $("#searchid").val($(this).attr("data-id"))
+        $('#hiddensearchform').submit()
+    })
 }
