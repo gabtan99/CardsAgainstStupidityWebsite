@@ -1,11 +1,11 @@
-.quiz-header{
+.quiz-header {
     margin-top: 115px;
     text-align: center;
     font-family: "Helvetica Neue";
     transform: scale(0.8);
 }
 
-#quiz-name{
+#quiz-name {
     height: 42px;
     color: #000;
     font-size: 36px;
@@ -14,7 +14,7 @@
     line-height: 42px;
 }
 
-#quiz-subject{
+#quiz-subject {
     height: 42px;
     color: #787878;
     font-family: "Helvetica Neue";
@@ -24,7 +24,7 @@
     line-height: 42px;
 }
 
-#quiz-author{
+#quiz-author {
     height: 25px;
     color: #787878;
     font-family: "Helvetica Neue";
@@ -34,15 +34,15 @@
     line-height: 25px;
 }
 
-.quiz-area{
-    font-family: "Helvetica Neue";  
+.quiz-area {
+    font-family: "Helvetica Neue";
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#card-tracker{
+#card-tracker {
     height: 35px;
     width: 200px;
     color: #000;
@@ -54,34 +54,35 @@
     margin-right: 340px;
 }
 
-.questions{
+.questions {
     display: flex;
 }
 
-.questions > div{
+.questions>div {
     margin-right: 23px;
     margin-top: 18px;
 }
 
-.response-button{
+.response-button {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-#guessed-icon{
+#guessed-icon {
     background-image: url("/assets/guessedicon.png");
     background-size: 29px;
     width: 29px;
     height: 29px;
     margin: 7px 11px 0 13px;
 }
-#guessed-button{
+
+#guessed-button {
     width: 160px;
     height: 42px;
     background-color: #000;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin-right: 20px;
     font-family: "Helvetica Neue";
@@ -91,7 +92,7 @@
     display: flex
 }
 
-#guessed-button-text{
+#guessed-button-text {
     font-family: "Helvetica Neue";
     font-size: 20px;
     font-weight: 700;
@@ -99,18 +100,19 @@
     margin: 8px 0 0 0px;
 }
 
-#knew-icon{
+#knew-icon {
     background-image: url("/assets/knewicon.png");
     background-size: 29px;
     width: 29px;
     height: 29px;
     margin: 7px 15px 0 13px;
 }
-#knew-button{
+
+#knew-button {
     width: 160px;
     height: 42px;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin-right: 22px;
     font-family: "Helvetica Neue";
@@ -120,7 +122,7 @@
     display: flex
 }
 
-#knew-button-text{
+#knew-button-text {
     font-family: "Helvetica Neue";
     font-size: 20px;
     font-weight: 700;
@@ -130,3 +132,13 @@
 
 
 
+.tip {
+    font-family: "Helvetica Neue";
+    font-size: 16px;
+    font-weight: 700;
+    color: #52525291;
+    margin: 8px 0 0 0px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
