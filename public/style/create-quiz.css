@@ -56,6 +56,10 @@ a:hover {
     font-family: "Helvetica Neue";
 }
 
+.title-step-1 {
+    margin-left: 25px
+}
+
 .input {
     color: #000;
     font-family: "Helvetica Neue";
@@ -147,10 +151,19 @@ input::placeholder {
 
 #titlebox,
 #subjectbox,
-#descripbox,
 #searchbox {
     height: 35px;
-    width: 540px;
+    width: 500px;
+    padding-left: 15px;
+    border-radius: 9px;
+    font-family: "Helvetica Neue";
+    align-self: center;
+}
+
+#descripbox {
+    height: 35px;
+    width: 500px;
+    padding-bottom: 50px;
     padding-left: 15px;
     border-radius: 9px;
     font-family: "Helvetica Neue";
@@ -221,7 +234,6 @@ input::placeholder {
 
 #searchbox {
     margin-top: 48px;
-    width: 95%;
 }
 
 #searchsubtitle {
@@ -693,7 +705,7 @@ a {
 }
 
 #error-messages {
-    width: 546px;
+    width: 500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

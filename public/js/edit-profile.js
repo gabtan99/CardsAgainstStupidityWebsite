@@ -6,8 +6,13 @@ $(document).ready(() => {
 
         let oldp = $("#oldpasswordfield").val()
         let newp = $("#newpasswordfield").val()
+        let confirmp = $("#confirmpasswordfield").val()
 
-        if (isValid(newp)) {
+        if (!isValid(newp)) {
+            displayError("Password must be at least 6 characters")
+        } else if (!passwordMatch(newp, confirmp)) {
+            displayError("Passwords do not match")
+        } else {
             $.ajax({
                 url: "update-password",
                 method: "POST",
@@ -23,8 +28,6 @@ $(document).ready(() => {
                     }
                 },
             })
-        } else {
-            displayError("Password must be at laest 6 characters")
         }
 
 
@@ -39,6 +42,15 @@ function isValid(s) {
     }
     // all requirements have been satisfied
     return true;
+}
+
+function passwordMatch(a, b) {
+
+    if (a !== b) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function displayError(msg) {

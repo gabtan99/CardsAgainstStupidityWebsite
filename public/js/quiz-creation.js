@@ -113,7 +113,7 @@ function checkInputs(currentTab) {
         let description = $("#descripbox").val()
 
         if (title == '' || subject == '' || description == '') {
-            displayError("Pleas fill out all the requirements")
+            displayError("Please fill out all the requirements")
             return false
         } else {
             hideError("")
