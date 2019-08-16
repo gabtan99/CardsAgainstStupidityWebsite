@@ -168,14 +168,20 @@ function addButtonFunction() {
 }
 
 function knewAnswer() {
-    nQuestion++
-    score++
-    clearInterval(timer);
-    showNextQuestion()
+
+    if (nQuestion != qdeck.length) {
+        nQuestion++
+        score++
+        clearInterval(timer);
+        showNextQuestion()
+    }
+
 }
 
 function guessedAnswer() {
-    nQuestion++
-    clearInterval(timer);
-    showNextQuestion()
+    if (nQuestion != qdeck.length) {
+        nQuestion++
+        clearInterval(timer);
+        showNextQuestion()
+    }
 }
