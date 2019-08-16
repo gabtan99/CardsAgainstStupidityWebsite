@@ -69,6 +69,9 @@ app.get("/search-guest", (req, res) => {
 //////////// LOGGED-IN USER ROUTES ////////////////
 
 app.get("/logout", (req, res) => {
+    req.session.destroy((err) => {
+
+    })
     res.redirect("/login")
 })
 
