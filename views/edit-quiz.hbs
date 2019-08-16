@@ -29,6 +29,12 @@
     <div class="main-body">
         <div class="edit-descriptions">
             <div id="edit-quiz">Edit Quiz</div>
+
+
+            <a id="deleteBtn" class="" data-id="{{quiz._id}}">
+                <div id="tagPin">Delete</div>
+            </a>
+
             <form id="Form" data-id="{{quiz._id}}">
                 <div id="Title" class="title"> Title </div>
                 <input id="titlebox" type="text" class="input" value="{{quiz.title}}">
@@ -39,9 +45,11 @@
                 <br>
                 <div class="title">Privacy</div>
                 <div id="radioContainer">
-                    <div class="title radios"><input type="radio" name="privacy" id="public" value="{{quiz.public}}">Public: Share my quiz with
+                    <div class="title radios"><input type="radio" name="privacy" id="public"
+                            value="{{quiz.public}}">Public: Share my quiz with
                         others!</div>
-                    <div class="title radios"><input type="radio" name="privacy" id="private">Private: Only I can access this quiz!
+                    <div class="title radios"><input type="radio" name="privacy" id="private">Private: Only I can access
+                        this quiz!
                     </div><br>
                 </div>
             </form>
@@ -53,7 +61,7 @@
         </div>
 
         <div id="card-container">
-        {{#each quiz.deck}}
+            {{#each quiz.deck}}
             <div class="card-element">
                 <div class="card-header">
                     <a href="" id="remove-card">
@@ -77,7 +85,7 @@
                     </div>
                 </div>
             </div>
-        {{/each}}
+            {{/each}}
         </div>
 
         <div class="error-box" id="error-div">
@@ -92,6 +100,10 @@
 
             <button class="circle-button" id="save-button">SAVE</button>
         </div>
+
+        <form action="/quiz/delete_quiz" id="deleteform" method="POST">
+            <input type="hidden" name="id" id="deleteid">
+        </form>
 
     </div>
 </body>

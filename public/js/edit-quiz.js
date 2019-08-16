@@ -1,20 +1,25 @@
 $(document).ready(function () {
 
+    $("#deleteBtn").click(function () {
+        $("#deleteid").val($(this).attr("data-id"))
+        $("#deleteform").submit()
+    })
+
     $("button#save-button").click(function () {
         var id = $("#Form").attr("data-id")
         var title = $("#titlebox").val()
         var subject = $("#subjectbox").val()
         var description = $("#descripbox").val()
         var deck = createFlashcardCollection()
-        if($("#public:checked").val()){
+        if ($("#public:checked").val()) {
             var public = true
-        }else{
+        } else {
             var public = false
         }
-        
-        if(title == '' || subject == '' || description == '' || deck == null){
+
+        if (title == '' || subject == '' || description == '' || deck == null) {
             displayError("Please fill out all the contents")
-        }else{
+        } else {
             $.ajax({
                 url: "/quiz/update_quiz",
                 method: "GET",
@@ -28,25 +33,25 @@ $(document).ready(function () {
                     public: public
                 },
                 success: function (result) {
-    
+
                     if (result == "1") {
                         window.location = "/quiz/"
                     }
-    
+
                 },
             })
         }
 
-        
+
     })
     counter = checkNumberOfCards()
     checkCardLabels(counter)
     addRemoveCardListeners()
 
-    if($("#public").val()=="true"){
+    if ($("#public").val() == "true") {
         $("#private").prop("checked", false)
         $("#public").prop("checked", true)
-    }else{
+    } else {
         $("#public").prop("checked", false)
         $("#private").prop("checked", true)
     }
@@ -124,10 +129,10 @@ $(document).ready(function () {
         $('#card-container').prepend(cardElementDiv)
 
         removeCard.onclick = function () {
-            if(checkNumberOfCards() == 1){
+            if (checkNumberOfCards() == 1) {
                 displayError("You should have at least one flashcard")
                 return false
-            }else{
+            } else {
                 cardElementDiv.remove()
                 counter--
                 checkCardLabels(counter)
@@ -152,13 +157,13 @@ $(document).ready(function () {
         return counter
     }
 
-    function addRemoveCardListeners(){
-        $(".card-element").each(function(){
-            $(this).children(".card-header").children("#remove-card").click(function(){
-                if(checkNumberOfCards() == 1){
+    function addRemoveCardListeners() {
+        $(".card-element").each(function () {
+            $(this).children(".card-header").children("#remove-card").click(function () {
+                if (checkNumberOfCards() == 1) {
                     displayError("You should have at least one flashcard")
                     return false
-                }else{
+                } else {
                     $(this).parent().parent().remove()
                     counter--
                     checkCardLabels(counter)
@@ -174,9 +179,9 @@ $(document).ready(function () {
             var question = $(this).children(".cards").children(".black-card").children("textarea").val()
             var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
 
-            if(question== '' || answer == ''){
+            if (question == '' || answer == '') {
                 cards = null
-            }else{
+            } else {
                 var flashCard = {
                     "Question": question,
                     "Answer": answer
@@ -193,6 +198,7 @@ $(document).ready(function () {
         $("#takeid").val($(this).attr("data-id"))
         $("#takeform").submit()
     })
+
 
     function displayError(msg) {
         $("#error-messages").empty()

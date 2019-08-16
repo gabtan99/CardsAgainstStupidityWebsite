@@ -97,7 +97,7 @@ quizSchema.statics.updateQuiz = function (id, title, author, subject, descriptio
 
 quizSchema.statics.getQuizzesById = async function (ids) {
     return await this.find({
-        _id: { 
+        _id: {
             $in: ids
         }
     }).populate("author", "username")
@@ -118,6 +118,8 @@ quizSchema.statics.addFlashcardToDeck = function (flashcard_id, quiz_id, callbac
         }
     }, callback)
 }
+
+
 
 const Quiz = mongoose.model("Quiz", quizSchema, 'quizzes')
 

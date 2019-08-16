@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
             res.send(err)
         } else if (doc) {
             let myQuizObjects = await Quiz.findQuizzes(doc)
-            
+
             await User.getUser(username, async (err, doc) => {
                 let results = await Quiz.getQuizzesById(doc.pinnedQuizzes)
                 res.render("quizzes.hbs", {
@@ -31,9 +31,9 @@ router.get("/", async (req, res) => {
                     pinnedquizzes: results
                 })
             })
-            
 
-           
+
+
         }
     })
 })
@@ -157,6 +157,34 @@ router.get("/take_quiz", (req, res) => {
     res.render("take-quiz.hbs", {
         quizID: req.query.id
     })
+})
+
+router.post("/delete_quiz", urlencoder, (req, res) => {
+
+    let quiz_id = req.body.id
+    let userID
+
+    User.getUser(req.session.username, (err, doc) => {
+        if (err) {
+            console.log(err)
+        } else {
+            userID = doc._id
+        }
+    })
+
+    User.removeQuizToPinned(userID, quiz_id, (err, doc) => {
+        if (err) {
+            console.log(err)
+        }
+    })
+
+    Quiz.deleteQuiz(quiz_id, (err, doc) => {
+        if (err) {
+            console.log(err)
+        }
+    })
+
+    res.redirect("../home")
 })
 
 router.get("/retrieve_quiz", async (req, res) => {
