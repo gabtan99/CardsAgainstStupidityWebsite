@@ -138,7 +138,7 @@ $(document).ready(function () {
 
         removeCard.onclick = function () {
             if (checkNumberOfCards() == 1) {
-                displayError("You should have at least one flashcard")
+                displayError("A quiz must contain at least one flashcard")
                 return false
             } else {
                 cardElementDiv.remove()
@@ -169,7 +169,7 @@ $(document).ready(function () {
         $(".card-element").each(function () {
             $(this).children(".card-header").children("#remove-card").click(function () {
                 if (checkNumberOfCards() == 1) {
-                    displayError("You should have at least one flashcard")
+                    displayError("A quiz must contain at least one flashcard")
                     return false
                 } else {
                     $(this).parent().parent().remove()
@@ -215,7 +215,6 @@ $(document).ready(function () {
         $("#error-messages").append('<li>' + msg + '</li')
         // shows the error message by appending the invisible list
     }
-
 
     function showDeleteForm() {
         document.getElementById("mainbodyid").style.display = "none"

@@ -76,7 +76,6 @@ input::placeholder {
 #status {
     margin-top: 10px;
     height: 79px;
-    width: 523px;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -86,7 +85,7 @@ input::placeholder {
 
 #pagetitle {
     text-align: center;
-    width: 523px;
+    width: 546px;
     font-size: 25px;
     display: flex;
     justify-content: center;
@@ -151,10 +150,11 @@ input::placeholder {
 #descripbox,
 #searchbox {
     height: 35px;
-    width: 500px;
+    width: 540px;
     padding-left: 15px;
     border-radius: 9px;
     font-family: "Helvetica Neue";
+    align-self: center;
 }
 
 /*actual button*/
@@ -693,7 +693,7 @@ a {
 }
 
 #error-messages {
-    max-width: 500px;
+    width: 546px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

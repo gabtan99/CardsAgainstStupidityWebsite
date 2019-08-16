@@ -1,29 +1,30 @@
-body{
+body {
     width: 100%;
     height: 100%;
     background-color: #E8E8E8;
 }
 
-.header{
+.header {
     margin-top: 224px;
     display: flex;
     align-items: baseline;
     justify-content: center;
 }
 
-.header .text{
+.header .text {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.add-card{
+.add-card {
     display: flex;
     align-items: center;
     margin-right: 300px;
     margin-top: 56px;
+    margin-left: 15px;
 }
 
-#flash-card{
+#flash-card {
     height: 43px;
     width: 196px;
     color: #000;
@@ -34,11 +35,11 @@ body{
     line-height: 42px;
 }
 
-#add-card-icon{
+#add-card-icon {
     height: 39px;
     width: 39px;
     background-color: #FFF;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 100%;
     color: #000;
     font-family: "Helvetica Neue";
@@ -47,36 +48,38 @@ body{
     text-align: center;
 }
 
-#add-card-icon:hover{
+#add-card-icon:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.card-element{
+.card-element {
     margin-top: 27px;
     margin-bottom: 50px;
 }
-.card-header{
+
+.card-header {
     display: flex;
     align-items: center;
     margin-bottom: 13px;
+    margin-left: 15px;
 }
 
-#remove-card{
+#remove-card {
     height: 29px;
     width: 29px;
     background-color: #FFF;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 100%;
     margin-right: 13px;
 }
 
-#remove-card:hover{
+#remove-card:hover {
     transform: scale(1.2);
     cursor: pointer;
 }
 
-#cross-icon{
+#cross-icon {
     text-align: center;
     padding-top: 3px;
     margin-left: 5px;
@@ -89,7 +92,7 @@ body{
     transform: rotate(45deg);
 }
 
-#card-label{
+#card-label {
     height: 28px;
     width: 150px;
     color: #000;
@@ -100,7 +103,7 @@ body{
     line-height: 28px;
 }
 
-.black-card{
+.black-card {
     height: 350px;
     width: 250px;
     border-radius: 15px;
@@ -108,7 +111,7 @@ body{
     box-shadow: 0 2px 4px 0;
 }
 
-.black-card textarea{
+.black-card textarea {
     border: none;
     background-color: black;
     height: 261px;
@@ -124,12 +127,12 @@ body{
     resize: none
 }
 
-.black-card textarea::placeholder{
+.black-card textarea::placeholder {
     color: #787878;
     font-family: "Helvetica Neue";
 }
 
-.black-card footer{
+.black-card footer {
     height: 9px;
     width: 90px;
     color: #FFF;
@@ -145,7 +148,7 @@ body{
 }
 
 
-.white-card{
+.white-card {
     height: 350px;
     width: 250px;
     border-radius: 15px;
@@ -153,7 +156,7 @@ body{
     box-shadow: 0 2px 4px 0;
 }
 
-.white-card textarea{
+.white-card textarea {
     border: none;
     background-color: #FFF;
     height: 261px;
@@ -170,12 +173,12 @@ body{
     resize: none
 }
 
-.black-card textarea::placeholder{
+.black-card textarea::placeholder {
     color: #787878;
     font-family: "Helvetica Neue";
 }
 
-.white-card footer{
+.white-card footer {
     height: 9px;
     width: 90px;
     color: black;
@@ -190,26 +193,27 @@ body{
     margin-right: 500px;
 }
 
-.cards{
+.cards {
     display: flex;
 }
 
-.cards div{
-    margin-right: 23px;
+.cards div {
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
-#next-button{
+#next-button {
     width: 70px;
     height: 70px;
     background-color: #000;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 100%;
     margin-bottom: 20px;
     margin-right: 25px;
 
 }
 
-#next-button-text{
+#next-button-text {
     color: white;
     font-family: "Helvetica Neue";
     text-align: center;
@@ -218,11 +222,11 @@ body{
     padding-top: 23px;
 }
 
-#next-button:hover{
+#next-button:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
 
-a{
+a {
     text-decoration: none;
 }
