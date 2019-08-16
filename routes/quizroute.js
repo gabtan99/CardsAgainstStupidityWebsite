@@ -184,7 +184,7 @@ router.post("/delete_quiz", urlencoder, (req, res) => {
         }
     })
 
-    res.redirect("../home")
+    res.redirect("/quiz")
 })
 
 router.get("/retrieve_quiz", async (req, res) => {

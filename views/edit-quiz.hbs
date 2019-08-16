@@ -26,14 +26,17 @@
         </span>
     </div>
 
-    <div class="main-body">
+    <div class="main-body" id="mainbodyid">
         <div class="edit-descriptions">
             <div id="edit-quiz">Edit Quiz</div>
 
 
-            <a id="deleteBtn" class="" data-id="{{quiz._id}}">
-                <div id="tagPin">Delete</div>
-            </a>
+            <div id="delete-div">
+                <a id="deleteBtn" class="delete-button">
+                    <div id="tagPin">Delete</div>
+                </a>
+            </div>
+
 
             <form id="Form" data-id="{{quiz._id}}">
                 <div id="Title" class="title"> Title </div>
@@ -101,11 +104,30 @@
             <button class="circle-button" id="save-button">SAVE</button>
         </div>
 
-        <form action="/quiz/delete_quiz" id="deleteform" method="POST">
-            <input type="hidden" name="id" id="deleteid">
-        </form>
-
     </div>
+
+    <div id="deleteformid">
+        <div class="deleteform">
+            <div id="middlePrestart">
+                <div class="centerContentPrestart resultLabels">You are trying to delete</div>
+                <div class="centerContentPrestart resultLabels flashcrd resultScore"> {{quiz.title}}</div>
+                <div class="centerContentPrestart resultLabels">Would you like to continue?</div>
+            </div>
+
+            <div id="botFinished" class="resultBtnGang">
+                <div class="prestartBtnContainer">
+                    <a class="searchResult-Btns prestartBtns resultEndBtn" id="cancelBtn">Cancel</a>
+                    <br>
+                    <a class="searchResult-Btns prestartBtns" id="confirmBtn" data-id="{{quiz._id}}">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form action="/quiz/delete_quiz" id="deleteform" method="POST">
+        <input type="hidden" name="id" id="deleteid">
+    </form>
 </body>
 
 </html>

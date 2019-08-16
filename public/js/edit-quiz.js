@@ -1,6 +1,14 @@
 $(document).ready(function () {
 
     $("#deleteBtn").click(function () {
+        showDeleteForm()
+    })
+
+    $("#cancelBtn").click(function () {
+        hideDeleteForm()
+    })
+
+    $("#confirmBtn").click(function () {
         $("#deleteid").val($(this).attr("data-id"))
         $("#deleteform").submit()
     })
@@ -206,5 +214,16 @@ $(document).ready(function () {
         error.className += "shown"
         $("#error-messages").append('<li>' + msg + '</li')
         // shows the error message by appending the invisible list
+    }
+
+
+    function showDeleteForm() {
+        document.getElementById("mainbodyid").style.display = "none"
+        document.getElementById("deleteformid").style.display = "flex"
+    }
+
+    function hideDeleteForm() {
+        document.getElementById("mainbodyid").style.display = "flex"
+        document.getElementById("deleteformid").style.display = "none"
     }
 })
