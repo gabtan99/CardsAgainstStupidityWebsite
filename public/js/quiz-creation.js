@@ -89,7 +89,7 @@ function nextPrev(n) {
 
     tabs[currentTab].style.display = "none"
 
-    if(checkInputs(currentTab)){
+    if (checkInputs(currentTab)) {
         currentTab = currentTab + n
     }
     showTab(currentTab)
@@ -106,24 +106,30 @@ function fixStepIndicator(n) {
     ind[n].className = "circle statustext selected"
 }
 
-function checkInputs(currentTab){
-    if(currentTab == 0){
+function checkInputs(currentTab) {
+    if (currentTab == 0) {
         let title = $("#titlebox").val()
         let subject = $("#subjectbox").val()
         let description = $("#descripbox").val()
 
-        if(title == '' || subject == '' || description == ''){
+        if (title == '' || subject == '' || description == '') {
             displayError("Pleas fill out all the requirements")
             return false
+        } else {
+            hideError("")
+            return true
         }
 
-        return true
-    }else if(currentTab == 1){
-        if(checkNumberOfCards() == 0){
+
+    } else if (currentTab == 1) {
+        if (checkNumberOfCards() == 0) {
             displayError("You should have at least one flash card")
             return false
+        } else {
+            hideError("")
+            return true
         }
-        return true
+
     }
 }
 
@@ -132,6 +138,14 @@ function displayError(msg) {
     let error = document.getElementById("error-div")
     error.className += "shown"
     $("#error-messages").append('<li>' + msg + '</li')
+    // shows the error message by appending the invisible list
+}
+
+function hideError(msg) {
+    $("#error-messages").empty()
+    let error = document.getElementById("error-div")
+    error.className = "error-box tab"
+    $("#error-messages").append('<li>' + '</li')
     // shows the error message by appending the invisible list
 }
 

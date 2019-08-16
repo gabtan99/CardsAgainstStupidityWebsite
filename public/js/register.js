@@ -9,7 +9,7 @@ $(document).ready(() => {
         let confirm = $("#confirmfield").val()
 
 
-        if (username === '') {
+        if ($.trim(username).length <= 0) {
             displayError("Enter a username")
         } else if (!isValid(password)) {
             displayError("Password must be at least 6 characters")
@@ -49,7 +49,7 @@ function validUsername() {
     let usernamefield = document.getElementById("usernamefield")
 
 
-    if (username !== '') {
+    if ($.trim(username).length > 0) {
         $.ajax({
             url: "check-username",
             method: "POST",
@@ -70,7 +70,8 @@ function validUsername() {
             },
         })
     } else {
-        validmsg.innerHTML = '';
+        validmsg.innerHTML = "Username cannot be blank!"
+        validmsg.className = "invalid"
         usernamefield.className = "input input-field"
     }
 }
@@ -118,6 +119,8 @@ function isValid(s) {
     if (!s || s.length < 6) {
         return false;
     }
+
+
     // all requirements have been satisfied
     return true;
 }
