@@ -9,8 +9,8 @@ $(document).ready(() => {
         let confirm = $("#confirmfield").val()
 
 
-        if ($.trim(username).length <= 0) {
-            displayError("Enter a username")
+        if ($.trim(username).length > 0 && /\s/.test(username)) {
+            displayError("Enter a valid username")
         } else if (!isValid(password)) {
             displayError("Password must be at least 6 characters")
         } else if (!passwordMatch(password, confirm)) {
@@ -49,7 +49,15 @@ function validUsername() {
     let usernamefield = document.getElementById("usernamefield")
 
 
-    if ($.trim(username).length > 0) {
+    if (!$.trim(username).length > 0) {
+        validmsg.innerHTML = "Username cannot be blank!"
+        validmsg.className = "invalid"
+        usernamefield.className = "input input-field"
+    } else if (/\s/.test(username)) {
+        validmsg.innerHTML = "Username cannot contain whitespaces!"
+        validmsg.className = "invalid"
+        usernamefield.className = "input input-field"
+    } else {
         $.ajax({
             url: "check-username",
             method: "POST",
@@ -67,12 +75,9 @@ function validUsername() {
                     validmsg.className = "invalid"
                     usernamefield.className = "input input-field invalid-input"
                 }
-            },
+            }
         })
-    } else {
-        validmsg.innerHTML = "Username cannot be blank!"
-        validmsg.className = "invalid"
-        usernamefield.className = "input input-field"
+
     }
 }
 
