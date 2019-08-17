@@ -541,9 +541,12 @@ input[type="radio"] {
 }
 
 /**submit button animations**/
-
+button:hover,
+#pinBtn:hover, 
+#takeQuizBtn:hover,
 input[type="submit"]:hover {
-    transform: scale(1.1)
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 /***************************************  PRESTART CCS     **************************************** */

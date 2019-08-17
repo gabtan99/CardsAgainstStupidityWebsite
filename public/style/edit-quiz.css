@@ -63,8 +63,13 @@
     border: none
 }
 
-#delete-div,
+
 #save-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#delete-div:hover{
     transform: scale(1.1);
     cursor: pointer;
 }
