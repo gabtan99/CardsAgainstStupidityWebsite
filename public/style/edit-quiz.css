@@ -63,6 +63,7 @@
     border: none
 }
 
+#delete-div,
 #save-button:hover {
     transform: scale(1.1);
     cursor: pointer;
@@ -82,11 +83,12 @@ button:focus {
 }
 
 #delete-div{
-    background-color: rgb(230, 0, 0);
+    background-color:rgb(230, 0, 0);
     width: 90px;
     height: 40px;
     border-radius: 9px;
     margin-left: 257px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 #tagPin{
@@ -119,6 +121,7 @@ button:focus {
 
 #confirmBtn{
     background-color: rgb(230, 0, 0);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .edit-header{
