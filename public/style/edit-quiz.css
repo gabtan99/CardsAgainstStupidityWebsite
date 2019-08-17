@@ -81,6 +81,20 @@ button:focus {
     padding-top: 10px;
 }
 
+#delete-div{
+    background-color: rgb(230, 0, 0);
+    width: 90px;
+    height: 40px;
+    border-radius: 9px;
+    margin-left: 257px;
+}
+
+#tagPin{
+    color: white;
+    padding-top: 7px;
+    padding-right: 15px;
+}
+
 .deleteform {
     width: 480px;
     background-color: #FFF;
@@ -101,4 +115,12 @@ button:focus {
     display: none;
     justify-content: center;
     margin-top: 200px;
+}
+
+#confirmBtn{
+    background-color: rgb(230, 0, 0);
+}
+
+.edit-header{
+    display: flex;
 }
