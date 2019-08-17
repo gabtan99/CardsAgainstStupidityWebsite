@@ -187,7 +187,7 @@ $(document).ready(function () {
             var question = $(this).children(".cards").children(".black-card").children("textarea").val()
             var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
 
-            if ($.trim(question).length == 0 || $.trim(answer).length == '') {
+            if ($.trim(question).length == 0 || $.trim(answer).length == 0) {
                 cards = null
             } else {
                 var flashCard = {
