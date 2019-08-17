@@ -25,7 +25,7 @@ $(document).ready(function () {
             var public = false
         }
 
-        if (title == '' || subject == '' || description == '' || deck == null) {
+        if ($.trim(title).length == 0 || $.trim(subject).length == 0 || $.trim(description).length == 0 || deck == null) {
             displayError("Please fill out all the contents")
         } else {
             $.ajax({
@@ -65,6 +65,7 @@ $(document).ready(function () {
     }
 
     $('.add-card a').click(function () {
+        
         createCard()
         return false;
     })
@@ -141,6 +142,7 @@ $(document).ready(function () {
                 displayError("A quiz must contain at least one flashcard")
                 return false
             } else {
+                
                 cardElementDiv.remove()
                 counter--
                 checkCardLabels(counter)
@@ -172,6 +174,7 @@ $(document).ready(function () {
                     displayError("A quiz must contain at least one flashcard")
                     return false
                 } else {
+                    
                     $(this).parent().parent().remove()
                     counter--
                     checkCardLabels(counter)
@@ -189,6 +192,7 @@ $(document).ready(function () {
 
             if ($.trim(question).length == 0 || $.trim(answer).length == 0) {
                 cards = null
+                return false
             } else {
                 var flashCard = {
                     "Question": question,
@@ -213,6 +217,14 @@ $(document).ready(function () {
         let error = document.getElementById("error-div")
         error.className += "shown"
         $("#error-messages").append('<li>' + msg + '</li')
+        // shows the error message by appending the invisible list
+    }
+
+    function hideError(msg) {
+        $("#error-messages").empty()
+        let error = document.getElementById("error-div")
+        error.className = "error-box tab"
+        $("#error-messages").append('<li>' + '</li')
         // shows the error message by appending the invisible list
     }
 
