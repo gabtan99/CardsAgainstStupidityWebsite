@@ -104,7 +104,6 @@ router.get("/unpin_quiz", (req, res) => {
                     console.log(err)
                     res.send("0")
                 } else {
-                    console.log("unpin success!")
                     res.send("1")
                 }
             })
@@ -145,7 +144,6 @@ router.get("/pin_quiz", async (req, res) => {
             console.log(err)
             res.send("0")
         } else {
-            console.log("pin success!")
             res.send("1")
         }
     })
