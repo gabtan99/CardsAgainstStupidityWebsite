@@ -51,9 +51,16 @@ function createFlashcardCollection() {
     $(".card-element").each(function () {
         var question = $(this).children(".cards").children(".black-card").children("textarea").val()
         var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
-        var flashCard = {
-            "Question": question,
-            "Answer": answer
+        
+        if ($.trim(question).length == 0 || $.trim(answer).length == '') {
+            cards = null
+        } else {
+            var flashCard = {
+                "Question": question,
+                "Answer": answer
+            }
+
+            cards.push(flashCard)
         }
 
         cards.push(flashCard)
@@ -95,6 +102,14 @@ function nextPrev(n) {
     showTab(currentTab)
 }
 
+function goBack(n) {
+    hideError("")
+    var tabs = $(".tab")
+    tabs[currentTab].style.display = "none"
+    currentTab = currentTab + n
+    showTab(currentTab)
+}
+
 function fixStepIndicator(n) {
 
     var ind = $(".circle")
@@ -125,18 +140,23 @@ function checkInputs(currentTab) {
         if (checkNumberOfCards() == 0) {
             displayError("You should have at least one flash card")
             return false
+        } else if(isCardEmpty()){
+            displayError("Please fill out all the flashcards")
+            return false
         } else {
             hideError("")
             return true
         }
 
+    } else if (currentTab == 2){
+        return true
     }
 }
 
 function displayError(msg) {
     $("#error-messages").empty()
     let error = document.getElementById("error-div")
-    error.className += "shown"
+    error.className = "shown"
     $("#error-messages").append('<li>' + msg + '</li')
     // shows the error message by appending the invisible list
 }
@@ -155,4 +175,17 @@ function checkNumberOfCards() {
         counter++
     })
     return counter
+}
+
+function isCardEmpty() {
+    var isEmpty = false
+    $(".card-element").each(function () {
+        var question = $(this).children(".cards").children(".black-card").children("textarea").val()
+        var answer = $(this).children(".cards").children(".white-card").children("textarea").val()
+
+        if ($.trim(question).length == 0 || $.trim(answer).length == 0) {
+            isEmpty = true
+        }
+    })
+    return isEmpty
 }
