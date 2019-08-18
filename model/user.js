@@ -2,10 +2,10 @@ const mongoose = require("mongoose")
 const uniqueValidator = require('mongoose-unique-validator')
 const crypto = require("crypto")
 const Schema = mongoose.Schema;
+const CONNECTION_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/cardsagainststupidity"
 
-const uri = "mongodb://localhost:27017/cardsagainststupidity"
 mongoose.Promise = global.Promise
-mongoose.connect(uri, {
+mongoose.connect(CONNECTION_URI, {
     useCreateIndex: true,
     useNewUrlParser: true
 })

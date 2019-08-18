@@ -4,6 +4,7 @@ const hbs = require("hbs")
 const session = require("express-session")
 const cookieparser = require("cookie-parser")
 
+
 // url encoder
 const urlencoder = bodyparser.urlencoded({
     extended: false
@@ -18,7 +19,7 @@ const {
 } = require("./model/quiz.js")
 
 const app = express()
-
+const PORT = process.env.PORT || 3000
 
 app.use(cookieparser())
 app.use(express.static(__dirname + '/public'));
@@ -191,8 +192,8 @@ app.get("/about", (req, res) => {
     res.render("about.hbs")
 })
 
-app.listen(3000, function () {
-    console.log("port 3000 is live");
+app.listen(PORT, function () {
+    console.log('port ${PORT} is live');
 })
 
 
