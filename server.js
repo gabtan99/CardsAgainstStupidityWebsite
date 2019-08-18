@@ -38,8 +38,7 @@ app.use(session({
 
 
 
-app.use('/user', require('./routes/userroute.js'));
-app.use('/quiz', require('./routes/quizroute.js'));
+
 
 
 function hasSession(req, res, next) {
@@ -50,6 +49,9 @@ function hasSession(req, res, next) {
         next();
     }
 }
+
+app.use('/user', hasSession, require('./routes/userroute.js'));
+app.use('/quiz', hasSession, require('./routes/quizroute.js'));
 
 //////// GUEST STATIC ROUTES ///////////
 
