@@ -11,7 +11,16 @@ const {
     User
 } = require("../model/user.js")
 
-router.get("/", (req, res) => {
+function hasSession(req, res, next) {
+    if (req.session.username == null) {
+        // if user is not logged-in redirect back to login page //
+        res.redirect('/');
+    } else {
+        next();
+    }
+}
+
+router.get("/", hasSession, (req, res) => {
 
     if (req.session) {
         res.render("profile.hbs", {
@@ -23,7 +32,7 @@ router.get("/", (req, res) => {
 
 })
 
-router.get("/edit_profile", (req, res) => {
+router.get("/edit_profile", hasSession, (req, res) => {
     res.render("edit-profile.hbs")
 })
 

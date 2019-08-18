@@ -15,8 +15,17 @@ const {
     User
 } = require("../model/user.js")
 
+function hasSession(req, res, next) {
+    if (req.session.username == null) {
+        // if user is not logged-in redirect back to login page //
+        res.redirect('/');
+    } else {
+        next();
+    }
+}
 
-router.get("/", async (req, res) => {
+
+router.get("/", hasSession, async (req, res) => {
     let username = req.session.username
     User.getUser(username, async (err, doc) => {
         if (err) {
@@ -40,7 +49,7 @@ router.get("/", async (req, res) => {
 
 
 
-router.get("/create_quiz", (req, res) => {
+router.get("/create_quiz", hasSession, (req, res) => {
     res.render("createQuiz.hbs")
 })
 
@@ -71,7 +80,7 @@ router.get("/submit_new_quiz", urlencoder, (req, res) => {
 // /edit is now /edit_quiz
 
 
-router.get("/update_quiz", (req, res) => {
+router.get("/update_quiz", hasSession, (req, res) => {
     let username = req.session.username
     let id = req.query.id
     let title = req.query.title
@@ -90,7 +99,7 @@ router.get("/update_quiz", (req, res) => {
         })
     })
 })
-router.get("/unpin_quiz", (req, res) => {
+router.get("/unpin_quiz", hasSession, (req, res) => {
 
     let username = req.session.username
     let quizID = req.query.id
@@ -114,14 +123,14 @@ router.get("/unpin_quiz", (req, res) => {
 
 })
 
-router.get("/edit_quiz", async (req, res) => {
+router.get("/edit_quiz", hasSession, async (req, res) => {
     res.render("edit-quiz.hbs", {
         quiz: await Quiz.retrieveQuiz(req.query.id)
     })
 
 })
 
-router.get("/pin_quiz", async (req, res) => {
+router.get("/pin_quiz", hasSession, async (req, res) => {
 
     let username = req.session.username
     let quizID = req.query.id
@@ -151,7 +160,7 @@ router.get("/pin_quiz", async (req, res) => {
 
 
 
-router.get("/take_quiz", (req, res) => {
+router.get("/take_quiz", hasSession, (req, res) => {
     res.render("take-quiz.hbs", {
         quizID: req.query.id
     })
@@ -185,7 +194,7 @@ router.post("/delete_quiz", urlencoder, (req, res) => {
     res.redirect("/quiz")
 })
 
-router.get("/retrieve_quiz", async (req, res) => {
+router.get("/retrieve_quiz", hasSession, async (req, res) => {
 
     let quiz_id = req.query.qid
     let quiz = await Quiz.retrieveQuiz(quiz_id)

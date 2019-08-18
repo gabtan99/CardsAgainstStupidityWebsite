@@ -36,16 +36,24 @@ app.use(session({
     }
 }))
 
+
+
 app.use('/user', require('./routes/userroute.js'));
 app.use('/quiz', require('./routes/quizroute.js'));
 
 
+function hasSession(req, res, next) {
+    if (req.session.username == null) {
+        // if user is not logged-in redirect back to login page //
+        res.redirect('/');
+    } else {
+        next();
+    }
+}
 
 //////// GUEST STATIC ROUTES ///////////
 
 app.get("/", (req, res) => {
-
-
     res.sendFile(__dirname + "/public/home-guest.html")
 })
 
@@ -127,11 +135,11 @@ app.post("/check-username", urlencoder, (req, res) => {
 })
 
 
-app.get("/home", (req, res) => {
+app.get("/home", hasSession, (req, res) => {
     res.render("home-user.hbs")
 })
 
-app.get("/search", (req, res) => {
+app.get("/search", hasSession, (req, res) => {
     res.render("search.hbs")
 })
 
@@ -165,7 +173,7 @@ app.get("/get-five-quizzes-guest", async (req, res) => {
     res.send(results)
 })
 
-app.get("/get-five-quizzes-user", async (req, res) => {
+app.get("/get-five-quizzes-user", hasSession, async (req, res) => {
 
     let results = await Quiz.getFiveQuizzes()
     User.getUser(req.session.username, (err, doc) => {
@@ -188,7 +196,7 @@ app.get("/get-five-quizzes-user", async (req, res) => {
 
 
 
-app.get("/about", (req, res) => {
+app.get("/about", hasSession, (req, res) => {
     res.render("about.hbs")
 })
 
