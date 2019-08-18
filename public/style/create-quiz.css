@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url(/assets/fonts/HelveticaNeue.ttf) format('truetype'),
+}
+
 body {
     background-color: rgb(232, 232, 232);
     width: 100%;
@@ -542,7 +547,7 @@ input[type="radio"] {
 
 /**submit button animations**/
 button:hover,
-#pinBtn:hover, 
+#pinBtn:hover,
 #takeQuizBtn:hover,
 input[type="submit"]:hover {
     transform: scale(1.1);

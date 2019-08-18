@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url(/assets/fonts/HelveticaNeue.ttf) format('truetype'),
+}
+
 .header {
     height: 42px;
     width: 504px;

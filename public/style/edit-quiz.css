@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url(/assets/fonts/HelveticaNeue.ttf) format('truetype'),
+}
+
 .edit-descriptions {
     margin-top: 150px;
     font-family: "Helvetica Neue";
@@ -69,7 +74,7 @@
     cursor: pointer;
 }
 
-#delete-div:hover{
+#delete-div:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
@@ -87,8 +92,8 @@ button:focus {
     padding-top: 10px;
 }
 
-#delete-div{
-    background-color:rgb(230, 0, 0);
+#delete-div {
+    background-color: rgb(230, 0, 0);
     width: 90px;
     height: 40px;
     border-radius: 9px;
@@ -96,7 +101,7 @@ button:focus {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
-#tagPin{
+#tagPin {
     color: white;
     padding-top: 7px;
     padding-right: 15px;
@@ -124,11 +129,11 @@ button:focus {
     margin-top: 200px;
 }
 
-#confirmBtn{
+#confirmBtn {
     background-color: rgb(230, 0, 0);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
-.edit-header{
+.edit-header {
     display: flex;
 }
