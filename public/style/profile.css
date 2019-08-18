@@ -72,6 +72,11 @@
     justify-content: center;
 }
 
+body {
+
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
+}
+
 #name {
     height: 42px;
     width: 209px;

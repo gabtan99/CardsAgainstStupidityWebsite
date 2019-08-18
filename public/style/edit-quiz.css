@@ -119,6 +119,7 @@ button:focus {
 }
 
 .body {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     display: flex;
     justify-content: center;
 }

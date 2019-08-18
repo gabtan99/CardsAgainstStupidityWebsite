@@ -137,6 +137,10 @@
     text-align: left;
 }
 
+body {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
+}
+
 .step-desc {
     margin-left: 20px;
     height: 108px;

@@ -81,6 +81,7 @@ input::placeholder {
 }
 
 body {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     display: flex;
     align-items: center;
     justify-content: center;
