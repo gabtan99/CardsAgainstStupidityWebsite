@@ -7,7 +7,7 @@
     height: 42px;
     width: 504px;
     color: #000;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 36px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -19,7 +19,7 @@
 
 .input {
     color: #000;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 16px;
     letter-spacing: NaNpx;
     line-height: 42px;
@@ -38,7 +38,7 @@
     width: 500px;
     border-radius: 9px;
     padding-left: 15px;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     display: flex;
     text-align: center;
 }
@@ -61,7 +61,7 @@ input::placeholder {
     height: 54px;
     margin-top: 24px;
     border-radius: 9px;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 20px;
     font-weight: 700;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -99,7 +99,7 @@ select:focus {
     text-align: center;
     display: inline-flex;
     color: #787878;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 22px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -110,7 +110,7 @@ select:focus {
 
 .register-btn {
     color: #000;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 22px;
     font-weight: 700;
     text-decoration: none;
@@ -120,7 +120,7 @@ select:focus {
     height: 56px;
     width: 504px;
     color: #787878;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 24px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -140,7 +140,7 @@ input[type="submit"]:hover {
     flex-wrap: wrap;
     justify-content: center;
     color: #e60000;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 19px;
     font-weight: 700;
     padding: 7px 0px;
@@ -162,14 +162,14 @@ input[type="submit"]:hover {
 
 
 .valid {
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 19px;
     font-weight: 700;
     color: green;
 }
 
 .invalid {
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 19px;
     font-weight: 700;
     color: red;

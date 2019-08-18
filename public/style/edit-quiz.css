@@ -5,14 +5,14 @@
 
 .edit-descriptions {
     margin-top: 150px;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
 }
 
 #edit-quiz {
     height: 42px;
     width: 165px;
     color: #000;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 36px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -47,7 +47,7 @@
 
 #cancel-button-text {
     color: black;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     text-align: center;
     font-size: 20px;
     font-weight: 700;
@@ -60,7 +60,7 @@
 
 #save-button {
     color: white;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     text-align: center;
     font-size: 20px;
     font-weight: 700;
@@ -85,7 +85,7 @@ button:focus {
 
 .delete-button {
     color: black;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     text-align: right;
     font-size: 20px;
     font-weight: 700;

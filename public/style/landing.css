@@ -15,7 +15,7 @@
 
 .main-heading {
     color: white;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 80px;
     font-weight: 700;
     line-height: 79px;
@@ -27,7 +27,7 @@
     height: 38px;
     width: 377px;
     color: #FFF;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 27px;
     font-weight: 700;
     line-height: 38px;
@@ -73,7 +73,7 @@
 
 .statustext {
     color: #FFF;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 30px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -84,7 +84,7 @@
     height: 52px;
     width: 489px;
     color: #000;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 32px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -130,7 +130,7 @@
     height: 42px;
     width: 251px;
     color: #000;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 30px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -146,7 +146,7 @@ body {
     height: 108px;
     width: 256px;
     color: #787878;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 24px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -165,7 +165,7 @@ body {
 }
 
 #about {
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 22px;
     font-weight: 700;
     text-decoration: none;

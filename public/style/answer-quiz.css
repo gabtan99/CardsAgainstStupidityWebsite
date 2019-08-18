@@ -10,7 +10,7 @@ body {
 .quiz-header {
     margin-top: 115px;
     text-align: center;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     transform: scale(0.8);
 }
 
@@ -26,7 +26,7 @@ body {
 #quiz-subject {
     height: 42px;
     color: #787878;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 36px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -36,7 +36,7 @@ body {
 #quiz-author {
     height: 25px;
     color: #787878;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 21px;
     font-weight: 700;
     letter-spacing: NaNpx;
@@ -44,7 +44,7 @@ body {
 }
 
 .quiz-area {
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,7 +94,7 @@ body {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin-right: 20px;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 24px;
     font-weight: 700;
     color: black;
@@ -102,7 +102,7 @@ body {
 }
 
 #guessed-button-text {
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 20px;
     font-weight: 700;
     color: #ffffff;
@@ -124,7 +124,7 @@ body {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     margin-right: 22px;
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 24px;
     font-weight: 700;
     color: black;
@@ -132,7 +132,7 @@ body {
 }
 
 #knew-button-text {
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 20px;
     font-weight: 700;
     color: #000;
@@ -142,7 +142,7 @@ body {
 
 
 .tip {
-    font-family: "Helvetica Neue";
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
     font-size: 16px;
     font-weight: 700;
     color: #52525291;
