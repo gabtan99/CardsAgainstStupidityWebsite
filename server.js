@@ -44,7 +44,7 @@ app.use(session({
 function hasSession(req, res, next) {
     if (req.session.username == null) {
         // if user is not logged-in redirect back to login page //
-        res.redirect('/');
+        res.redirect('/logout');
     } else {
         next();
     }
