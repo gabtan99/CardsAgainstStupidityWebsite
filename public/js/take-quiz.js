@@ -153,6 +153,10 @@ function addKeyboardFunction() {
             knewAnswer();
         } else if (key === 'G' || key === 'g' || key === 'a') {
             guessedAnswer();
+        } else if (event.keyCode === 32 && event.target == document.body) {
+            event.preventDefault()
+            showAnswer();
+
         }
     });
 }
@@ -178,6 +182,17 @@ function knewAnswer() {
         showNextQuestion()
     }
 
+}
+
+function showAnswer() {
+
+    let pair = qdeck[nQuestion]
+    var answer = pair["Answer"]
+
+    if (nQuestion != qdeck.length) {
+        clearInterval(timer);
+        $("#answerArea").text(answer)
+    }
 }
 
 function guessedAnswer() {
