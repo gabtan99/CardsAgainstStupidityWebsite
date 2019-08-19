@@ -4,7 +4,7 @@ $(document).ready(() => {
 
         e.preventDefault()
 
-        let username = $("#usernamefield").val()
+        let username = $("#usernamefield").val().toLowerCase()
         let password = $("#passwordfield").val()
         let confirm = $("#confirmfield").val()
 
@@ -45,7 +45,7 @@ function displayError(msg) {
 
 function validUsername() {
     let validmsg = document.getElementById("input-valid-div")
-    let username = $("#usernamefield").val()
+    let username = $("#usernamefield").val().toLowerCase()
     let usernamefield = document.getElementById("usernamefield")
 
 

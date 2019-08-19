@@ -6,7 +6,7 @@ $(document).ready(() => {
         e.preventDefault()
 
 
-        if ($("#usernamefield").val() === '') {
+        if ($("#usernamefield").val().toLowerCase() === '') {
             displayError("Enter a username")
         } else {
             $.ajax({
